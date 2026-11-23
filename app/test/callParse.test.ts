@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { readCall, summarize, zoomLinuxTile, zoomTile, type AxNode, type AxWindow } from '../src/main/callNames/parse'
+import { readCall, slackShape, slackTile, summarize, zoomLinuxTile, zoomTile, type AxNode, type AxWindow } from '../src/main/callNames/parse'
 
 const node = (r: string, o: Partial<AxNode> = {}, ...k: AxNode[]): AxNode => ({ r, ...o, ...(k.length ? { k } : {}) })
 const win = (tree: AxNode, title?: string): AxWindow => ({ title, tree })
@@ -271,6 +271,74 @@ describe('Microsoft Teams on Windows, in any language (#83)', () => {
         node('tree item', { t: 'Lena Hoffmann, Referent, Stummschaltung aufgehoben' }),
         node('tree item', { t: 'Alex Morgan (Sie), Stummgeschaltet' })))
     expect(readCall('teams', [win(tree)])).toEqual({ speaking: ['Anna Becker'], participants: ['Anna Becker', 'Jonas Weber', 'Lena Hoffmann', 'Alex Morgan'], me: 'Alex Morgan' })
+  })
+})
+
+// ---- Slack: shapes from Slack 4.53's huddle window on Windows (UI Automation roles), with made-up names ----
+const TALKING_MARK = 'p-huddle_peer_tile__overlay--active_speaker'
+type SlackPerson = { name: string; talking?: boolean; self?: boolean; camera?: boolean; label?: string }
+/** a person's tile: audio only, the mic overlay carries the talking mark; camera on, the name tag does, with the name */
+const slackTileNode = (p: SlackPerson, withId = true): AxNode => node('table row', {
+  t: p.label ?? `View ${p.name}'s profile`, c: ['p-huddle_peer_tile'], ...(withId ? { i: `huddle-grid-gridcell-${p.self ? 'self_' : ''}U0${p.name.length}ABCDEFG` } : {}),
+}, node('panel', {}),
+p.camera
+  ? node('push button', { t: 'video is on, audio is on', c: ['c-button-unstyled', 'p-huddle_peer_tile__name_overlay', 'p-huddle_peer_tile__name_overlay--unmuted', ...(p.talking ? [TALKING_MARK] : [])] },
+    ...(p.talking ? [node('label', { t: p.name })] : []))
+  : node('panel', {}, ...(p.talking ? [node('panel', { c: ['p-huddle_peer_tile__mic_overlay', TALKING_MARK, 'p-huddle_peer_tile__overlay--compact'] })] : [])))
+/** the huddle window: the grid (or, sharing a screen in the large view, the side list), the share, the controls */
+const slackWindow = (people: SlackPerson[], o: { share?: string; large?: boolean } = {}) => win(node('frame', { t: 'design - Acme - Slack' },
+  node('document web', { t: 'design - Acme - Slack', v: 'https://app.slack.com/client/T01ABCDEFGH/C01ABCDEFGH' },
+    node('panel', { c: ['p-view_contents', 'p-view_contents--primary', 'p-view_contents--huddle'] },
+      ...(o.share ? [node('push button', { t: `${o.share}, Screen share`, c: ['c-button-unstyled'] }, node('label', { t: o.share }), node('label', { t: 'Screen share' })),
+        node('table row', { t: 'View larger', c: ['p-huddle_content_active_view__active_screenshare__container'] })] : []),
+      o.large
+        ? node('table', { c: ['p-huddle_tile_list__container'] }, ...people.map((p) => slackTileNode(p, false)))
+        : node('table', { c: ['p-huddle_grid_component'] }, node('panel', { c: ['p-huddle_grid_component__grid'] },
+          ...people.map((p) => node('table row', { t: `View ${p.name}'s profile`, c: ['p-bp__grid_row'] }, slackTileNode(p))))),
+      node('tool bar', { t: 'Huddles actions' }, node('push button', { t: 'Mute microphone' }), node('push button', { t: 'Leave Huddle' }))))), 'design - Acme - Slack')
+
+describe('Slack huddles', () => {
+  it('a huddle of three: everyone from their tile, the marked one talks, the self_ tile is the person using Yogurt', () => {
+    const r = readCall('slack', [slackWindow([{ name: 'Alex Morgan', self: true }, { name: 'Dana Smith', talking: true }, { name: 'Ann Lee' }])])
+    expect(r).toEqual({ speaking: ['Dana Smith'], participants: ['Alex Morgan', 'Dana Smith', 'Ann Lee'], me: 'Alex Morgan' })
+  })
+
+  it('nobody marked: nobody talks (Slack drops the mark a moment after they stop, and when they mute)', () => {
+    expect(readCall('slack', [slackWindow([{ name: 'Alex Morgan', self: true }, { name: 'Dana Smith' }])]).speaking).toEqual([])
+  })
+
+  it('with the camera on the mark is on the name tag, and a shared screen is never a person', () => {
+    const r = readCall('slack', [slackWindow([{ name: 'Alex Morgan', self: true, camera: true }, { name: 'Dana Smith', camera: true, talking: true }], { share: 'Dana Smith' })])
+    expect(r).toEqual({ speaking: ['Dana Smith'], participants: ['Alex Morgan', 'Dana Smith'], me: 'Alex Morgan' })
+  })
+
+  it("the large view of a screen share: the side list's tiles are read, without an id there is no own tile (Settings' names stand in)", () => {
+    const r = readCall('slack', [slackWindow([{ name: 'Alex Morgan', camera: true }, { name: 'Dana Smith', talking: true }], { share: 'Alex Morgan', large: true })])
+    expect(r).toEqual({ speaking: ['Dana Smith'], participants: ['Alex Morgan', 'Dana Smith'], me: null })
+  })
+
+  it("a name from the label, with Slack's possessive either way; in another language only the name tag's text, else nothing", () => {
+    expect(slackTile(slackTileNode({ name: 'James Ortiz' })).name).toBe('James Ortiz')
+    expect(slackTile(slackTileNode({ name: 'Chris', label: "View Chris' profile" })).name).toBe('Chris')
+    expect(slackTile(slackTileNode({ name: 'Dana Smith', label: 'Ver el perfil de Dana Smith', camera: true, talking: true }))).toEqual({ name: 'Dana Smith', talking: true, me: false })
+    expect(slackTile(slackTileNode({ name: 'Dana Smith', label: 'Ver el perfil de Dana Smith' })).name).toBeNull()
+    const r = readCall('slack', [slackWindow([{ name: 'Alex Morgan', self: true }, { name: 'Dana Smith', label: 'Ver el perfil de Dana Smith', talking: true }])])
+    expect(r).toEqual({ speaking: [], participants: ['Alex Morgan'], me: 'Alex Morgan' })
+  })
+
+  it('the shape for the log: counts and the view, no names', () => {
+    expect(slackShape([slackWindow([{ name: 'Alex Morgan', self: true }, { name: 'Dana Smith', talking: true }])])).toBe('2 tiles, 2 named, own tile known (grid)')
+    expect(slackShape([slackWindow([{ name: 'Alex Morgan' }, { name: 'Dana Smith', label: 'Ver el perfil de Dana Smith' }], { share: 'Alex Morgan', large: true })]))
+      .toBe('2 tiles, 1 named (screen share, side list)')
+    expect(slackShape([win(node('frame', {}, node('push button', { t: 'Leave huddle' })))])).toBe('0 tiles, 0 named')
+  })
+
+  it("the log's picture of a huddle keeps Slack's words and hides names, the channel, the workspace and member ids", () => {
+    const s = summarize([slackWindow([{ name: 'Alex Morgan', self: true }, { name: 'Dana Smith', talking: true }], { share: 'Dana Smith' })], 80)
+    expect(s).toContain('"Leave Huddle"')
+    expect(s).toContain('.p-huddle_peer_tile')
+    expect(s).toContain('#huddle-grid-gridcell-self_‹id›')
+    for (const secret of ['Alex', 'Dana', 'design', 'Acme', 'U011ABCDEFG', 'T01ABCDEFGH']) expect(s).not.toContain(secret)
   })
 })
 

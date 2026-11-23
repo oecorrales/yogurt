@@ -8,7 +8,7 @@
 /** one element of the tree as the helper copies it: role, subrole, description, title, value, identifier, DOM classes, size */
 export type AxNode = { r: string; s?: string; d?: string; t?: string; v?: string; i?: string; c?: string[]; w?: number; h?: number; k?: AxNode[] }
 export type AxWindow = { title?: string; id?: string; tree: AxNode }
-export type CallKind = 'zoom' | 'teams' | 'meet' | 'webex'
+export type CallKind = 'zoom' | 'teams' | 'meet' | 'webex' | 'slack'
 export type CallReading = { speaking: string[]; participants: string[]; me: string | null }
 
 // A role has two names: macOS Accessibility says AXTabGroup, AXStaticText, AXRow, AXOutline; AT-SPI (Linux) says
@@ -365,9 +365,80 @@ function readWebex(windows: AxWindow[]): CallReading {
   return { speaking: uniq(speaking), participants: uniq(participants), me }
 }
 
+// ---- Slack huddles (desktop app, Electron) ----
+// Measured on Slack 4.53 for Windows (UI Automation, which carries the page's DOM classes and ids), a huddle in its own
+// window, audio only and with the camera on, in the small and the large view, with a screen share. Each person is an
+// element with the class p-huddle_peer_tile, labelled "View Dana Smith's profile". While Slack hears them, an element
+// inside the tile (the mic overlay with the camera off, the name tag with it on) carries
+// p-huddle_peer_tile__overlay--active_speaker, and loses it a moment after they stop or when they mute. The person's
+// own tile has the id huddle-grid-gridcell-self_<user id>; in the large view of a screen share the tiles have no id.
+// The shared screen is a tile of another kind, never a person. Slack's classes are words, not build hashes, so they
+// last longer than Meet's. Not yet measured: other people's tiles (the same tile, without self_), the huddle bar in
+// the main window, and other languages ("View … 's profile" is English; a tile whose name can't be read is left out).
+const SLACK_TILE = 'p-huddle_peer_tile'
+const SLACK_TALKING = 'p-huddle_peer_tile__overlay--active_speaker'
+/** the tag on the tile that shows the name as plain text (while the person talks, or the mouse is on the tile) */
+const SLACK_NAME_TAG = 'p-huddle_peer_tile__name_overlay'
+const SLACK_SELF = /^huddle-grid-gridcell-self_/
+const SLACK_PROFILE = /^View (.{2,60}?)(?:['’]s|['’]) profile$/i
+const isSlackTile = (n: AxNode) => !!n.c?.includes(SLACK_TILE)
+
+/** A tile's person: the name in its label, else the name tag's plain text; whether they talk; whether it's the user */
+export function slackTile(tile: AxNode): { name: string | null; talking: boolean; me: boolean } {
+  let name: string | null = null, tag: string | null = null, talking = false
+  for (const label of texts(tile)) {
+    const m = SLACK_PROFILE.exec(label.normalize('NFKC').trim())
+    if (m) { name = m[1].trim(); break }
+  }
+  walk(tile, (x, up) => {
+    if (x.c?.includes(SLACK_TALKING)) talking = true
+    if (!tag && STATIC_TEXT.has(x.r) && up.some((a) => a.c?.includes(SLACK_NAME_TAG))) {
+      const t = (x.v ?? x.t ?? x.d ?? '').normalize('NFKC').trim()
+      if (t.length >= 2 && t.length <= 60) tag = t
+    }
+  })
+  return { name: name ?? tag, talking, me: SLACK_SELF.test(tile.i ?? '') }
+}
+
+/** every tile in the windows, a tile inside a tile never counted twice */
+function slackTiles(windows: AxWindow[]): AxNode[] {
+  const tiles: AxNode[] = []
+  for (const w of windows) walk(w.tree, (n, up) => { if (isSlackTile(n) && !up.some(isSlackTile)) tiles.push(n) })
+  return tiles
+}
+
+function readSlack(windows: AxWindow[]): CallReading {
+  const speaking: string[] = [], participants: string[] = []
+  let me: string | null = null
+  for (const tile of slackTiles(windows)) {
+    const t = slackTile(tile)
+    if (!t.name) continue
+    participants.push(t.name)
+    if (t.talking) speaking.push(t.name)
+    if (t.me) me = t.name
+  }
+  return { speaking: uniq(speaking), participants: uniq(participants), me }
+}
+
+/**
+ * Counts only, for the log: how many tiles Slack shows, how many have a name that could be read, whether the user's
+ * own tile is known, and the view. A huddle that stays Them shows here why (no tiles: another view; tiles without
+ * names: another language). Who talks is left out: it changes every few seconds, and the talking line has it.
+ */
+export function slackShape(windows: AxWindow[]): string {
+  const tiles = slackTiles(windows).map(slackTile)
+  const views = new Set<string>()
+  for (const w of windows) walk(w.tree, (n) => {
+    if (n.c?.includes('p-huddle_grid_component')) views.add('grid')
+    if (n.c?.includes('p-huddle_tile_list__container')) views.add('side list')
+    if (n.c?.some((c) => c.startsWith('p-huddle_content_active_view__active_screenshare'))) views.add('screen share')
+  })
+  return `${tiles.length} tiles, ${tiles.filter((t) => t.name).length} named${tiles.some((t) => t.me) ? ', own tile known' : ''}${views.size ? ` (${[...views].join(', ')})` : ''}`
+}
+
 /** What the call app shows right now */
 export function readCall(kind: CallKind, windows: AxWindow[], o: { talkingClasses?: string[] } = {}): CallReading {
-  return kind === 'zoom' ? readZoom(windows) : kind === 'meet' ? readMeet(windows, o) : kind === 'webex' ? readWebex(windows) : readTeams(windows)
+  return kind === 'zoom' ? readZoom(windows) : kind === 'meet' ? readMeet(windows, o) : kind === 'webex' ? readWebex(windows) : kind === 'slack' ? readSlack(windows) : readTeams(windows)
 }
 
 /**
@@ -377,13 +448,19 @@ export function readCall(kind: CallKind, windows: AxWindow[], o: { talkingClasse
 /** words the call apps write themselves: their status, roles, lists and controls. Anything else may be a name, a caption
  * or a document title, and stays out of the log */
 const APP_WORDS = new Set([...ZOOM.flat().map(low), ...TALKING.map(low), 'zoom meeting', 'zoom webinar', 'meeting', 'meet', 'microsoft teams',
-  'you', 'context menu is available', 'kontextmenü ist verfügbar', 'leave', 'leave call', 'hang up', 'end call', 'mute mic', 'unmute mic', 'mute my audio', 'unmute my audio', 'participants', 'attendees', 'people'])
+  'you', 'context menu is available', 'kontextmenü ist verfügbar', 'leave', 'leave call', 'hang up', 'end call', 'mute mic', 'unmute mic', 'mute my audio', 'unmute my audio', 'participants', 'attendees', 'people',
+  // Slack's huddle window
+  'slack', 'leave huddle', 'gallery', 'header', 'huddles actions', 'audio', 'video', 'muted', 'screen share', 'video is on', 'video is off', 'audio is on', 'audio is off',
+  'mute microphone', 'unmute microphone', 'turn on camera', 'turn off camera', 'share your screen', 'view members', 'view larger', 'more actions', 'child window toolbar', 'change view'])
 const appWord = (x: string) => APP_WORDS.has(low(x)) || OTHER_STATUS.test(x) || TEAMS_STATUS.test(x) || TEAMS_ROLE.test(x) || TEAMS_SAYS.test(x)
 
 /** Text for the log: the app's own words kept, every other piece shown only by its length ("‹10›, Active speaker") */
 export function redact(text: string): string {
   return text.replace(/\s+/g, ' ').trim().split(/(\s*,\s*|\s+[-–—|]\s+)/).map((part, i) => (i % 2 || !part || appWord(part) ? part : `‹${part.length}›`)).join('').slice(0, 120)
 }
+
+/** a Slack member or workspace id in an element id ("huddle-grid-gridcell-self_U04PJJKJZAP") says who someone is: masked */
+const maskIds = (id: string) => id.replace(/(^|[^A-Za-z0-9])[UWTC][A-Z0-9]{8,}(?![A-Za-z0-9])/g, '$1‹id›')
 
 /**
  * A short picture of the call window for main.log: role counts, then each element's role, id, classes and words.
@@ -397,7 +474,7 @@ export function summarize(windows: AxWindow[], max = 60): string {
     walk(w.tree, (n, up) => {
       roles.set(n.r, (roles.get(n.r) ?? 0) + 1)
       const said = texts(n).map(redact)
-      if ((said.length || n.i) && lines.length < max) lines.push(`${'  '.repeat(Math.min(up.length, 12))}${n.r}${n.i ? `#${n.i}` : ''} ${said.map((x) => JSON.stringify(x)).join(' ')}${n.c?.length ? ` .${n.c.slice(0, 6).join('.')}` : ''}`)
+      if ((said.length || n.i) && lines.length < max) lines.push(`${'  '.repeat(Math.min(up.length, 12))}${n.r}${n.i ? `#${maskIds(n.i)}` : ''} ${said.map((x) => JSON.stringify(x)).join(' ')}${n.c?.length ? ` .${n.c.slice(0, 6).join('.')}` : ''}`)
     })
   }
   return [`roles: ${[...roles].sort((a, b) => b[1] - a[1]).map(([r, n]) => `${r}=${n}`).join(' ')}`, ...lines].join('\n')

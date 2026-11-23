@@ -1,5 +1,5 @@
 //! What Linux's and Windows's call watches share: which app a call is in, which windows can hold it, and whether a
-//! window's tree is a call (Teams keeps its calendar and chat in windows shaped like the call's).
+//! window's tree is a call (Teams keeps its calendar and chat in windows shaped like the call's, and Slack its channels).
 
 use serde_json::Value;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -9,6 +9,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 pub enum Kind {
     Zoom,
     Teams,
+    Slack,
     Meet,
 }
 
@@ -18,13 +19,29 @@ pub fn kind(id: &str) -> Kind {
         Kind::Zoom
     } else if id.contains("teams") {
         Kind::Teams
+    } else if id.contains("slack") {
+        Kind::Slack
     } else {
         Kind::Meet
     }
 }
 
 /// the controls only a call window has: the calendar and chat views have none
-pub const CALL_CONTROLS: &[&str] = &["leave", "leave call", "hang up", "end call", "mute mic", "unmute mic", "close participants pane"];
+pub const CALL_CONTROLS: &[&str] = &["leave", "leave call", "leave huddle", "hang up", "end call", "mute mic", "unmute mic", "close participants pane"];
+
+/// Slack's huddle, in any language: a person's tile, or the channel header's Leave button, by their page classes
+const HUDDLE_CLASSES: &[&str] = &[HUDDLE_TILE, "p-huddle_channel_header_button__leave_button"];
+/// one person in a Slack huddle (src/main/callNames/parse.ts reads them)
+pub const HUDDLE_TILE: &str = "p-huddle_peer_tile";
+
+fn has_class(n: &Value, classes: &[&str]) -> bool {
+    n.get("c").and_then(Value::as_array).is_some_and(|c| c.iter().any(|x| x.as_str().is_some_and(|x| classes.contains(&x))))
+}
+
+/// Whether a tree shows the people of a Slack huddle: the window to read when Slack has several with a huddle in them
+pub fn has_huddle_tiles(tree: &Value) -> bool {
+    has_class(tree, &[HUDDLE_TILE]) || tree.get("k").and_then(Value::as_array).is_some_and(|kids| kids.iter().any(has_huddle_tiles))
+}
 
 /// A button's label without the shortcut it can carry: "Leave (Ctrl+Shift+H)" is "leave", as on the Mac (#83)
 fn control_label(s: &str) -> String {
@@ -41,7 +58,7 @@ fn control_label(s: &str) -> String {
 pub fn is_call_tree(tree: &Value) -> bool {
     fn walk(n: &Value) -> bool {
         let Some(o) = n.as_object() else { return false };
-        if o.get("i").and_then(Value::as_str) == Some("hangup-button") {
+        if o.get("i").and_then(Value::as_str) == Some("hangup-button") || has_class(n, HUDDLE_CLASSES) {
             return true;
         }
         let role = o.get("r").and_then(Value::as_str).unwrap_or("");
@@ -60,10 +77,11 @@ pub fn is_call_tree(tree: &Value) -> bool {
 }
 
 /// Whether a window may hold the call: a browser only when its front tab is a Meet call, Zoom only a meeting, Teams
-/// any window (its calendar and chat views look like the call's; is_call_tree tells them apart)
+/// and Slack any window (Teams' calendar and chat views look like the call's, and Slack's huddle window is titled
+/// with its channel; is_call_tree tells them apart)
 pub fn call_window(kind: Kind, title: &str) -> bool {
     match kind {
-        Kind::Teams => true,
+        Kind::Teams | Kind::Slack => true,
         Kind::Zoom => title.starts_with("Zoom Meeting") || title.starts_with("Zoom Webinar") || title == "Meeting",
         Kind::Meet => has_word(title, "meet"),
     }
@@ -107,6 +125,9 @@ mod tests {
         assert_eq!(kind("zoom.exe"), Kind::Zoom);
         assert_eq!(kind("ms-teams.exe"), Kind::Teams);
         assert_eq!(kind("msedge.exe"), Kind::Meet);
+        assert_eq!(kind("slack.exe"), Kind::Slack);
+        assert_eq!(kind("slack"), Kind::Slack);
+        assert_eq!(kind("com.slack.Slack"), Kind::Slack);
     }
 
     #[test]
@@ -154,6 +175,31 @@ mod tests {
         // closed, or none yet: every window, top first
         assert_eq!(to_read(wins.clone(), Some(9)), (wins.clone(), false));
         assert_eq!(to_read(wins.clone(), None), (wins, false));
+    }
+
+    #[test]
+    fn a_slack_window_is_a_call_only_with_a_huddle_in_it() {
+        // Slack 4.53 on Windows, a huddle in its own window: the Leave Huddle button and a person's tile
+        let huddle = json!({ "r": "frame", "k": [
+            { "r": "table", "c": ["p-huddle_grid_component"], "k": [
+                { "r": "table row", "t": "View Dana Smith's profile", "c": ["p-huddle_peer_tile"] }
+            ] },
+            { "r": "push button", "t": "Leave Huddle", "c": ["c-button-unstyled", "leaveButton__wzISw"] }
+        ] });
+        assert!(is_call_tree(&huddle));
+        assert!(has_huddle_tiles(&huddle));
+        // the main window while in a huddle: the channel header's Leave button, in another language, and no tiles
+        let main = json!({ "r": "frame", "k": [
+            { "r": "push button", "t": "Salir de la reunión", "c": ["p-huddle_channel_header_button__leave_button"] }
+        ] });
+        assert!(is_call_tree(&main));
+        assert!(!has_huddle_tiles(&main));
+        // a channel, with no huddle: its Start huddle button is no call control
+        let channel = json!({ "r": "frame", "k": [
+            { "r": "push button", "t": "Start huddle", "c": ["p-huddle_channel_header_button__start_button"] }
+        ] });
+        assert!(!is_call_tree(&channel));
+        assert!(call_window(Kind::Slack, "general (Channel) - Acme - Slack"));
     }
 
     #[test]

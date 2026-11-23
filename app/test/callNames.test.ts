@@ -81,6 +81,7 @@ describe('watchIds: only the call app the meeting is in', () => {
     expect(watchIds('Zoom')).toEqual(['us.zoom.xos', 'zoom', 'us.zoom.Zoom', 'zoom.exe'])
     expect(watchIds('Teams')).toEqual(['com.microsoft.teams2', 'com.microsoft.teams', 'teams-for-linux', 'com.github.IsmaelMartinez.teams_for_linux', 'ms-teams.exe', 'teams.exe'])
     expect(watchIds('Webex')).toEqual(['Cisco-Systems.Spark', 'com.cisco.webexmeetingsapp'])
+    expect(watchIds('Slack')).toEqual(['com.tinyspeck.slackmacgap', 'slack', 'com.slack.Slack', 'slack.exe'])
     expect(watchIds('Chrome')).toEqual(['com.google.Chrome', 'chrome', 'google-chrome', 'chrome.exe'])
     expect(watchIds('Edge')).toContain('msedge.exe')
     expect(watchIds('Safari')).toEqual(['com.apple.Safari'])
@@ -258,6 +259,26 @@ describe('hookCallNames', () => {
     // learned once: the watch isn't started again on every check
     s.hook.checkQuiet()
     expect(s.watchedPids).toHaveLength(2)
+  })
+
+  it('a Slack huddle: the talking tile names the line, and the log shows the huddle in counts only', () => {
+    const s = setup({ app: 'Slack' })
+    s.start()
+    expect(s.watched).toEqual([['com.tinyspeck.slackmacgap', 'slack', 'com.slack.Slack', 'slack.exe']])
+    const tile = (name: string, o: { self?: boolean; talking?: boolean } = {}): AxNode => ({ r: 'table row', t: `View ${name}'s profile`, c: ['p-huddle_peer_tile'],
+      i: `huddle-grid-gridcell-${o.self ? 'self_' : ''}U0ABCDEFGH`, k: o.talking ? [{ r: 'panel', c: ['p-huddle_peer_tile__mic_overlay', 'p-huddle_peer_tile__overlay--active_speaker'] }] : [] })
+    const huddle = (t: number, talking: string): WatchLine => ({ t, app: 'slack.exe', windows: [{ title: 'design - Acme - Slack', tree: { r: 'frame', k: [
+      { r: 'table', c: ['p-huddle_grid_component'], k: [tile('Alex Morgan', { self: true }), tile('Dana Smith', { talking: talking === 'Dana Smith' }), tile('Ann Lee', { talking: talking === 'Ann Lee' })] },
+      { r: 'push button', t: 'Leave Huddle' },
+    ] } }] })
+    s.audio(0, 1_000_100)
+    for (let t = 1_000_000; t < 1_006_000; t += 500) s.emit(huddle(t, t < 1_003_000 ? 'Dana Smith' : 'Ann Lee'))
+    expect(s.hook.nameFor(s.m.id, 500, 2000)).toBe('Dana Smith')
+    expect(s.hook.nameFor(s.m.id, 3500, 5000)).toBe('Ann Lee')
+    expect(s.logs.some((l) => l.startsWith('call names: reading slack.exe (slack)'))).toBe(true)
+    expect(s.logs).toContain('call names: slack talking 1 of 3, me known')
+    expect(s.logs).toContain('call names: slack huddle shows 3 tiles, 3 named, own tile known (grid)')
+    for (const l of s.logs) for (const secret of ['Alex', 'Dana', 'Ann Lee', 'design', 'Acme']) expect(l).not.toContain(secret)
   })
 
   it('reads Webex roster names during a call', () => {
