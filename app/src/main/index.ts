@@ -43,7 +43,7 @@ import { loginItemOn, openedAtLogin, setLoginItem, syncLoginItem } from './login
 import { createMedia } from './media'
 import { createTray, linuxTrayHost } from './tray'
 import { trayWindowEnd } from './trayMenu'
-import { SetupController } from './setup'
+import { SetupController, SpeechBusyError } from './setup'
 import { fakeMeasure, measureSpeed, speedClipPath, speedStore } from './asr/speedCheck'
 import { vadModelPath, whisperServerPath } from './asr/server'
 import { openStore, type Store } from './store'
@@ -60,7 +60,7 @@ import { isId, text, rewriteNote } from './ipcArgs'
 import { hookMics } from './mics'
 import { activeCapture, audioHelperPath, hookCapture, joinParts, onCaptureStart, onRecordingEvent, prepareAppend, recordingFinished, recordingPaused, recordingSettled, rejoinInterrupted, setRecordingPaused, settleRecording, tell, type WarnCode } from './capture'
 import { createWidget } from './widget'
-import { liveSilentMs, hookTranscription, transcribeRecorded, onWhisperGpuOff, meetingLanguage, settleTranscription, speechLocaleFor, spokenChanged, transcriptionBacklogMs, stopTranscriptionServer, releaseIdleSpeech, transcriptFinished, transcriptOpen, transcriptPartials } from './asr'
+import { liveSilentMs, hookTranscription, transcribeRecorded, onWhisperGpuOff, meetingLanguage, settleTranscription, speechLocaleFor, spokenChanged, transcriptionBacklogMs, stopTranscriptionServer, releaseIdleSpeech, transcribing, transcriptFinished, transcriptOpen, transcriptPartials } from './asr'
 import { hookCallNames, type Watch } from './callNames'
 import { helperWatch, killAllWatches } from './callNames/watch'
 import { macFullName } from './user'
@@ -204,6 +204,9 @@ function createSetup(): SetupController {
     ...(isFake() ? { sha256Override: 'FAKE' } : {}),
     // Windows and Linux: speech models timed on this computer (asr/speedCheck.ts); a Mac never is
     ...(platform === 'darwin' ? {} : { speed: { ...speedStore(speedFile()), measure: isFake() ? fakeMeasure() : (model: string) => measureSpeed(model, { binary: whisperServerPath(), vadModel: vadModelPath(), clip: speedClipPath() ?? '' }) } }),
+    // Settings changes the speech model only between meetings, after whisper-server lets go of it
+    speechIdle: () => !activeMeeting() && !transcribing(),
+    releaseSpeech: releaseIdleSpeech,
   })
 }
 /** what the speed check found (Windows and Linux) */
@@ -586,6 +589,14 @@ app.whenReady().then(() => {
   ipcMain.handle('setup:retry', () => setup.retry())
   ipcMain.handle('setup:skip-upgrade', () => setup.skipUpgrade())
   ipcMain.handle('setup:download-upgrade', () => setup.downloadUpgrade())
+  // Settings → Transcription model (Windows and Linux): 'busy' while a meeting is recorded or transcribed
+  const speechChange = (run: () => Promise<void>) => run().then(() => 'ok' as const, (e) => {
+    if (e instanceof SpeechBusyError) return 'busy' as const
+    console.error('changing the speech model failed', e)
+    return 'failed' as const
+  })
+  ipcMain.handle('setup:check-speech', () => speechChange(() => setup.checkSpeech()))
+  ipcMain.handle('setup:use-speech-model', (_e, id: string) => speechChange(() => setup.useSpeechModel(String(id))))
   const store = openStore(join(userDataDir(), 'yogurt.db'))
   storeRef = store
   store.markInterrupted()

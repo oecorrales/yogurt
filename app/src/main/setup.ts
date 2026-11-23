@@ -3,12 +3,15 @@ import { rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { setTimeout as delay } from 'node:timers/promises'
 import { ChecksumError, DiskSpaceError, ensureFile, fileNameFor, isVerified, partialDownloadGB, type DownloadDeps } from './downloader'
-import type { SetupState } from '../shared/types'
+import type { SetupState, SpeechModels } from '../shared/types'
+import { speechModels } from './asr/speechModels'
 import { t } from '../shared/i18n'
 import { tooSlow, tooWeak } from './localCheck'
 
 /** What the speed check found on one computer (speedKey): the model kept (null: none keeps up) and each one's time over the clip's length */
-export type SpeedResult = { key: string; model: string | null; rtf: Record<string, number | null>; at: number; /** whisper had to leave the graphics card while it was timed */ gpuOff?: boolean }
+export type SpeedResult = { key: string; model: string | null; rtf: Record<string, number | null>; at: number; /** whisper had to leave the graphics card while it was timed */ gpuOff?: boolean
+  /** the model the person picked in Settings, used instead of model until the speed check runs again */
+  chosen?: string }
 /** Windows and Linux: time a speech model on this computer (null: it ran out of time), and keep what was found */
 export type SpeedDeps = {
   measure(modelPath: string): Promise<{ rtf: number | null; gpuOff?: boolean }>
@@ -32,7 +35,14 @@ export type SetupDeps = {
   upgradePreference?: { load(): boolean; save(skipped: boolean): void }
   /** Windows and Linux: the speed check picks the speech model (a Mac never has it: turbo, as always) */
   speed?: SpeedDeps
+  /** no meeting is being recorded or transcribed: the speech model can change (Settings) */
+  speechIdle?: () => boolean
+  /** before the speech model changes or is timed again: the idle whisper-server lets go of the graphics card */
+  releaseSpeech?: () => Promise<void>
 }
+
+/** Settings asked to change the speech model while a meeting is recorded or transcribed */
+export class SpeechBusyError extends Error { constructor() { super('speech-busy'); this.name = 'SpeechBusyError' } }
 
 /** Where the models ended up, for the parts of the app that use them; llm once the first notes model is in (after ready) */
 export type Installed = { asr: string; llm?: string; recommendedLlm?: string; /** meaning search across meetings; word search works without it */ embed?: string }
@@ -77,6 +87,9 @@ export class SetupController {
   private embedding: Promise<void> | undefined
   /** Try again after an error: time the speech models again instead of trusting what was stored */
   private recheck = false
+  /** Windows and Linux once ready: what Settings needs to time the speech models again or change the one in use */
+  private speech: { hw: Hardware; catalog: Catalog; speed: SpeedDeps; key: string; candidates: CatalogAsr[]; item: (m: CatalogAsr) => Item } | undefined
+  private speechChange: Promise<void> | undefined
 
   constructor(private deps: SetupDeps) {}
 
@@ -230,8 +243,9 @@ export class SetupController {
       this.recheck = false
       const known = saved?.key === key ? saved : undefined
       const candidates = speed ? asrCandidates(hw, catalog) : []
-      if (speed && (known?.model === null || !candidates.length)) return this.set({ phase: 'error', fraction: 0, message: tooSlow(hw.os) })
-      const keep = known && candidates.find((a) => a.id === known.model)
+      if (speed && ((known?.model === null && !known.chosen) || !candidates.length)) return this.set({ phase: 'error', fraction: 0, message: tooSlow(hw.os) })
+      // what the person picked in Settings stands until the speed check runs again
+      const keep = known && (candidates.find((a) => a.id === known.chosen) ?? candidates.find((a) => a.id === known.model))
 
       const waitFor: Item[] = [asrItem(speed ? keep ?? candidates[0] : asr.model)]
       const total = waitFor.reduce((n, i) => n + i.bytes, 0)
@@ -253,7 +267,8 @@ export class SetupController {
       let asrPath: string | undefined
       if (speed && keep) asrPath = await get(asrItem(keep))
       else if (speed) {
-        const r = await this.timeSpeech(speed, candidates, get, asrItem)
+        // "Preparing the transcription model" while each one is timed
+        const r = await this.timeSpeech(speed, candidates, get, asrItem, () => this.set({ phase: 'downloading', fraction: 1 }))
         speed.save({ key, ...r.result, at: Date.now() })
         if (!r.path) return this.set({ phase: 'error', fraction: this._state.fraction, message: tooSlow(hw.os) })
         asrPath = r.path
@@ -270,7 +285,8 @@ export class SetupController {
         this.paths.recommendedLlm = join(bigger!.dir, bigger!.fileName)
         if (isVerified(starterItem.dir, starterItem.fileName, this.sha(starterItem))) this.paths.llm = join(starterItem.dir, starterItem.fileName)
       }
-      this.set({ phase: 'ready', fraction: 1, notesUpgradeBytes: bigger?.bytes, notesUpgradeSkipped: skipped, notesUpgradeInstalled: hasUpgrade })
+      this.speech = speed ? { hw, catalog, speed, key, candidates, item: asrItem } : undefined
+      this.set({ phase: 'ready', fraction: 1, notesUpgradeBytes: bigger?.bytes, notesUpgradeSkipped: skipped, notesUpgradeInstalled: hasUpgrade, ...this.speechView() })
       this.startNotes(starterItem, embedItem)
     } catch (err) {
       console.error('setup failed', err)
@@ -282,7 +298,7 @@ export class SetupController {
    * Windows and Linux: download each speech model in turn and time it on a short clip, until one reads two voices as fast
    * as they talk. The ones that were too slow are deleted again. A model that downloads corrupted is skipped.
    */
-  private async timeSpeech(speed: SpeedDeps, candidates: CatalogAsr[], get: (i: Item) => Promise<string>, asrItem: (m: CatalogAsr) => Item) {
+  private async timeSpeech(speed: SpeedDeps, candidates: CatalogAsr[], get: (i: Item) => Promise<string>, asrItem: (m: CatalogAsr) => Item, timing: () => void, keep?: string) {
     const paths = new Map<string, string>()
     let gpuOff = false
     const r = await pickBySpeed(candidates, async (m) => {
@@ -290,16 +306,94 @@ export class SetupController {
         if (err instanceof ChecksumError) { console.warn(`speed check: ${m.id} downloaded corrupted, trying the next one`); return null }
         throw err
       }
-      // "Preparing the transcription model" while it is timed
-      this.set({ phase: 'downloading', fraction: 1 })
+      timing()
       const t = await speed.measure(paths.get(m.id)!)
       if (t.gpuOff) gpuOff = true
       console.log(`speed check: ${m.id} took ${t.rtf === null ? 'too long' : `${t.rtf.toFixed(2)} x`} the clip's length`)
       return t.rtf
     // small may lag a little behind live: base and tiny are very weak outside English (#107)
     }, { lagsOk: (m) => m.id.startsWith('whisper-small') })
-    for (const [id, p] of paths) if (id !== r.model?.id) rmSync(p, { force: true })
+    // the model in use stays until another takes its place (Settings times them again while it works)
+    for (const [id, p] of paths) if (id !== r.model?.id && p !== keep) rmSync(p, { force: true })
     return { path: r.model && paths.get(r.model.id), result: { model: r.model?.id ?? null, rtf: r.rtf, ...(gpuOff ? { gpuOff } : {}) } }
+  }
+
+  /** Settings' view of the speech models, from what was stored (absent on a Mac and before ready) */
+  private speechView(): { speech?: SpeechModels } {
+    const s = this.speech, asr = this.paths?.asr
+    const result = s?.speed.load()
+    const current = s && asr && s.catalog.asr.find((a) => asr.endsWith(fileNameFor(a.url)))
+    if (!s || !result || !current) return {}
+    return { speech: speechModels({ hw: s.hw, catalog: s.catalog, result, current: current.id }) }
+  }
+
+  private setSpeech(extra: Partial<SpeechModels> = {}) {
+    const view = this.speechView().speech
+    this.set({ ...this._state, speech: view && { ...view, ...extra } })
+  }
+
+  /** One speech change at a time, only between meetings: whisper-server lets go of the model first */
+  private changeSpeech(run: () => Promise<void>): Promise<void> {
+    if (this.speechChange) return this.speechChange
+    if (!this.speech || this._state.phase !== 'ready') return Promise.resolve()
+    if (this.deps.speechIdle && !this.deps.speechIdle()) return Promise.reject(new SpeechBusyError())
+    this.speechChange = (async () => {
+      await this.deps.releaseSpeech?.()
+      await run()
+    })().finally(() => { this.speechChange = undefined; this.setSpeech() })
+    return this.speechChange
+  }
+
+  /** Puts a downloaded speech model in place of the one in use, whose files go */
+  private swapSpeech(path: string) {
+    const old = this.paths!.asr
+    this.paths = { ...this.paths!, asr: path }
+    // a meeting that started while the new one downloaded may still read the old one: it goes next time then
+    if (old !== path) try { this.removeFiles(old) } catch (e) { console.warn('the previous speech model stays on disk for now', e) }
+  }
+
+  /**
+   * Settings, Windows and Linux: time the speech models again (a new graphics card or driver), dropping the person's
+   * pick: the most accurate that keeps up takes over. When none does, the one in use stays.
+   */
+  checkSpeech(): Promise<void> {
+    return this.changeSpeech(async () => {
+      const s = this.speech!
+      this.setSpeech({ busy: 'checking' })
+      const get = (item: Item) => this.fetch(item, () => {})
+      const r = await this.timeSpeech(s.speed, s.candidates, get, s.item, () => {}, this.paths!.asr)
+      const current = s.catalog.asr.find((a) => this.paths!.asr.endsWith(fileNameFor(a.url)))
+      s.speed.save({ key: s.key, ...r.result, at: Date.now(), ...(r.path ? {} : current ? { chosen: current.id } : {}) })
+      if (r.path) this.swapSpeech(r.path)
+      console.log(`speed check again: ${r.result.model ?? 'none keeps up, the one in use stays'}`)
+    })
+  }
+
+  /**
+   * Settings, Windows and Linux: use this speech model instead (downloaded first; the one in use is removed after).
+   * The speed check's own pick clears the person's choice.
+   */
+  useSpeechModel(id: string): Promise<void> {
+    return this.changeSpeech(async () => {
+      const s = this.speech!
+      const m = s.candidates.find((a) => a.id === id)
+      if (!m) throw new Error(`${id} can't be used on this computer`)
+      const item = s.item(m)
+      await this.checkDisk([item])
+      this.setSpeech({ busy: 'downloading', fraction: 0 })
+      let shown = 0
+      const path = await this.fetch(item, (p) => {
+        const pct = Math.floor(p.fraction * 100)
+        if (pct !== shown) { shown = pct; this.setSpeech({ busy: 'downloading', fraction: p.fraction }) }
+      })
+      const saved = s.speed.load()
+      if (saved) {
+        const { chosen: _chosen, ...rest } = saved
+        s.speed.save(id === saved.model ? rest : { ...rest, chosen: id })
+      }
+      this.swapSpeech(path)
+      console.log(`speech model: ${id}${saved && id !== saved.model ? ', picked in Settings' : ''}`)
+    })
   }
 
   /**

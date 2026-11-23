@@ -22,6 +22,8 @@ const api: YogurtApi = {
     skipUpgrade: () => ipcRenderer.invoke('setup:skip-upgrade'),
     downloadUpgrade: () => ipcRenderer.invoke('setup:download-upgrade'),
     removeUpgrade: () => ipcRenderer.invoke('setup:remove-upgrade'),
+    checkSpeech: () => ipcRenderer.invoke('setup:check-speech'),
+    useSpeechModel: (id) => ipcRenderer.invoke('setup:use-speech-model', id),
   },
   prompt: {
     state: () => ipcRenderer.invoke('prompt:state'),

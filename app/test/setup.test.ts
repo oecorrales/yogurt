@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { describe, expect, it, vi } from 'vitest'
 import { speedKey, type Catalog, type Hardware } from '@yogurt/picker'
 import bundled from '../../catalog/catalog.json'
-import { SetupController, type SetupDeps, type SpeedDeps, type SpeedResult } from '../src/main/setup'
+import { SetupController, SpeechBusyError, type SetupDeps, type SpeedDeps, type SpeedResult } from '../src/main/setup'
 import { tooSlow } from '../src/main/localCheck'
 import { fakeDownloadDeps } from '../src/main/fake'
 import { DiskSpaceError, type DownloadDeps } from '../src/main/downloader'
@@ -559,6 +559,136 @@ describe('the speed check (Windows and Linux): speech models timed on this compu
     expect(c.state.phase).toBe('error')
     expect(rec.asked).toEqual([])
     expect(s.timed).toEqual([])
+  })
+
+  describe('Settings: the transcription model', () => {
+    const turbo = 'whisper-large-v3-turbo-q5_0', small = 'whisper-small-q5_1'
+    const file = (id: string) => url(id).split('/').pop()!
+
+    it('once ready, says which model runs, on what, that the speed check picked it, and the others with how they did', async () => {
+      const s = speed({ [turbo]: 0.1 })
+      const { c } = setup({ getHardware: async () => gpuPc, speed: s.deps })
+      await c.start(); await c.idle()
+      expect(c.state.speech).toMatchObject({ current: turbo, chosenBy: 'check', graphics: true })
+      expect(c.state.speech!.models.map((m) => [m.id, m.pace, m.recommended])).toEqual([[turbo, 'live', true], [small, 'untimed', false]])
+    })
+
+    it('a Mac has no such row', async () => {
+      const s = speed({ [turbo]: 0.1 })
+      const { c } = setup({ speed: s.deps })
+      await c.start(); await c.idle()
+      expect(c.state.speech).toBeUndefined()
+    })
+
+    it('without graphics turbo is listed but needs a graphics card, and cannot be picked', async () => {
+      const s = speed({ [small]: 0.3 })
+      const { c, rec } = setup({ getHardware: async () => cpuPc, speed: s.deps })
+      await c.start(); await c.idle()
+      expect(c.state.speech!.graphics).toBe(false)
+      expect(c.state.speech!.models.find((m) => m.id === turbo)).toMatchObject({ needsGraphics: true, pace: 'too-slow' })
+      const asked = rec.asked.length
+      await expect(c.useSpeechModel(turbo)).rejects.toThrow()
+      expect(rec.asked).toHaveLength(asked)
+      expect(c.installed()!.asr).toContain(file(small))
+    })
+
+    it('picking another downloads it, puts it in place of the one in use, removes that one and remembers the pick after a restart', async () => {
+      const s = speed({ [turbo]: 0.1 })
+      const released: number[] = []
+      const first = setup({ getHardware: async () => gpuPc, speed: s.deps, releaseSpeech: async () => { released.push(1) } })
+      await first.c.start(); await first.c.idle()
+      const before = first.c.installed()!.asr
+      await first.c.useSpeechModel(small)
+      expect(released).toHaveLength(1)
+      expect(first.c.installed()!.asr).toContain(file(small))
+      expect(existsSync(before)).toBe(false)
+      expect(first.c.state.speech).toMatchObject({ current: small, chosenBy: 'you' })
+      expect(first.c.state.speech!.busy).toBeUndefined()
+      expect(s.stored()).toMatchObject({ model: turbo, chosen: small })
+
+      const again = setup({ getHardware: async () => gpuPc, speed: s.deps, modelsDir: first.root })
+      await again.c.start(); await again.c.idle()
+      expect(again.c.installed()!.asr).toContain(file(small))
+      expect(again.c.state.speech).toMatchObject({ current: small, chosenBy: 'you' })
+      expect(s.timed).toEqual([turbo])
+    })
+
+    it("going back to the speed check's pick clears the person's choice", async () => {
+      const s = speed({ [turbo]: 0.1 })
+      const { c } = setup({ getHardware: async () => gpuPc, speed: s.deps })
+      await c.start(); await c.idle()
+      await c.useSpeechModel(small)
+      await c.useSpeechModel(turbo)
+      expect(s.stored()!.chosen).toBeUndefined()
+      expect(c.state.speech).toMatchObject({ current: turbo, chosenBy: 'check' })
+    })
+
+    it('shows the download while it runs, and one change at a time', async () => {
+      const rec = recorder((u) => u === url(small))
+      const s = speed({ [turbo]: 0.1 })
+      const { c } = setup({ getHardware: async () => gpuPc, speed: s.deps, download: rec.deps })
+      await c.start(); await c.idle()
+      const one = c.useSpeechModel(small), two = c.useSpeechModel(small)
+      await vi.waitFor(() => expect(c.state.speech?.busy).toBe('downloading'))
+      expect(c.state.phase).toBe('ready')
+      rec.release()
+      await Promise.all([one, two])
+      expect(rec.asked.filter((u) => u === url(small))).toHaveLength(1)
+      expect(c.state.speech!.busy).toBeUndefined()
+    })
+
+    it('not while a meeting is recorded or transcribed: nothing downloads or changes', async () => {
+      const s = speed({ [turbo]: 0.1 })
+      let idle = false
+      const { c, rec } = setup({ getHardware: async () => gpuPc, speed: s.deps, speechIdle: () => idle })
+      await c.start(); await c.idle()
+      const asked = rec.asked.length
+      await expect(c.useSpeechModel(small)).rejects.toBeInstanceOf(SpeechBusyError)
+      await expect(c.checkSpeech()).rejects.toBeInstanceOf(SpeechBusyError)
+      expect(rec.asked).toHaveLength(asked)
+      expect(s.timed).toEqual([turbo])
+      idle = true
+      await c.useSpeechModel(small)
+      expect(c.installed()!.asr).toContain(file(small))
+    })
+
+    it('checking again times the models anew, drops the pick and keeps the most accurate that keeps up', async () => {
+      const s = speed({ [turbo]: 0.1 })
+      const { c } = setup({ getHardware: async () => gpuPc, speed: s.deps })
+      await c.start(); await c.idle()
+      await c.useSpeechModel(small)
+      await c.checkSpeech()
+      expect(s.timed).toEqual([turbo, turbo])
+      expect(c.installed()!.asr).toContain(file(turbo))
+      expect(s.stored()).toMatchObject({ model: turbo })
+      expect(s.stored()!.chosen).toBeUndefined()
+      expect(c.state.speech).toMatchObject({ current: turbo, chosenBy: 'check' })
+      expect(c.state.phase).toBe('ready')
+    })
+
+    it('when checking again finds none that keeps up, the one in use stays, and setup still starts next time', async () => {
+      let rtf: Record<string, number | null> = { [small]: 0.3 }
+      const timed: string[] = []
+      let stored: SpeedResult | undefined
+      const deps: SpeedDeps = {
+        measure: async (path) => { const id = Object.keys(rtf).find((k) => path.includes(file(k)))!; timed.push(id); return { rtf: rtf[id] } },
+        load: () => stored, save: (r) => { stored = r },
+      }
+      const first = setup({ getHardware: async () => cpuPc, speed: deps })
+      await first.c.start(); await first.c.idle()
+      const inUse = first.c.installed()!.asr
+      rtf = { [small]: 2, 'whisper-base-q5_1': 1.6, 'whisper-tiny-q5_1': 1.4 }
+      await first.c.checkSpeech()
+      expect(first.c.installed()!.asr).toBe(inUse)
+      expect(existsSync(inUse)).toBe(true)
+      expect(stored).toMatchObject({ model: null, chosen: small })
+      expect(first.c.state.speech).toMatchObject({ current: small, noneKeepsUp: true })
+
+      const again = setup({ getHardware: async () => cpuPc, speed: deps, modelsDir: first.root })
+      await again.c.start(); await again.c.idle()
+      expect(again.c.state.phase).toBe('ready')
+      expect(again.c.installed()!.asr).toContain(file(small))
+    })
   })
 })
 
