@@ -108,9 +108,10 @@ fn windows(a11y: &A11y, app: &App, kind: Kind, deadline: Instant) -> Vec<Value> 
         if !call_window(kind, &title) {
             continue;
         }
-        // Teams keeps its calendar and chat in windows shaped like the call's: read a little of the tree first and
-        // only copy it out when the call controls are there, so that text never reaches the JSON or the log
-        let tree = if kind == Kind::Teams {
+        // Teams keeps its calendar and chat in windows shaped like the call's, and Slack its channels: read a little of
+        // the tree first and only copy it out when the call controls are there, so that text never reaches the JSON or
+        // the log
+        let tree = if kind == Kind::Teams || kind == Kind::Slack {
             let mut probe = CALL_PROBE;
             let probe_tree = a11y.node(&bus, &path, 0, max_depth, &mut probe, deadline);
             if !is_call_tree(&probe_tree) {

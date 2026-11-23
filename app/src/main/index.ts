@@ -139,6 +139,9 @@ function createWindow() {
   win = new BrowserWindow({
     x: place.x, y: place.y, width: place.width, height: place.height, minWidth: 720, minHeight: 520,
     title: 'Yogurt',
+    // From source on Windows and Linux the taskbar would show Electron's icon (the installed app's comes from its
+    // program file), as the Mac's Dock does below
+    ...(!app.isPackaged && process.platform !== 'darwin' ? { icon: join(__dirname, '../../build/icons/256x256.png') } : {}),
     ...windowChrome(process.platform, nativeTheme.shouldUseDarkColors),
     show: false,
     // hidden pages would otherwise pause timers and animations

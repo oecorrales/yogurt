@@ -1,7 +1,8 @@
 //! `yogurt-system call-watch MS ID...` on Windows: who is in a call and who is talking, as the call app shows it through
 //! UI Automation, one JSON line per reading (the same shape as yogurt-mac's call-watch and Linux's calls.rs).
 //! UI Automation needs no permission. Chromium (Meet in Chrome or Edge, and the new Teams, which is Edge's WebView2)
-//! gives its page's elements with their DOM classes as ClassName; Zoom gives its own controls.
+//! gives its page's elements with their DOM classes as ClassName, and so does Slack (Electron); Zoom gives its own
+//! controls.
 
 use std::io::Read;
 use std::time::{Duration, Instant};
@@ -16,7 +17,7 @@ use windows::Win32::UI::Accessibility::{
     UIA_HelpTextPropertyId, UIA_NamePropertyId,
 };
 
-use crate::call::{call_window, is_call_tree, kind, now_ms, to_read, Kind};
+use crate::call::{call_window, has_huddle_tiles, is_call_tree, kind, now_ms, to_read, Kind};
 use crate::parse;
 
 /// at most this many call windows of the app per reading
@@ -191,6 +192,9 @@ fn read_once(u: &Uia, ids: &[String], last: &mut Option<u64>) -> Value {
     }
     let mut app: Option<String> = None;
     let mut windows = Vec::new();
+    // Slack: a window with the huddle but not its people (the main window's channel header), read only when no other
+    // window shows them, so the log pictures what a huddle without tiles looks like
+    let mut huddle_bar: Option<(String, Value)> = None;
     for (hwnd, (id, title)) in mine {
         if windows.len() == MAX_WINDOWS || app.as_ref().is_some_and(|a| *a != id) {
             continue;
@@ -201,17 +205,28 @@ fn read_once(u: &Uia, ids: &[String], last: &mut Option<u64>) -> Value {
         let k = kind(&id);
         let Some(tree) = u.tree(hwnd) else { continue };
         // Teams's calendar and chat windows look like the call's: only a window with call controls is sent, so their
-        // text never reaches the JSON or the log. Teams has one call window: once found, it is the one read.
-        if k == Kind::Teams {
+        // text never reaches the JSON or the log. Teams has one call window: once found, it is the one read. Slack is
+        // read the same way: its channels never go out, and the huddle's own window, with the people's tiles, wins.
+        if k == Kind::Teams || k == Kind::Slack {
             if !is_call_tree(&tree) {
+                continue;
+            }
+            if k == Kind::Slack && !has_huddle_tiles(&tree) {
+                huddle_bar.get_or_insert((id.clone(), json!({ "title": title, "tree": tree })));
                 continue;
             }
             *last = Some(hwnd);
         }
         app = Some(id.clone());
         windows.push(json!({ "title": title, "tree": tree }));
-        if k == Kind::Teams {
+        if k == Kind::Teams || k == Kind::Slack {
             break;
+        }
+    }
+    if app.is_none() {
+        if let Some((id, w)) = huddle_bar {
+            app = Some(id);
+            windows.push(w);
         }
     }
     match app {

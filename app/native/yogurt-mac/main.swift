@@ -218,15 +218,17 @@ func browserTitle(_ id: String) -> String? {
  * an assistive app asks, so they are asked the way screen readers do (AXManualAccessibility): see askTree.
  */
 let axKeys = [kAXRoleAttribute, kAXSubroleAttribute, kAXDescriptionAttribute, kAXTitleAttribute, kAXValueAttribute, kAXIdentifierAttribute, "AXDOMClassList", kAXChildrenAttribute, kAXSizeAttribute] as [String]
-let chromium: Set<String> = ["com.google.Chrome", "company.thebrowser.Browser", "com.ardia.browser", "company.thebrowser.dia", "com.brave.Browser", "com.microsoft.edgemac", "com.microsoft.teams", "com.microsoft.teams2"]
+/// Slack's desktop app (Electron): a huddle is read from its page like a Teams call
+let slackId = "com.tinyspeck.slackmacgap"
+let chromium: Set<String> = ["com.google.Chrome", "company.thebrowser.Browser", "com.ardia.browser", "company.thebrowser.dia", "com.brave.Browser", "com.microsoft.edgemac", "com.microsoft.teams", "com.microsoft.teams2", slackId]
 var askedTree = Set<pid_t>()
 
 /// Asks a Chromium or Electron app to build its page's accessibility tree, once per process. A browser is asked only
-/// once a window is a Meet call. Teams is asked before looking: a Teams window counts as a call only by its Leave or
-/// Mute button, and Teams shows those only once asked, so asking afterwards never finds a call (#111).
+/// once a window is a Meet call. Teams and Slack are asked before looking: their windows count as a call only by a Leave
+/// or Mute button, and they show those only once asked, so asking afterwards never finds a call (#111).
 func askTree(_ app: AXUIElement, _ r: NSRunningApplication, force: Bool = false) {
   guard let id = r.bundleIdentifier, chromium.contains(id), !askedTree.contains(r.processIdentifier) else { return }
-  guard force || id.hasPrefix("com.microsoft.teams") else { return }
+  guard force || id.hasPrefix("com.microsoft.teams") || id == slackId else { return }
   let manual = AXUIElementSetAttributeValue(app, "AXManualAccessibility" as CFString, kCFBooleanTrue)
   // AXManualAccessibility is Electron's. Chrome, and the new Teams (Chromium in a web view, not Electron), can ignore it
   // and show only their own frame, never the page: a Meet call read 0 names that way, and a Teams call never had a Leave
@@ -296,11 +298,30 @@ func axCopy(_ e: AXUIElement, depth: Int, maxDepth: Int, budget: inout Int, zoom
 }
 
 /** the windows of a call app that hold the call */
-let callControls: Set<String> = ["leave", "leave call", "hang up", "end call", "mute mic", "unmute mic", "close participants pane"]
+let callControls: Set<String> = ["leave", "leave call", "leave huddle", "hang up", "end call", "mute mic", "unmute mic", "close participants pane"]
+/// Slack's huddle Leave button in the channel header, by its page class: the same in every language
+let huddleLeaveClass = "p-huddle_channel_header_button__leave_button"
+/// one person in a Slack huddle (src/main/callNames/parse.ts reads them)
+let huddleTileClass = "p-huddle_peer_tile"
+
+func hasClass(_ e: AXUIElement, _ name: String) -> Bool {
+  ((axAttr(e, "AXDOMClassList") as? [String]) ?? []).contains(name)
+}
+
+/// Whether a Slack window shows the huddle's people: its huddle window does, the main window's channel header doesn't
+func hasHuddleTiles(_ w: AXUIElement, budget: Int = 3000) -> Bool {
+  var left = budget, queue = [w]
+  while !queue.isEmpty && left > 0 {
+    let e = queue.removeFirst(); left -= 1
+    if hasClass(e, huddleTileClass) { return true }
+    queue.append(contentsOf: (axAttr(e, kAXChildrenAttribute) as? [AXUIElement]) ?? [])
+  }
+  return false
+}
 
 /// Whether one element is a control only a call has: by its label ("Leave", "Leave (⌘⇧H)") or, in Teams, its page id
 func isCallControl(_ e: AXUIElement) -> Bool {
-  if axText(axAttr(e, "AXDOMIdentifier")) == "hangup-button" { return true }
+  if axText(axAttr(e, "AXDOMIdentifier")) == "hangup-button" || hasClass(e, huddleLeaveClass) { return true }
   for key in [kAXDescriptionAttribute, kAXTitleAttribute] as [String] {
     // a label can carry its shortcut: "Leave (⌘⇧H)"
     if let s = axText(axAttr(e, key)) {
@@ -376,6 +397,14 @@ func callWindows(_ app: AXUIElement, _ id: String) -> (wins: [AXUIElement], tab:
     for w in all.prefix(8) { AXUIElementSetAttributeValue(w, "AXManualAccessibility" as CFString, kCFBooleanTrue) }
     return (all.filter { hasCallControl($0) }, nil)
   }
+  // Slack keeps its channels in the main window, which shows a Leave button too while in a huddle: only windows with a
+  // call control count, and the huddle's own window, with the people's tiles, is read alone when there is one
+  if id == slackId {
+    for w in all.prefix(8) { AXUIElementSetAttributeValue(w, "AXManualAccessibility" as CFString, kCFBooleanTrue) }
+    let huddles = all.filter { hasCallControl($0) }
+    if huddles.count < 2 { return (huddles, nil) }
+    return ([huddles.first(where: { hasHuddleTiles($0) }) ?? huddles[0]], nil)
+  }
   // Webex's meeting surfaces have stable accessibility identifiers; exclude its home window so it cannot hide another
   // call app when a recording was started by hand.
   if id == "Cisco-Systems.Spark" || id == "com.cisco.webexmeetingsapp" {
@@ -444,7 +473,7 @@ func watchCalls(every: Int, ids: [String], pids: [pid_t] = []) {
         askTree(app, target, force: true)
         // Asking the whole browser can still leave only its tabs and sidebar; asking the window itself makes it build
         // the page (tested on a live Meet call in Ardia, #123). It is one cheap call, so every reading asks again.
-        if chromium.contains(id) && !id.hasPrefix("com.microsoft.teams") {
+        if chromium.contains(id) && !id.hasPrefix("com.microsoft.teams") && id != slackId {
           for w in wins.prefix(4) { AXUIElementSetAttributeValue(w, "AXManualAccessibility" as CFString, kCFBooleanTrue) }
         }
         let zoom = id == "us.zoom.xos"

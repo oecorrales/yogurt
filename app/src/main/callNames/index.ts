@@ -1,10 +1,10 @@
 import type { RecordingStart } from '../meeting'
 import type { Meeting, Store } from '../store'
 import { nameFor, othersIn, type CallSample } from './attribute'
-import { readCall, summarize, type AxWindow, type CallKind } from './parse'
+import { readCall, slackShape, summarize, type AxWindow, type CallKind } from './parse'
 
 /**
- * Names from the call: while a meeting records, the call app it is in (Zoom, Teams, Meet in a browser) is read through
+ * Names from the call: while a meeting records, the call app it is in (Zoom, Teams, Meet in a browser, a Slack huddle) is read through
  * the accessibility tree about twice a second (macOS Accessibility, AT-SPI on Linux, UI Automation on Windows), and each line of the other side
  * is named after the person the app shows talking, or the only other person in the call. The mic is always You.
  * Without the permission, in another app, or when the app shows nothing clear, lines of the other side are Them.
@@ -23,6 +23,7 @@ const APPS: Record<string, { kind: CallKind; ids: string[] }> = {
   Zoom: { kind: 'zoom', ids: ['us.zoom.xos', 'zoom', 'us.zoom.Zoom', 'zoom.exe'] },
   Teams: { kind: 'teams', ids: ['com.microsoft.teams2', 'com.microsoft.teams', 'teams-for-linux', 'com.github.IsmaelMartinez.teams_for_linux', 'ms-teams.exe', 'teams.exe'] },
   Webex: { kind: 'webex', ids: ['Cisco-Systems.Spark', 'com.cisco.webexmeetingsapp'] },
+  Slack: { kind: 'slack', ids: ['com.tinyspeck.slackmacgap', 'slack', 'com.slack.Slack', 'slack.exe'] },
   Chrome: { kind: 'meet', ids: ['com.google.Chrome', 'chrome', 'google-chrome', 'chrome.exe'] },
   Arc: { kind: 'meet', ids: ['company.thebrowser.Browser', 'arc.exe'] },
   Ardia: { kind: 'meet', ids: ['com.ardia.browser'] },
@@ -60,7 +61,7 @@ const MAX_RESTARTS = 20
 const LOGGED_CHANGES = 30
 
 type Sample = Omit<CallSample, 'ms'> & { t: number }
-type Session = { app: string | null; ids: string[]; pids?: number[]; heardAt: number; quietMs: number; restarts: number; samples: Sample[]; priorLines: Set<number>; watch?: { stop(): void }; everyApp: boolean; offset?: number; startedAt: number; pictured: boolean; missPictured?: boolean; errors: Set<string>; last: string; logged: number }
+type Session = { app: string | null; ids: string[]; pids?: number[]; heardAt: number; quietMs: number; restarts: number; samples: Sample[]; priorLines: Set<number>; watch?: { stop(): void }; everyApp: boolean; offset?: number; startedAt: number; pictured: boolean; missPictured?: boolean; errors: Set<string>; last: string; logged: number; shape?: string }
 
 export function hookCallNames(p: {
   store: Pick<Store, 'meeting' | 'segments' | 'setSegmentSpeakers' | 'updateMeeting'>
@@ -120,6 +121,13 @@ export function hookCallNames(p: {
     const said = `${r.speaking.length} of ${r.participants.length}${r.me ? ', me known' : ''}`
     if (said !== s.last && s.logged < LOGGED_CHANGES) { s.logged++; log(`call names: ${kind} talking ${said}`) }
     s.last = said
+    // Slack's huddle is new: what its window shows (tiles, names read, talking marks, the view) each time that changes,
+    // so a huddle that stays Them shows why. Counts only, as above.
+    if (kind === 'slack') {
+      const shape = slackShape(l.windows)
+      if (shape !== s.shape && s.logged < LOGGED_CHANGES) { s.logged++; log(`call names: slack huddle shows ${shape}`) }
+      s.shape = shape
+    }
   }
 
   /** Starts the session's reader. With its app's process on the mic known, only that one is read: another meeting open
