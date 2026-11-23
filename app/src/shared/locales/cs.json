@@ -798,5 +798,8 @@
   "Spanish": "Španělština",
   "Spanish only": "Jen španělština",
   "Highest quality in Spanish": "Nejvyšší kvalita ve španělštině",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jen jeden jazyk je rychlejší a přesnější: nic se neodhaduje. Pro schůzky v jiných jazycích nebo s více jazyky zvolte Více jazyků."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jen jeden jazyk je rychlejší a přesnější: nic se neodhaduje. Pro schůzky v jiných jazycích nebo s více jazyky zvolte Více jazyků.",
+  "Spoken in the meeting": "Mluvený jazyk schůzky",
+  "Spoken language: {language}. Change": "Mluvený jazyk: {language}. Změnit",
+  "Transcribe this meeting again in {language}?": "Přepsat tuto schůzku znovu v jazyce {language}?"
 }

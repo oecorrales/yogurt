@@ -770,5 +770,8 @@
   "Spanish": "Ισπανικά",
   "Spanish only": "Μόνο ισπανικά",
   "Highest quality in Spanish": "Κορυφαία ποιότητα στα ισπανικά",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Μία μόνο γλώσσα είναι ταχύτερη και ακριβέστερη: τίποτα δεν μαντεύεται. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες ή που τις αναμειγνύουν."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Μία μόνο γλώσσα είναι ταχύτερη και ακριβέστερη: τίποτα δεν μαντεύεται. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες ή που τις αναμειγνύουν.",
+  "Spoken in the meeting": "Ομιλούμενη γλώσσα στη σύσκεψη",
+  "Spoken language: {language}. Change": "Ομιλούμενη γλώσσα: {language}. Αλλαγή",
+  "Transcribe this meeting again in {language}?": "Νέα απομαγνητοφώνηση αυτής της σύσκεψης σε {language};"
 }

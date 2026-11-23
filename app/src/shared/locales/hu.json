@@ -755,5 +755,8 @@
   "Spanish": "Spanyol",
   "Spanish only": "Csak spanyol",
   "Highest quality in Spanish": "Legjobb minőség spanyolul",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Egyetlen nyelv gyorsabb és pontosabb: semmit sem kell kitalálni. Más nyelvű vagy több nyelvet keverő megbeszélésekhez válaszd a Többnyelvű lehetőséget."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Egyetlen nyelv gyorsabb és pontosabb: semmit sem kell kitalálni. Más nyelvű vagy több nyelvet keverő megbeszélésekhez válaszd a Többnyelvű lehetőséget.",
+  "Spoken in the meeting": "A megbeszélés beszélt nyelve",
+  "Spoken language: {language}. Change": "Beszélt nyelv: {language}. Módosítás",
+  "Transcribe this meeting again in {language}?": "Újra átírod ezt a megbeszélést ezen a nyelven: {language}?"
 }

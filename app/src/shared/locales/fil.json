@@ -767,5 +767,8 @@
   "Spanish": "Espanyol",
   "Spanish only": "Espanyol lang",
   "Highest quality in Spanish": "Pinakamataas na kalidad sa Espanyol",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito.",
+  "Spoken in the meeting": "Wikang sinasalita sa meeting",
+  "Spoken language: {language}. Change": "Wikang sinasalita: {language}. Baguhin",
+  "Transcribe this meeting again in {language}?": "I-transcribe muli ang meeting na ito sa {language}?"
 }

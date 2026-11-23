@@ -767,5 +767,8 @@
   "Spanish": "Spanska",
   "Spanish only": "Bara spanska",
   "Highest quality in Spanish": "Högsta kvalitet på spanska",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bara ett språk är snabbare och mer exakt: inget gissas. Välj Flerspråkigt för möten på andra språk eller som blandar dem."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bara ett språk är snabbare och mer exakt: inget gissas. Välj Flerspråkigt för möten på andra språk eller som blandar dem.",
+  "Spoken in the meeting": "Talat språk i mötet",
+  "Spoken language: {language}. Change": "Talat språk: {language}. Ändra",
+  "Transcribe this meeting again in {language}?": "Transkribera det här mötet igen på {language}?"
 }

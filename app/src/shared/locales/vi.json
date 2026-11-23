@@ -725,5 +725,8 @@
   "Spanish": "Tiếng Tây Ban Nha",
   "Spanish only": "Chỉ tiếng Tây Ban Nha",
   "Highest quality in Spanish": "Chất lượng cao nhất bằng tiếng Tây Ban Nha",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Chỉ một ngôn ngữ thì nhanh và chính xác hơn: không phải đoán gì. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác hoặc trộn nhiều ngôn ngữ."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Chỉ một ngôn ngữ thì nhanh và chính xác hơn: không phải đoán gì. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác hoặc trộn nhiều ngôn ngữ.",
+  "Spoken in the meeting": "Ngôn ngữ nói trong cuộc họp",
+  "Spoken language: {language}. Change": "Ngôn ngữ nói: {language}. Thay đổi",
+  "Transcribe this meeting again in {language}?": "Chép lời lại cuộc họp này bằng {language}?"
 }

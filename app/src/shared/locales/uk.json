@@ -795,5 +795,8 @@
   "Spanish": "Іспанська",
   "Spanish only": "Лише іспанська",
   "Highest quality in Spanish": "Найвища якість іспанською",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Одна мова швидша й точніша: нічого не вгадується. Виберіть «Кілька мов» для зустрічей іншими мовами або зі змішуванням мов."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Одна мова швидша й точніша: нічого не вгадується. Виберіть «Кілька мов» для зустрічей іншими мовами або зі змішуванням мов.",
+  "Spoken in the meeting": "Мова розмови на зустрічі",
+  "Spoken language: {language}. Change": "Мова розмови: {language}. Змінити",
+  "Transcribe this meeting again in {language}?": "Транскрибувати цю зустріч знову мовою «{language}»?"
 }

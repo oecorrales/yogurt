@@ -128,6 +128,8 @@
 .recording-meeting-copy>small,.recording-timing { color:var(--muted);font-size:10px;line-height:16px;font-weight:400; }
 .recording-timing { flex:none; }
 .recording-menu-separator { height:1px;margin:4px 0;background:var(--line); }
+.recording-menu-label { padding:6px 10px 2px;font-size:11px;line-height:16px;color:var(--muted); }
+.recording-spoken-check { display:inline-flex;width:14px;flex:none; }
 
 .workspace-toolbar[data-recording-return=true] { gap:16px;padding-inline-end:17px; }
 .workspace-toolbar[data-recording-return=true][data-note=true] { padding-inline-end:62px; }

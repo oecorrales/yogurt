@@ -755,5 +755,8 @@
   "Spanish": "İspanyolca",
   "Spanish only": "Yalnızca İspanyolca",
   "Highest quality in Spanish": "İspanyolcada en yüksek kalite",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Tek bir dil daha hızlı ve daha doğrudur: hiçbir şey tahmin edilmez. Başka dillerdeki veya dilleri karıştıran toplantılar için Çok dilli seçeneğini seçin."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Tek bir dil daha hızlı ve daha doğrudur: hiçbir şey tahmin edilmez. Başka dillerdeki veya dilleri karıştıran toplantılar için Çok dilli seçeneğini seçin.",
+  "Spoken in the meeting": "Toplantıda konuşulan dil",
+  "Spoken language: {language}. Change": "Konuşulan dil: {language}. Değiştir",
+  "Transcribe this meeting again in {language}?": "Bu toplantının dökümü {language} olarak yeniden oluşturulsun mu?"
 }

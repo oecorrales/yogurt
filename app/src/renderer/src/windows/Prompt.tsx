@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { X } from '../components/Icons'
 import type { PromptView } from '../../../shared/types'
+import { SPOKEN, type Spoken } from '../../../shared/spoken'
+import { spokenChoiceName } from '../components/SpokenMenu'
 import { t } from '../../../shared/i18n'
 import { AppIcon } from '../components/Logo'
 
@@ -10,7 +12,16 @@ export function Prompt() {
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
   const [countdown, setCountdown] = useState(0)
+  // the language the meeting will be heard in, changed right here before it starts
+  const [spoken, setSpoken] = useState<Spoken>()
   useEffect(() => { void window.yogurt.prompt.state().then(setView) }, [])
+  useEffect(() => { void window.yogurt.settings.get().then(p => setSpoken(p.spoken)).catch(() => {}) }, [])
+  const nextSpoken = () => {
+    if (!spoken) return
+    const v = SPOKEN[(SPOKEN.indexOf(spoken) + 1) % SPOKEN.length]
+    setSpoken(v)
+    void window.yogurt.settings.setSpoken(v).catch(() => {})
+  }
   useEffect(() => {
     if (view?.kind !== 'start' || hovered || focused) return
     // The bar and dismissal both restart after the person finishes interacting.
@@ -31,7 +42,10 @@ export function Prompt() {
         <AppIcon className="call-prompt-icon" />
         <div className="min-w-0 flex-1">
           <p data-testid="prompt-heading" className="call-prompt-label">{start ? t('Take notes?') : t('Stop recording?')}</p>
-          <p data-testid="prompt-title" className="call-prompt-title" title={view.title || name}>{name}</p>
+          <p data-testid="prompt-title" className="call-prompt-title" title={view.title || name}>{name}
+            {start && spoken && <> · <button data-testid="prompt-spoken" className="call-prompt-spoken" onClick={nextSpoken}
+              title={t('Spoken language')} aria-label={t('Spoken language: {language}. Change', { language: spokenChoiceName(spoken) })}>{spokenChoiceName(spoken)}</button></>}
+          </p>
         </div>
       </div>
       <div className="call-prompt-actions">

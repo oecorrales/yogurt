@@ -823,5 +823,8 @@
   "Spanish": "الإسبانية",
   "Spanish only": "الإسبانية فقط",
   "Highest quality in Spanish": "أعلى جودة بالإسبانية",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "اختيار لغة واحدة فقط أسرع وأدق: لا شيء يُخمَّن. اختر «متعدد اللغات» للاجتماعات بلغات أخرى أو التي تمزج بينها."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "اختيار لغة واحدة فقط أسرع وأدق: لا شيء يُخمَّن. اختر «متعدد اللغات» للاجتماعات بلغات أخرى أو التي تمزج بينها.",
+  "Spoken in the meeting": "لغة الكلام في الاجتماع",
+  "Spoken language: {language}. Change": "لغة الكلام: {language}. تغيير",
+  "Transcribe this meeting again in {language}?": "هل تريد التفريغ النصي لهذا الاجتماع مجددًا بلغة {language}؟"
 }

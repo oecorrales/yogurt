@@ -84,3 +84,39 @@ test('the spoken language picker: English only by default, Multi-language for th
     expect(new Set(await languages(b.app))).toEqual(new Set(['auto']))
   } finally { await b.app.close() }
 })
+
+test("each meeting keeps its own language: picked before it starts, told to whisper, kept after the setting changes, and changing it later offers to transcribe it again", async () => {
+  const a = await launch()
+  const { app, page } = a
+  try {
+    // picked in the Start recording menu, before the first word
+    await page.getByTestId('recording-choices').click()
+    await expect(page.getByTestId('recording-spoken-en')).toHaveAttribute('aria-checked', 'true')
+    await page.getByTestId('recording-spoken-es').click()
+    await expect(page.getByTestId('recording-spoken-es')).toHaveAttribute('aria-checked', 'true')
+    await expect.poll(() => saved(a.userData)).toBe('es')
+    await page.keyboard.press('Escape')
+    await page.locator('#workspace-actions').getByRole('button', { name: 'Start recording', exact: true }).click()
+    await expect(page.getByTestId('note-state')).toHaveAttribute('data-state', 'recording')
+    await expect(page.getByTestId('spoken-name')).toHaveText('Spanish')
+    await expect.poll(async () => (await languages(app)).length, { timeout: 30_000 }).toBeGreaterThan(0)
+    expect(new Set(await languages(app))).toEqual(new Set(['es']))
+    const id = await page.evaluate(async () => (await window.yogurt.nav.current()).slice('/note/'.length))
+    expect((await page.evaluate(id => window.yogurt.meetings.get(id), id))?.spoken).toBe('es')
+
+    // the setting changes for the next meetings; this one stays Spanish
+    await page.evaluate(id => window.yogurt.meetings.stop(id), id)
+    await expect(page.getByTestId('note-state')).not.toHaveAttribute('data-state', 'recording')
+    await page.evaluate(() => window.yogurt.settings.setSpoken('en'))
+    await expect(page.getByTestId('spoken-name')).toHaveText('Spanish')
+    expect((await page.evaluate(id => window.yogurt.meetings.get(id), id))?.spoken).toBe('es')
+
+    // heard in the wrong language: changing it offers to transcribe the recording again in that one
+    await page.getByTestId('spoken-chip').click()
+    await page.getByTestId('spoken-multi').click()
+    await expect(page.getByTestId('spoken-name')).toHaveText('Multi-language')
+    await expect(page.getByTestId('spoken-again-toast')).toContainText('Transcribe this meeting again in Multi-language?')
+    await expect(page.getByTestId('spoken-again-run')).toHaveText('Transcribe again')
+    expect((await page.evaluate(id => window.yogurt.meetings.get(id), id))?.spoken).toBe('multi')
+  } finally { await app.close() }
+})

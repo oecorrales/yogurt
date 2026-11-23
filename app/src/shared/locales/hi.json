@@ -755,5 +755,8 @@
   "Spanish": "स्पैनिश",
   "Spanish only": "केवल स्पैनिश",
   "Highest quality in Spanish": "स्पैनिश में सर्वोच्च गुणवत्ता",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "केवल एक भाषा तेज़ और अधिक सटीक है: कुछ भी अनुमान नहीं लगाया जाता। दूसरी भाषाओं वाली या भाषाएँ मिलाने वाली मीटिंग के लिए बहुभाषी चुनें।"
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "केवल एक भाषा तेज़ और अधिक सटीक है: कुछ भी अनुमान नहीं लगाया जाता। दूसरी भाषाओं वाली या भाषाएँ मिलाने वाली मीटिंग के लिए बहुभाषी चुनें।",
+  "Spoken in the meeting": "मीटिंग में बोली जाने वाली भाषा",
+  "Spoken language: {language}. Change": "बोली जाने वाली भाषा: {language}. बदलें",
+  "Transcribe this meeting again in {language}?": "इस मीटिंग को {language} में फिर से ट्रांसक्राइब करें?"
 }

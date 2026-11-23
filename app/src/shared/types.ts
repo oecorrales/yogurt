@@ -82,6 +82,8 @@ export type YogurtApi = {
     createFolderNote(folderId: string): Promise<string>
     /** starts notes or opens the event's existing note with a guarded resume request */
     start(eventId: string | null, folderId?: string): Promise<StartResult>
+    /** this meeting's spoken language (live from the next words, and for transcribing it again); the next meetings' too */
+    setSpoken(id: string, v: import('./spoken').Spoken): Promise<boolean>
     /** opens the note for this occurrence, creating a prepared note if needed; never records */
     prepare(eventId: string, day: number): Promise<StartResult>
     /** records into an existing prepared note, keeping its title, people and typed notes */

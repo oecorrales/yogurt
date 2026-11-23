@@ -44,6 +44,7 @@ import { createMedia } from './media'
 import { createTray, linuxTrayHost } from './tray'
 import { trayWindowEnd } from './trayMenu'
 import { SetupController } from './setup'
+import { SPOKEN, type Spoken } from '../shared/spoken'
 import { fakeMeasure, measureSpeed, speedClipPath, speedStore } from './asr/speedCheck'
 import { vadModelPath, whisperServerPath } from './asr/server'
 import { openStore, type Store } from './store'
@@ -622,7 +623,7 @@ app.whenReady().then(() => {
     // whisper-server went down mid-meeting (#127): the rest is read from the saved recording once the transcript is settled
     queued: () => { void savedTranscriptions.pump() },
     // English only (the default), Spanish only or Multi-language, read on each chunk so the footer's picker counts at once
-    spoken: () => spokenSetting(loadSettings(settingsFile)),
+    spoken: (id) => (id ? store.meeting(id)?.spoken : undefined) ?? spokenSetting(loadSettings(settingsFile)),
     // Apple's on-device speech for the live words (macOS 26, Apple Silicon); fake mode has a stand-in when a test asks
     speech: {
       host: { platform: process.platform, arch: process.arch, osRelease: isFake() ? (process.env.YOGURT_FAKE_SPEECH === '1' ? '25.4.0' : '24.0.0') : os.release() }, binary: audioHelperPath(),
@@ -736,6 +737,16 @@ app.whenReady().then(() => {
   })
   setup.onState(() => {uploads.resume();savedTranscriptions.resume()})
   onMeetingStart(m => {store.clearTranscriptionState(m.id);savedTranscriptions.pause()})
+  // a new meeting is heard in the language picked for the next one; a resumed one keeps its own
+  onMeetingStart(m => { if (!store.meeting(m.id)?.spoken) store.updateMeeting(m.id, { spoken: spokenSetting(loadSettings(settingsFile)) }) })
+  ipcMain.handle('meetings:set-spoken', (e, id: unknown, v: unknown) => {
+    if (e.sender !== win?.webContents || !isId(id) || !store.meeting(id) || !SPOKEN.includes(v as Spoken)) return false
+    store.updateMeeting(id, { spoken: v as Spoken })
+    // the next meetings too, as before; whisper hears it from the next chunk on
+    preferences.setSpoken(v)
+    win?.webContents.send('meetings:changed')
+    return true
+  })
   onMeetingStopSaved(() => {uploads.resume();savedTranscriptions.resume()})
   ipcMain.handle('transcript:run', (e,id:unknown,again:unknown) => {
     if(e.sender!==win?.webContents||!isId(id)||typeof again!=='boolean')return false

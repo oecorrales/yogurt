@@ -773,5 +773,8 @@
   "Spanish": "Espanja",
   "Spanish only": "Vain espanja",
   "Highest quality in Spanish": "Paras laatu espanjaksi",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Vain yksi kieli on nopeampi ja tarkempi: mitään ei arvata. Valitse Monikielinen kokouksiin, jotka ovat muilla kielillä tai sekoittavat niitä."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Vain yksi kieli on nopeampi ja tarkempi: mitään ei arvata. Valitse Monikielinen kokouksiin, jotka ovat muilla kielillä tai sekoittavat niitä.",
+  "Spoken in the meeting": "Kokouksen puhuttu kieli",
+  "Spoken language: {language}. Change": "Puhuttu kieli: {language}. Vaihda",
+  "Transcribe this meeting again in {language}?": "Litteroidaanko tämä kokous uudelleen: {language}?"
 }

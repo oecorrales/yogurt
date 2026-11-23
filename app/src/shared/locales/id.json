@@ -725,5 +725,8 @@
   "Spanish": "Spanyol",
   "Spanish only": "Hanya Spanyol",
   "Highest quality in Spanish": "Kualitas tertinggi dalam bahasa Spanyol",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa saja lebih cepat dan akurat: tidak ada yang ditebak. Pilih Multibahasa untuk rapat dalam bahasa lain, atau yang mencampurnya."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa saja lebih cepat dan akurat: tidak ada yang ditebak. Pilih Multibahasa untuk rapat dalam bahasa lain, atau yang mencampurnya.",
+  "Spoken in the meeting": "Bahasa lisan dalam rapat",
+  "Spoken language: {language}. Change": "Bahasa lisan: {language}. Ubah",
+  "Transcribe this meeting again in {language}?": "Transkripsikan lagi rapat ini dalam {language}?"
 }

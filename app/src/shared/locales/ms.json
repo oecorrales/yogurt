@@ -725,5 +725,8 @@
   "Spanish": "Sepanyol",
   "Spanish only": "Sepanyol sahaja",
   "Highest quality in Spanish": "Kualiti tertinggi dalam bahasa Sepanyol",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa sahaja lebih pantas dan tepat: tiada apa yang diteka. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain, atau yang mencampurkannya."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa sahaja lebih pantas dan tepat: tiada apa yang diteka. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain, atau yang mencampurkannya.",
+  "Spoken in the meeting": "Bahasa pertuturan dalam mesyuarat",
+  "Spoken language: {language}. Change": "Bahasa pertuturan: {language}. Tukar",
+  "Transcribe this meeting again in {language}?": "Transkripsi semula mesyuarat ini dalam {language}?"
 }

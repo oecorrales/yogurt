@@ -777,5 +777,8 @@
   "Spanish": "ספרדית",
   "Spanish only": "ספרדית בלבד",
   "Highest quality in Spanish": "האיכות הגבוהה ביותר בספרדית",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן.",
+  "Spoken in the meeting": "שפת הדיבור בפגישה",
+  "Spoken language: {language}. Change": "שפת הדיבור: {language}. שינוי",
+  "Transcribe this meeting again in {language}?": "לתמלל מחדש את הפגישה הזו ב{language}?"
 }

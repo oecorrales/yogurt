@@ -725,5 +725,8 @@
   "Spanish": "西班牙文",
   "Spanish only": "僅西班牙文",
   "Highest quality in Spanish": "西班牙文最高品質",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "只選一種語言更快、更準確：不必猜測。若會議使用其他語言或混用多種語言，請選擇「多語言」。"
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "只選一種語言更快、更準確：不必猜測。若會議使用其他語言或混用多種語言，請選擇「多語言」。",
+  "Spoken in the meeting": "會議中說的語言",
+  "Spoken language: {language}. Change": "會議語言：{language}。變更",
+  "Transcribe this meeting again in {language}?": "要用{language}重新轉錄這場會議嗎？"
 }

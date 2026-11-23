@@ -784,5 +784,8 @@
   "Spanish": "Spaniolă",
   "Spanish only": "Doar spaniolă",
   "Highest quality in Spanish": "Calitate maximă în spaniolă",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "O singură limbă este mai rapidă și mai precisă: nu se ghicește nimic. Alegeți Multilingv pentru întâlniri în alte limbi sau care le amestecă."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "O singură limbă este mai rapidă și mai precisă: nu se ghicește nimic. Alegeți Multilingv pentru întâlniri în alte limbi sau care le amestecă.",
+  "Spoken in the meeting": "Limba vorbită în întâlnire",
+  "Spoken language: {language}. Change": "Limba vorbită: {language}. Schimbați",
+  "Transcribe this meeting again in {language}?": "Transcrieți din nou această întâlnire în {language}?"
 }
