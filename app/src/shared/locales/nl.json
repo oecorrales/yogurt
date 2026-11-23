@@ -791,5 +791,12 @@
   "Spanish": "Spaans",
   "Spanish only": "Alleen Spaans",
   "Highest quality in Spanish": "Hoogste kwaliteit in het Spaans",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Eén taal is sneller en nauwkeuriger: er wordt niets geraden. Kies Meertalig voor vergaderingen in andere talen, of waarin talen door elkaar lopen."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Eén taal is sneller en nauwkeuriger: er wordt niets geraden. Kies Meertalig voor vergaderingen in andere talen, of waarin talen door elkaar lopen.",
+  "Download recording": "Opname downloaden",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Opname bewaard. Iedereens stem staat erop, dus deel hem met zorg.",
+  "Save separate tracks": "Sporen apart bewaren",
+  "The recording can be downloaded once the meeting ends.": "De opname kan worden gedownload zodra de vergadering is afgelopen.",
+  "This meeting has no recording to download.": "Deze vergadering heeft geen opname om te downloaden.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporen bewaard. Iedereens stem staat erop, dus deel ze met zorg.",
+  "Yogurt couldn't save the recording.": "Yogurt kon de opname niet bewaren."
 }

@@ -797,5 +797,12 @@
   "Spanish": "Espanja",
   "Spanish only": "Vain espanja",
   "Highest quality in Spanish": "Paras laatu espanjaksi",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Vain yksi kieli on nopeampi ja tarkempi: mitään ei arvata. Valitse Monikielinen kokouksiin, jotka ovat muilla kielillä tai sekoittavat niitä."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Vain yksi kieli on nopeampi ja tarkempi: mitään ei arvata. Valitse Monikielinen kokouksiin, jotka ovat muilla kielillä tai sekoittavat niitä.",
+  "Download recording": "Lataa tallenne",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Tallenne tallennettu. Siinä kuuluvat kaikkien äänet, joten jaa sitä harkiten.",
+  "Save separate tracks": "Tallenna raidat erikseen",
+  "The recording can be downloaded once the meeting ends.": "Tallenteen voi ladata, kun kokous on päättynyt.",
+  "This meeting has no recording to download.": "Tällä kokouksella ei ole ladattavaa tallennetta.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Raidat tallennettu. Niissä kuuluvat kaikkien äänet, joten jaa niitä harkiten.",
+  "Yogurt couldn't save the recording.": "Yogurt ei voinut tallentaa tallennetta."
 }

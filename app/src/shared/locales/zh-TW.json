@@ -749,5 +749,12 @@
   "Spanish": "西班牙文",
   "Spanish only": "僅西班牙文",
   "Highest quality in Spanish": "西班牙文最高品質",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "只選一種語言更快、更準確：不必猜測。若會議使用其他語言或混用多種語言，請選擇「多語言」。"
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "只選一種語言更快、更準確：不必猜測。若會議使用其他語言或混用多種語言，請選擇「多語言」。",
+  "Download recording": "下載錄音",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "錄音已儲存。裡面有所有人的聲音，分享時請多加留意。",
+  "Save separate tracks": "分別儲存音軌",
+  "The recording can be downloaded once the meeting ends.": "會議結束後即可下載錄音。",
+  "This meeting has no recording to download.": "這場會議沒有可下載的錄音。",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "音軌已儲存。裡面有所有人的聲音，分享時請多加留意。",
+  "Yogurt couldn't save the recording.": "Yogurt 無法儲存錄音。"
 }

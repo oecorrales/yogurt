@@ -749,5 +749,12 @@
   "Spanish": "Tiếng Tây Ban Nha",
   "Spanish only": "Chỉ tiếng Tây Ban Nha",
   "Highest quality in Spanish": "Chất lượng cao nhất bằng tiếng Tây Ban Nha",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Chỉ một ngôn ngữ thì nhanh và chính xác hơn: không phải đoán gì. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác hoặc trộn nhiều ngôn ngữ."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Chỉ một ngôn ngữ thì nhanh và chính xác hơn: không phải đoán gì. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác hoặc trộn nhiều ngôn ngữ.",
+  "Download recording": "Tải bản ghi xuống",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Đã lưu bản ghi. Trong đó có giọng nói của mọi người, nên hãy chia sẻ cẩn thận.",
+  "Save separate tracks": "Lưu các track riêng",
+  "The recording can be downloaded once the meeting ends.": "Bạn có thể tải bản ghi xuống sau khi cuộc họp kết thúc.",
+  "This meeting has no recording to download.": "Cuộc họp này không có bản ghi để tải xuống.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Đã lưu các track. Trong đó có giọng nói của mọi người, nên hãy chia sẻ cẩn thận.",
+  "Yogurt couldn't save the recording.": "Yogurt không lưu được bản ghi."
 }

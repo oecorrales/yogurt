@@ -779,5 +779,12 @@
   "Spanish": "স্প্যানিশ",
   "Spanish only": "শুধু স্প্যানিশ",
   "Highest quality in Spanish": "স্প্যানিশে সর্বোচ্চ মান",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "একটি মাত্র ভাষা দ্রুততর ও আরও নির্ভুল: কিছুই অনুমান করা হয় না। অন্য ভাষার বা একাধিক ভাষা মেশানো মিটিংয়ের জন্য বহু ভাষা বেছে নিন।"
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "একটি মাত্র ভাষা দ্রুততর ও আরও নির্ভুল: কিছুই অনুমান করা হয় না। অন্য ভাষার বা একাধিক ভাষা মেশানো মিটিংয়ের জন্য বহু ভাষা বেছে নিন।",
+  "Download recording": "রেকর্ডিং ডাউনলোড করুন",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "রেকর্ডিং সেভ হয়েছে। এতে সবার কণ্ঠ আছে, তাই সাবধানে শেয়ার করুন।",
+  "Save separate tracks": "আলাদা ট্র্যাক সেভ করুন",
+  "The recording can be downloaded once the meeting ends.": "মিটিং শেষ হলে রেকর্ডিং ডাউনলোড করা যাবে।",
+  "This meeting has no recording to download.": "এই মিটিংয়ের ডাউনলোড করার মতো কোনো রেকর্ডিং নেই।",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "ট্র্যাক সেভ হয়েছে। এগুলোতে সবার কণ্ঠ আছে, তাই সাবধানে শেয়ার করুন।",
+  "Yogurt couldn't save the recording.": "Yogurt রেকর্ডিং সেভ করতে পারেনি।"
 }

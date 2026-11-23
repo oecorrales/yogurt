@@ -779,5 +779,12 @@
   "Spanish": "İspanyolca",
   "Spanish only": "Yalnızca İspanyolca",
   "Highest quality in Spanish": "İspanyolcada en yüksek kalite",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Tek bir dil daha hızlı ve daha doğrudur: hiçbir şey tahmin edilmez. Başka dillerdeki veya dilleri karıştıran toplantılar için Çok dilli seçeneğini seçin."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Tek bir dil daha hızlı ve daha doğrudur: hiçbir şey tahmin edilmez. Başka dillerdeki veya dilleri karıştıran toplantılar için Çok dilli seçeneğini seçin.",
+  "Download recording": "Kaydı indir",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Kayıt kaydedildi. İçinde herkesin sesi var, bu yüzden paylaşırken özen gösterin.",
+  "Save separate tracks": "Kanalları ayrı kaydet",
+  "The recording can be downloaded once the meeting ends.": "Kayıt, toplantı bittikten sonra indirilebilir.",
+  "This meeting has no recording to download.": "Bu toplantının indirilecek bir kaydı yok.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Kanallar kaydedildi. İçlerinde herkesin sesi var, bu yüzden paylaşırken özen gösterin.",
+  "Yogurt couldn't save the recording.": "Yogurt kaydı kaydedemedi."
 }

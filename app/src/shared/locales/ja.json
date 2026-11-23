@@ -749,5 +749,12 @@
   "Spanish": "スペイン語",
   "Spanish only": "スペイン語のみ",
   "Highest quality in Spanish": "スペイン語で最高品質",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "1つの言語だけにすると、より速く正確になります（推測は行いません）。ほかの言語や複数の言語が混ざる会議では「多言語」を選んでください。"
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "1つの言語だけにすると、より速く正確になります（推測は行いません）。ほかの言語や複数の言語が混ざる会議では「多言語」を選んでください。",
+  "Download recording": "録音をダウンロード",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "録音を保存しました。全員の声が入っているので、共有するときは気をつけてください。",
+  "Save separate tracks": "トラックを個別に保存",
+  "The recording can be downloaded once the meeting ends.": "会議が終わると録音をダウンロードできます。",
+  "This meeting has no recording to download.": "この会議にはダウンロードできる録音がありません。",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "トラックを保存しました。全員の声が入っているので、共有するときは気をつけてください。",
+  "Yogurt couldn't save the recording.": "Yogurtは録音を保存できませんでした。"
 }

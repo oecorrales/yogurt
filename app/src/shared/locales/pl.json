@@ -827,5 +827,12 @@
   "Spanish": "Hiszpański",
   "Spanish only": "Tylko hiszpański",
   "Highest quality in Spanish": "Najwyższa jakość po hiszpańsku",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jeden język jest szybszy i dokładniejszy: nic nie jest zgadywane. Wybierz Wiele języków dla spotkań w innych językach lub łączących kilka języków."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jeden język jest szybszy i dokładniejszy: nic nie jest zgadywane. Wybierz Wiele języków dla spotkań w innych językach lub łączących kilka języków.",
+  "Download recording": "Pobierz nagranie",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Nagranie zapisane. Słychać na nim głosy wszystkich, więc udostępniaj je z rozwagą.",
+  "Save separate tracks": "Zapisz osobne ścieżki",
+  "The recording can be downloaded once the meeting ends.": "Nagranie będzie można pobrać po zakończeniu spotkania.",
+  "This meeting has no recording to download.": "To spotkanie nie ma nagrania do pobrania.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Ścieżki zapisane. Słychać na nich głosy wszystkich, więc udostępniaj je z rozwagą.",
+  "Yogurt couldn't save the recording.": "Yogurt nie mógł zapisać nagrania."
 }

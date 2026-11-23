@@ -791,5 +791,12 @@
   "Spanish": "Spanska",
   "Spanish only": "Bara spanska",
   "Highest quality in Spanish": "Högsta kvalitet på spanska",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bara ett språk är snabbare och mer exakt: inget gissas. Välj Flerspråkigt för möten på andra språk eller som blandar dem."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bara ett språk är snabbare och mer exakt: inget gissas. Välj Flerspråkigt för möten på andra språk eller som blandar dem.",
+  "Download recording": "Ladda ner inspelningen",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Inspelningen har sparats. Den innehåller allas röster, så dela den varsamt.",
+  "Save separate tracks": "Spara separata spår",
+  "The recording can be downloaded once the meeting ends.": "Inspelningen kan laddas ner när mötet är slut.",
+  "This meeting has no recording to download.": "Det här mötet har ingen inspelning att ladda ner.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Spåren har sparats. De innehåller allas röster, så dela dem varsamt.",
+  "Yogurt couldn't save the recording.": "Yogurt kunde inte spara inspelningen."
 }

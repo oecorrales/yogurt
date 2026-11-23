@@ -791,5 +791,12 @@
   "Spanish": "Espanyol",
   "Spanish only": "Espanyol lang",
   "Highest quality in Spanish": "Pinakamataas na kalidad sa Espanyol",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito.",
+  "Download recording": "I-download ang recording",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Na-save ang recording. Nandito ang boses ng lahat, kaya ibahagi ito nang may pag-iingat.",
+  "Save separate tracks": "I-save ang magkahiwalay na track",
+  "The recording can be downloaded once the meeting ends.": "Puwedeng i-download ang recording kapag tapos na ang pulong.",
+  "This meeting has no recording to download.": "Walang recording na mada-download ang pulong na ito.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Na-save ang mga track. Nandito ang boses ng lahat, kaya ibahagi ang mga ito nang may pag-iingat.",
+  "Yogurt couldn't save the recording.": "Hindi ma-save ng Yogurt ang recording."
 }

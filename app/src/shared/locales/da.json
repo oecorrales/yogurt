@@ -791,5 +791,12 @@
   "Spanish": "Spansk",
   "Spanish only": "Kun spansk",
   "Highest quality in Spanish": "Højeste kvalitet på spansk",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Kun ét sprog er hurtigere og mere præcist: intet gættes. Vælg Flersproget til møder på andre sprog, eller som blander dem."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Kun ét sprog er hurtigere og mere præcist: intet gættes. Vælg Flersproget til møder på andre sprog, eller som blander dem.",
+  "Download recording": "Hent optagelsen",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Optagelsen er gemt. Den indeholder alles stemmer, så del den med omtanke.",
+  "Save separate tracks": "Gem separate spor",
+  "The recording can be downloaded once the meeting ends.": "Optagelsen kan hentes, når mødet er slut.",
+  "This meeting has no recording to download.": "Dette møde har ingen optagelse at hente.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporene er gemt. De indeholder alles stemmer, så del dem med omtanke.",
+  "Yogurt couldn't save the recording.": "Yogurt kunne ikke gemme optagelsen."
 }

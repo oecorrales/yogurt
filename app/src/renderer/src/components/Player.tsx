@@ -2,13 +2,26 @@ import { useEffect, useImperativeHandle, useRef, useState, type Ref } from 'reac
 import { Menu } from '@base-ui/react/menu'
 import { Modal, ModalClose } from './Modal'
 import { InlineError } from './InlineError'
-import { Ellipsis, Pause, Play, Trash2 } from './Icons'
+import { Download, Ellipsis, Pause, Play, Trash2 } from './Icons'
 import { language, t } from '../../../shared/i18n'
 import { clock } from '../../../shared/transcript'
 import { Swap } from './Swap'
-import { recordingDeletedToast } from './TrashToast'
+import { recordingDeletedToast, toasts } from './TrashToast'
+import { osWords } from '../keys'
 
 type Track = 'me' | 'them'
+
+/** Saves the recording (one mixed file, or the two tracks) and says how it went; the save dialog is main's */
+async function downloadRecording(id: string, kind: 'mixed' | 'tracks') {
+  const r = await window.yogurt.audio.download(id, kind).catch(() => 'failed' as const)
+  if (r === 'cancelled') return
+  const tid = toasts.add({ id: 'recording-download', timeout: r === 'saved' ? 10_000 : 8000, data: { testId: 'recording-download-toast' },
+    title: r === 'saved' ? (kind === 'tracks' ? t("Tracks saved. They have everyone's voices in them, so share them with care.") : t("Recording saved. It has everyone's voices in it, so share it with care."))
+      : r === 'recording' ? t('The recording can be downloaded once the meeting ends.')
+      : r === 'missing' ? t('This meeting has no recording to download.') : t("Yogurt couldn't save the recording."),
+    ...(r === 'saved' ? { actionProps: { children: osWords({ mac: t('Show in Finder'), windows: t('Show in File Explorer'), linux: t('Show in Files') }), onClick: () => { window.yogurt.audio.showDownload(); toasts.close(tid) } } } : {}),
+  })
+}
 export type PlayerHandle = { playFrom: (ms: number) => void }
 const RATES = [1, 1.5, 2]
 /** a track further than this from the other is put back in step */
@@ -128,6 +141,12 @@ function MeetingPlayer({ id, tracks, openTranscript, ref, onTime, onPlaying, onB
       <Menu.Portal>
         <Menu.Positioner side="top" align="end" sideOffset={6} className="ask-menu-positioner">
           <Menu.Popup className="menu-entry ask-actions-menu player-audio-menu" aria-label={t('More')} finalFocus={confirm ? false : menuButton} onKeyDown={e => { if (e.key === 'Escape') e.stopPropagation() }}>
+            <Menu.Item data-testid="recording-download" onClick={() => { pause(); void downloadRecording(id, 'mixed') }}>
+              <Download size={14} aria-hidden="true" />{t('Download recording')}
+            </Menu.Item>
+            <Menu.Item data-testid="recording-download-tracks" onClick={() => { pause(); void downloadRecording(id, 'tracks') }}>
+              <Download size={14} aria-hidden="true" />{t('Save separate tracks')}
+            </Menu.Item>
             <Menu.Item data-testid="recording-delete" className="text-danger" onClick={() => { pause(); menuButton.current?.focus(); setConfirm(true) }}>
               <Trash2 size={14} aria-hidden="true" />{t('Delete audio')}
             </Menu.Item>

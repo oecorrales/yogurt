@@ -822,5 +822,12 @@
   "Spanish": "Španělština",
   "Spanish only": "Jen španělština",
   "Highest quality in Spanish": "Nejvyšší kvalita ve španělštině",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jen jeden jazyk je rychlejší a přesnější: nic se neodhaduje. Pro schůzky v jiných jazycích nebo s více jazyky zvolte Více jazyků."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jen jeden jazyk je rychlejší a přesnější: nic se neodhaduje. Pro schůzky v jiných jazycích nebo s více jazyky zvolte Více jazyků.",
+  "Download recording": "Stáhnout nahrávku",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Nahrávka uložena. Jsou v ní hlasy všech, tak ji sdílejte s rozmyslem.",
+  "Save separate tracks": "Uložit samostatné stopy",
+  "The recording can be downloaded once the meeting ends.": "Nahrávku bude možné stáhnout po skončení schůzky.",
+  "This meeting has no recording to download.": "Tato schůzka nemá žádnou nahrávku ke stažení.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Stopy uloženy. Jsou v nich hlasy všech, tak je sdílejte s rozmyslem.",
+  "Yogurt couldn't save the recording.": "Yogurt nemohl uložit nahrávku."
 }

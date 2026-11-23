@@ -801,5 +801,12 @@
   "Spanish": "ספרדית",
   "Spanish only": "ספרדית בלבד",
   "Highest quality in Spanish": "האיכות הגבוהה ביותר בספרדית",
-  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן."
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן.",
+  "Download recording": "הורדת ההקלטה",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "ההקלטה נשמרה. יש בה את הקולות של כולם, אז כדאי לשתף אותה בזהירות.",
+  "Save separate tracks": "שמירת ערוצים נפרדים",
+  "The recording can be downloaded once the meeting ends.": "אפשר יהיה להוריד את ההקלטה כשהפגישה תסתיים.",
+  "This meeting has no recording to download.": "לפגישה הזו אין הקלטה להורדה.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "הערוצים נשמרו. יש בהם את הקולות של כולם, אז כדאי לשתף אותם בזהירות.",
+  "Yogurt couldn't save the recording.": "Yogurt לא הצליח לשמור את ההקלטה."
 }
