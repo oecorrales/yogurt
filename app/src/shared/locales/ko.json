@@ -756,5 +756,8 @@
   "The recording can be downloaded once the meeting ends.": "회의가 끝나면 녹음을 다운로드할 수 있어요.",
   "This meeting has no recording to download.": "이 회의에는 다운로드할 녹음이 없어요.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "트랙을 저장했어요. 모두의 목소리가 담겨 있으니 공유할 때 주의해 주세요.",
-  "Yogurt couldn't save the recording.": "Yogurt가 녹음을 저장하지 못했어요."
+  "Yogurt couldn't save the recording.": "Yogurt가 녹음을 저장하지 못했어요.",
+  "Spoken in the meeting": "회의에서 말하는 언어",
+  "Spoken language: {language}. Change": "말하는 언어: {language}. 변경",
+  "Transcribe this meeting again in {language}?": "이 회의를 {language}(으)로 다시 전사할까요?"
 }

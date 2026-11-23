@@ -798,5 +798,8 @@
   "The recording can be downloaded once the meeting ends.": "Inspelningen kan laddas ner när mötet är slut.",
   "This meeting has no recording to download.": "Det här mötet har ingen inspelning att ladda ner.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Spåren har sparats. De innehåller allas röster, så dela dem varsamt.",
-  "Yogurt couldn't save the recording.": "Yogurt kunde inte spara inspelningen."
+  "Yogurt couldn't save the recording.": "Yogurt kunde inte spara inspelningen.",
+  "Spoken in the meeting": "Talat språk i mötet",
+  "Spoken language: {language}. Change": "Talat språk: {language}. Ändra",
+  "Transcribe this meeting again in {language}?": "Transkribera det här mötet igen på {language}?"
 }

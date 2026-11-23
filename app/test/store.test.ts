@@ -272,6 +272,18 @@ it("knows the last meeting's language, for Apple's speech to start listening in"
   expect(s.lastLanguage()).toBe('german')
 })
 
+it('keeps the language each meeting is spoken in; a meeting from before has none and follows the setting', () => {
+  const s = openStore(':memory:')
+  const a = s.createMeeting({ title: 'a', startedAt: 1000, endedAt: null, eventId: null, app: null, attendees: [], state: 'recording' })
+  expect(s.meeting(a.id)?.spoken).toBeUndefined()
+  s.updateMeeting(a.id, { spoken: 'es' })
+  expect(s.meeting(a.id)?.spoken).toBe('es')
+  s.updateMeeting(a.id, { spoken: 'multi' })
+  expect(s.meeting(a.id)?.spoken).toBe('multi')
+  s.updateMeeting(a.id, { title: 'renamed' })
+  expect(s.meeting(a.id)?.spoken).toBe('multi')
+})
+
 describe('round 2: hidden lines', () => {
   it('a hidden line is kept but left out of the transcript, the preview and search until it is shown again', () => {
     const s = openStore(':memory:')

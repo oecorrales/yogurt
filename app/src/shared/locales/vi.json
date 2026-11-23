@@ -756,5 +756,8 @@
   "The recording can be downloaded once the meeting ends.": "Bạn có thể tải bản ghi xuống sau khi cuộc họp kết thúc.",
   "This meeting has no recording to download.": "Cuộc họp này không có bản ghi để tải xuống.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Đã lưu các track. Trong đó có giọng nói của mọi người, nên hãy chia sẻ cẩn thận.",
-  "Yogurt couldn't save the recording.": "Yogurt không lưu được bản ghi."
+  "Yogurt couldn't save the recording.": "Yogurt không lưu được bản ghi.",
+  "Spoken in the meeting": "Ngôn ngữ nói trong cuộc họp",
+  "Spoken language: {language}. Change": "Ngôn ngữ nói: {language}. Thay đổi",
+  "Transcribe this meeting again in {language}?": "Chép lời lại cuộc họp này bằng {language}?"
 }

@@ -815,5 +815,8 @@
   "The recording can be downloaded once the meeting ends.": "Înregistrarea poate fi descărcată după ce se termină întâlnirea.",
   "This meeting has no recording to download.": "Această întâlnire nu are nicio înregistrare de descărcat.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Piste salvate. Conțin vocile tuturor, așa că distribuiți-le cu grijă.",
-  "Yogurt couldn't save the recording.": "Yogurt nu a putut salva înregistrarea."
+  "Yogurt couldn't save the recording.": "Yogurt nu a putut salva înregistrarea.",
+  "Spoken in the meeting": "Limba vorbită în întâlnire",
+  "Spoken language: {language}. Change": "Limba vorbită: {language}. Schimbați",
+  "Transcribe this meeting again in {language}?": "Transcrieți din nou această întâlnire în {language}?"
 }

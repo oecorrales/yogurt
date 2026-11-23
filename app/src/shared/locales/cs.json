@@ -829,5 +829,8 @@
   "The recording can be downloaded once the meeting ends.": "Nahrávku bude možné stáhnout po skončení schůzky.",
   "This meeting has no recording to download.": "Tato schůzka nemá žádnou nahrávku ke stažení.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Stopy uloženy. Jsou v nich hlasy všech, tak je sdílejte s rozmyslem.",
-  "Yogurt couldn't save the recording.": "Yogurt nemohl uložit nahrávku."
+  "Yogurt couldn't save the recording.": "Yogurt nemohl uložit nahrávku.",
+  "Spoken in the meeting": "Mluvený jazyk schůzky",
+  "Spoken language: {language}. Change": "Mluvený jazyk: {language}. Změnit",
+  "Transcribe this meeting again in {language}?": "Přepsat tuto schůzku znovu v jazyce {language}?"
 }

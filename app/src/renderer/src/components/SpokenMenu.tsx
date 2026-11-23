@@ -6,13 +6,17 @@ import { t } from '../../../shared/i18n'
 
 /** the names shown on the chip and in Settings */
 export const spokenName = (s: Spoken): string => (s === 'en' ? t('English') : s === 'es' ? t('Spanish') : t('Multi-language'))
+/** the names of the choices, as in the menu and Settings */
+export const spokenChoiceName = (s: Spoken): string => (s === 'en' ? t('English only') : s === 'es' ? t('Spanish only') : t('Multi-language'))
 
 /**
  * The spoken language under the note's bar, beside the mic, as a menu: English only or Spanish only (faster, nothing
- * guessed) or Multi-language. Choosing counts for the recording going on from its next words, and is remembered for the next ones.
+ * guessed) or Multi-language. In a note it is that meeting's own language: choosing counts for the recording going on from
+ * its next words and for transcribing it again, and is remembered for the next meetings.
  */
-export function SpokenMenu() {
-  const [spoken, setSpoken] = useState<Spoken>()
+export function SpokenMenu({ meetingId, value, onPicked }: { meetingId?: string; /** the meeting's own, when it has one */ value?: Spoken; onPicked?: (v: Spoken) => void } = {}) {
+  const [picked, setSpoken] = useState<Spoken>()
+  const spoken = value ?? picked
   const [open, setOpen] = useState<false | 'pointer' | 'keyboard'>(false)
   const presence = usePopoverPresence(open)
   const root = useRef<HTMLDivElement>(null)
@@ -41,7 +45,9 @@ export function SpokenMenu() {
   const choose = (v: Spoken) => {
     setOpen(false); button.current?.focus()
     setSpoken(v)
-    void window.yogurt.settings.setSpoken(v).catch(() => {})
+    if (meetingId) void window.yogurt.meetings.setSpoken(meetingId, v).catch(() => {})
+    else void window.yogurt.settings.setSpoken(v).catch(() => {})
+    if (v !== spoken) onPicked?.(v)
   }
   const onKey = (e: KeyboardEvent) => {
     const list = Array.from(root.current?.querySelectorAll<HTMLButtonElement>('[role="menuitemradio"]') ?? [])

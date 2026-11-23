@@ -801,5 +801,8 @@
   "The recording can be downloaded once the meeting ends.": "Η ηχογράφηση μπορεί να ληφθεί μόλις τελειώσει η συνάντηση.",
   "This meeting has no recording to download.": "Αυτή η συνάντηση δεν έχει ηχογράφηση για λήψη.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Τα κομμάτια αποθηκεύτηκαν. Περιέχουν τις φωνές όλων, οπότε μοιραστείτε τα με προσοχή.",
-  "Yogurt couldn't save the recording.": "Το Yogurt δεν μπόρεσε να αποθηκεύσει την ηχογράφηση."
+  "Yogurt couldn't save the recording.": "Το Yogurt δεν μπόρεσε να αποθηκεύσει την ηχογράφηση.",
+  "Spoken in the meeting": "Ομιλούμενη γλώσσα στη σύσκεψη",
+  "Spoken language: {language}. Change": "Ομιλούμενη γλώσσα: {language}. Αλλαγή",
+  "Transcribe this meeting again in {language}?": "Νέα απομαγνητοφώνηση αυτής της σύσκεψης σε {language};"
 }

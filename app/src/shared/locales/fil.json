@@ -798,5 +798,8 @@
   "The recording can be downloaded once the meeting ends.": "Puwedeng i-download ang recording kapag tapos na ang pulong.",
   "This meeting has no recording to download.": "Walang recording na mada-download ang pulong na ito.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Na-save ang mga track. Nandito ang boses ng lahat, kaya ibahagi ang mga ito nang may pag-iingat.",
-  "Yogurt couldn't save the recording.": "Hindi ma-save ng Yogurt ang recording."
+  "Yogurt couldn't save the recording.": "Hindi ma-save ng Yogurt ang recording.",
+  "Spoken in the meeting": "Wikang sinasalita sa meeting",
+  "Spoken language: {language}. Change": "Wikang sinasalita: {language}. Baguhin",
+  "Transcribe this meeting again in {language}?": "I-transcribe muli ang meeting na ito sa {language}?"
 }

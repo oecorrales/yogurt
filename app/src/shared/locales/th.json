@@ -756,5 +756,8 @@
   "The recording can be downloaded once the meeting ends.": "ดาวน์โหลดเสียงบันทึกได้เมื่อการประชุมจบแล้ว",
   "This meeting has no recording to download.": "การประชุมนี้ไม่มีเสียงบันทึกให้ดาวน์โหลด",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "บันทึกแทร็กแล้ว ในนี้มีเสียงของทุกคน จึงควรแชร์อย่างระมัดระวัง",
-  "Yogurt couldn't save the recording.": "Yogurt บันทึกเสียงบันทึกไม่ได้"
+  "Yogurt couldn't save the recording.": "Yogurt บันทึกเสียงบันทึกไม่ได้",
+  "Spoken in the meeting": "ภาษาที่พูดในการประชุม",
+  "Spoken language: {language}. Change": "ภาษาที่พูด: {language} เปลี่ยน",
+  "Transcribe this meeting again in {language}?": "ถอดเสียงการประชุมนี้อีกครั้งเป็น{language}ไหม"
 }

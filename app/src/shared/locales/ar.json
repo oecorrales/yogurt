@@ -854,5 +854,8 @@
   "The recording can be downloaded once the meeting ends.": "يمكن تنزيل التسجيل بعد انتهاء الاجتماع.",
   "This meeting has no recording to download.": "لا يوجد تسجيل لهذا الاجتماع لتنزيله.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "تم حفظ المسارات. فيها أصوات الجميع، لذا شاركها بعناية.",
-  "Yogurt couldn't save the recording.": "تعذّر على Yogurt حفظ التسجيل."
+  "Yogurt couldn't save the recording.": "تعذّر على Yogurt حفظ التسجيل.",
+  "Spoken in the meeting": "لغة الكلام في الاجتماع",
+  "Spoken language: {language}. Change": "لغة الكلام: {language}. تغيير",
+  "Transcribe this meeting again in {language}?": "هل تريد التفريغ النصي لهذا الاجتماع مجددًا بلغة {language}؟"
 }

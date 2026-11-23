@@ -35,7 +35,7 @@ import { NoteAutosave, registerAutosave } from '../noteAutosave'
 import { People } from '../components/People'
 import { NoteDate } from '../components/NoteDate'
 import { MicMenu } from '../components/MicMenu'
-import { SpokenMenu } from '../components/SpokenMenu'
+import { SpokenMenu, spokenName } from '../components/SpokenMenu'
 import { RecordingHint } from '../components/RecordingHint'
 import { FolderChip, FolderPicker, type FolderSuggestion } from '../components/FolderPicker'
 import { FolderName } from '../components/FolderDialogs'
@@ -498,7 +498,14 @@ export function Note({ id, onTitleChange, at, folderSuggestion, onSource, onResu
           {recording && hint && <RecordingHint hint={hint} />}
           <div className="note-footer-bar">
           <div className="note-status pointer-events-auto flex flex-wrap items-center gap-1.5 text-[11px] text-muted">
-            {(recording || m.state === 'prepared') && <><MicMenu recording={recording} paused={recording && m.paused} /><SpokenMenu /><span aria-hidden="true">·</span></>}
+            {(recording || m.state === 'prepared') && <><MicMenu recording={recording} paused={recording && m.paused} /><SpokenMenu meetingId={id} value={m.spoken} /><span aria-hidden="true">·</span></>}
+            {!recording && m.state !== 'prepared' && hasAudio && <><SpokenMenu meetingId={id} value={m.spoken} onPicked={v => {
+              // a finished meeting heard in the wrong language: its recording can be transcribed again in this one
+              if (transcriptReason) return
+              const tid = toasts.add({ id: 'spoken-again', timeout: 12_000, data: { testId: 'spoken-again-toast', actionTestId: 'spoken-again-run' },
+                title: t('Transcribe this meeting again in {language}?', { language: spokenName(v) }),
+                actionProps: { children: t('Transcribe again'), onClick: () => { toasts.close(tid); void runTranscript(true) } } })
+            }} /><span aria-hidden="true">·</span></>}
             {saveStatus !== 'failed' && <>
               <p data-testid="note-save-status" data-state={saveStatus} role="status" className="flex items-center gap-1.5">
                 <Lock size={10} aria-hidden="true" />

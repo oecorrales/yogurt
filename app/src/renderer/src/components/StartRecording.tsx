@@ -2,7 +2,9 @@ import { openAudioUpload } from './AudioUpload'
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Menu } from '@base-ui/react/menu'
-import { ChevronDown, Upload, Mic } from './Icons'
+import { Check, ChevronDown, Upload, Mic } from './Icons'
+import { SPOKEN, type Spoken } from '../../../shared/spoken'
+import { spokenChoiceName } from './SpokenMenu'
 import { toasts } from './TrashToast'
 import { t } from '../../../shared/i18n'
 import { resumesNote } from '../../../shared/agendaNote'
@@ -71,6 +73,9 @@ export function StartRecording({ folderId, onUploaded, onGone, emptyActions, com
   }
   const choices = recordingChoices(events, now)
   useEffect(() => { if (recording !== false) setOpen(false) }, [recording])
+  // the language the next meeting is heard in, picked before it starts (the note's footer changes it once it runs)
+  const [spoken, setSpoken] = useState<Spoken>()
+  useEffect(() => { if (open) void window.yogurt.settings.get().then(p => setSpoken(p.spoken)).catch(() => {}) }, [open])
   if (recording !== false || !actions) return null
   const live = choices.filter(event => eventPhase(event, now) === 'live')
   const title = live[0]?.title || t('Meeting')
@@ -103,6 +108,18 @@ export function StartRecording({ folderId, onUploaded, onGone, emptyActions, com
           {choices.length > 0 && <Menu.Separator className="recording-menu-separator" />}
           <Menu.Item data-testid="recording-unattached" disabled={starting} onClick={() => void start(null)}><Mic className="flex-none" size={14} aria-hidden="true" />{t('New recording')}</Menu.Item>
           <Menu.Item data-testid="recording-upload" disabled={starting} onClick={() => { setOpen(false); void openAudioUpload(onUploaded) }}><Upload size={14} aria-hidden="true" />{t('Upload a file')}</Menu.Item>
+          {spoken && <>
+            <Menu.Separator className="recording-menu-separator" />
+            <Menu.Group>
+              <Menu.GroupLabel className="recording-menu-label">{t('Spoken in the meeting')}</Menu.GroupLabel>
+              <Menu.RadioGroup value={spoken} onValueChange={(v: Spoken) => { setSpoken(v); void window.yogurt.settings.setSpoken(v).catch(() => {}) }}>
+                {SPOKEN.map(v => <Menu.RadioItem key={v} value={v} closeOnClick={false} data-testid={`recording-spoken-${v}`}>
+                  <span className="recording-spoken-check"><Menu.RadioItemIndicator keepMounted><Check size={14} aria-hidden="true" className={spoken === v ? '' : 'invisible'} /></Menu.RadioItemIndicator></span>
+                  {spokenChoiceName(v)}
+                </Menu.RadioItem>)}
+              </Menu.RadioGroup>
+            </Menu.Group>
+          </>}
         </Menu.Popup>
       </Menu.Positioner>
     </Menu.Portal>

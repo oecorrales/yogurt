@@ -786,5 +786,8 @@
   "The recording can be downloaded once the meeting ends.": "Kayıt, toplantı bittikten sonra indirilebilir.",
   "This meeting has no recording to download.": "Bu toplantının indirilecek bir kaydı yok.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Kanallar kaydedildi. İçlerinde herkesin sesi var, bu yüzden paylaşırken özen gösterin.",
-  "Yogurt couldn't save the recording.": "Yogurt kaydı kaydedemedi."
+  "Yogurt couldn't save the recording.": "Yogurt kaydı kaydedemedi.",
+  "Spoken in the meeting": "Toplantıda konuşulan dil",
+  "Spoken language: {language}. Change": "Konuşulan dil: {language}. Değiştir",
+  "Transcribe this meeting again in {language}?": "Bu toplantının dökümü {language} olarak yeniden oluşturulsun mu?"
 }

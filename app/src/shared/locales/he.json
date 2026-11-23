@@ -808,5 +808,8 @@
   "The recording can be downloaded once the meeting ends.": "אפשר יהיה להוריד את ההקלטה כשהפגישה תסתיים.",
   "This meeting has no recording to download.": "לפגישה הזו אין הקלטה להורדה.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "הערוצים נשמרו. יש בהם את הקולות של כולם, אז כדאי לשתף אותם בזהירות.",
-  "Yogurt couldn't save the recording.": "Yogurt לא הצליח לשמור את ההקלטה."
+  "Yogurt couldn't save the recording.": "Yogurt לא הצליח לשמור את ההקלטה.",
+  "Spoken in the meeting": "שפת הדיבור בפגישה",
+  "Spoken language: {language}. Change": "שפת הדיבור: {language}. שינוי",
+  "Transcribe this meeting again in {language}?": "לתמלל מחדש את הפגישה הזו ב{language}?"
 }

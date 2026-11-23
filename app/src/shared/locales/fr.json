@@ -814,5 +814,8 @@
   "The recording can be downloaded once the meeting ends.": "L’enregistrement pourra être téléchargé une fois la réunion terminée.",
   "This meeting has no recording to download.": "Cette réunion n’a pas d’enregistrement à télécharger.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Pistes sauvegardées. On y entend la voix de chacun, alors partagez-les avec soin.",
-  "Yogurt couldn't save the recording.": "Yogurt n’a pas pu sauvegarder l’enregistrement."
+  "Yogurt couldn't save the recording.": "Yogurt n’a pas pu sauvegarder l’enregistrement.",
+  "Spoken in the meeting": "Langue parlée pendant la réunion",
+  "Spoken language: {language}. Change": "Langue parlée : {language}. Modifier",
+  "Transcribe this meeting again in {language}?": "Transcrire à nouveau cette réunion en {language} ?"
 }

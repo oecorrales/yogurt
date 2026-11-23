@@ -69,6 +69,7 @@ const api: YogurtApi = {
     get: (id) => ipcRenderer.invoke('meetings:get', id),
     cards: (o) => ipcRenderer.invoke('meetings:cards', o),
     start: (eventId, folderId) => ipcRenderer.invoke('meetings:start', eventId, folderId),
+    setSpoken: (id, v) => ipcRenderer.invoke('meetings:set-spoken', id, v),
     createFolderNote: folderId => ipcRenderer.invoke('meetings:folder-note', folderId),
     prepare: (eventId, day) => ipcRenderer.invoke('meetings:prepare', eventId, day),
     startPrepared: (id) => ipcRenderer.invoke('meetings:start-prepared', id),

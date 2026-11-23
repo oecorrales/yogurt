@@ -1,4 +1,5 @@
 import type { TranscriptionState } from '../shared/transcription'
+import { spokenOf, type Spoken } from '../shared/spoken'
 import { eventIds, type CalEvent } from './calendar'
 import { matchSearchPeople, searchPersonKey, uniqueSearchPeople } from '../shared/searchPeople'
 import { oneEdit, parseSearchQuery, type SearchOptions } from '../shared/searchQuery'
@@ -33,6 +34,9 @@ export type Meeting = {
   app: string | null; attendees: Person[]; state: 'prepared' | 'recording' | 'stopped' | 'done'
   /** the language most of it was said in (whisper's name, e.g. "spanish"), once its transcript is done */
   language: string | null
+  /** the language it is spoken in, as picked for this meeting (English only, Spanish only, Multi-language): what whisper is
+   * told live and when it is transcribed again; absent on meetings from before, which follow the setting */
+  spoken?: Spoken
   /** where the title came from: only a generic or auto one is replaced by a title from the notes */
   titleSource: TitleSource
   /** Preserve the saved list on calendar links after a manual edit or an import without edit history. */
@@ -63,6 +67,7 @@ const toMeeting = (r: Row): Meeting => ({
   id: String(r.id), title: String(r.title), startedAt: Number(r.started_at), endedAt: r.ended_at == null ? null : Number(r.ended_at),
   eventId: r.event_id == null ? null : String(r.event_id), app: r.app == null ? null : String(r.app),
   attendees: JSON.parse(String(r.attendees)), state: r.state as Meeting['state'], language: r.language == null ? null : String(r.language),
+  ...(r.spoken == null ? {} : { spoken: spokenOf(r.spoken) }),
   ...(r.keep_attendees ? { keepAttendees: true } : {}),
   titleSource: (r.title_source ?? 'user') as TitleSource,
   ...(r.source == null ? {} : { source: String(r.source) }),
@@ -229,6 +234,7 @@ export class Store {
     if (!meetingCols.includes('transcription_pending')) this.db.exec('ALTER TABLE meetings ADD COLUMN transcription_pending INTEGER NOT NULL DEFAULT 0')
     if (!meetingCols.includes('duration_ms')) this.db.exec('ALTER TABLE meetings ADD COLUMN duration_ms INTEGER')
     if (!meetingCols.includes('language')) this.db.exec('ALTER TABLE meetings ADD COLUMN language TEXT')
+    if (!meetingCols.includes('spoken')) this.db.exec('ALTER TABLE meetings ADD COLUMN spoken TEXT')
     if (!meetingCols.includes('trashed_at')) this.db.exec('ALTER TABLE meetings ADD COLUMN trashed_at INTEGER')
     // Existing notes and older backups have no attendee edit history, including lists cleared by hand.
     if (!meetingCols.includes('keep_attendees')) this.db.exec('ALTER TABLE meetings ADD COLUMN keep_attendees INTEGER NOT NULL DEFAULT 1')
@@ -345,7 +351,7 @@ export class Store {
   updateMeeting(id: string, patch: Partial<Omit<Meeting, 'id'>>) {
     if (patch.ownEmail) this.rememberOwnEmail(patch.ownEmail)
     if (patch.attendees) rememberPeople(this.db, patch.attendees)
-    const col: Record<string, string> = { title: 'title', startedAt: 'started_at', endedAt: 'ended_at', eventId: 'event_id', eventStartedAt: 'event_started_at', eventEndedAt: 'event_ended_at', eventTitle: 'event_title', eventCalendarName: 'event_calendar_name', eventCalendarSource: 'event_calendar_source', ownEmail: 'own_email', app: 'app', attendees: 'attendees', keepAttendees: 'keep_attendees', state: 'state', language: 'language', titleSource: 'title_source', durationMs: 'duration_ms', transcriptionPending: 'transcription_pending', transcriptionState: 'transcription_state', transcriptionAgain: 'transcription_again' }
+    const col: Record<string, string> = { title: 'title', startedAt: 'started_at', endedAt: 'ended_at', eventId: 'event_id', spoken: 'spoken', eventStartedAt: 'event_started_at', eventEndedAt: 'event_ended_at', eventTitle: 'event_title', eventCalendarName: 'event_calendar_name', eventCalendarSource: 'event_calendar_source', ownEmail: 'own_email', app: 'app', attendees: 'attendees', keepAttendees: 'keep_attendees', state: 'state', language: 'language', titleSource: 'title_source', durationMs: 'duration_ms', transcriptionPending: 'transcription_pending', transcriptionState: 'transcription_state', transcriptionAgain: 'transcription_again' }
     const keys = Object.keys(patch).filter((k) => k in col && (patch as Row)[k] !== undefined)
     if (!keys.length) return
     const vals = keys.map(k => {

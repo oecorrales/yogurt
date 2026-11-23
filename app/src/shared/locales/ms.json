@@ -756,5 +756,8 @@
   "The recording can be downloaded once the meeting ends.": "Rakaman boleh dimuat turun selepas mesyuarat tamat.",
   "This meeting has no recording to download.": "Mesyuarat ini tiada rakaman untuk dimuat turun.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Trek disimpan. Ia mengandungi suara semua orang, jadi kongsi dengan berhati-hati.",
-  "Yogurt couldn't save the recording.": "Yogurt tidak dapat menyimpan rakaman."
+  "Yogurt couldn't save the recording.": "Yogurt tidak dapat menyimpan rakaman.",
+  "Spoken in the meeting": "Bahasa pertuturan dalam mesyuarat",
+  "Spoken language: {language}. Change": "Bahasa pertuturan: {language}. Tukar",
+  "Transcribe this meeting again in {language}?": "Transkripsi semula mesyuarat ini dalam {language}?"
 }

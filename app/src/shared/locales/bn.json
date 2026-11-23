@@ -786,5 +786,8 @@
   "The recording can be downloaded once the meeting ends.": "মিটিং শেষ হলে রেকর্ডিং ডাউনলোড করা যাবে।",
   "This meeting has no recording to download.": "এই মিটিংয়ের ডাউনলোড করার মতো কোনো রেকর্ডিং নেই।",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "ট্র্যাক সেভ হয়েছে। এগুলোতে সবার কণ্ঠ আছে, তাই সাবধানে শেয়ার করুন।",
-  "Yogurt couldn't save the recording.": "Yogurt রেকর্ডিং সেভ করতে পারেনি।"
+  "Yogurt couldn't save the recording.": "Yogurt রেকর্ডিং সেভ করতে পারেনি।",
+  "Spoken in the meeting": "মিটিংয়ে কথ্য ভাষা",
+  "Spoken language: {language}. Change": "কথ্য ভাষা: {language}। পরিবর্তন করুন",
+  "Transcribe this meeting again in {language}?": "এই মিটিং আবার {language}-এ প্রতিলিপি করবেন?"
 }

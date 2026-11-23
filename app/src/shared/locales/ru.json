@@ -826,5 +826,8 @@
   "The recording can be downloaded once the meeting ends.": "Запись можно будет скачать после окончания встречи.",
   "This meeting has no recording to download.": "У этой встречи нет записи для скачивания.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Дорожки сохранены. В них голоса всех участников, поэтому делитесь ими бережно.",
-  "Yogurt couldn't save the recording.": "Yogurt не смог сохранить запись."
+  "Yogurt couldn't save the recording.": "Yogurt не смог сохранить запись.",
+  "Spoken in the meeting": "Язык речи на встрече",
+  "Spoken language: {language}. Change": "Язык речи: {language}. Изменить",
+  "Transcribe this meeting again in {language}?": "Расшифровать эту встречу заново на языке «{language}»?"
 }

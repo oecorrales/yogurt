@@ -756,5 +756,8 @@
   "The recording can be downloaded once the meeting ends.": "會議結束後即可下載錄音。",
   "This meeting has no recording to download.": "這場會議沒有可下載的錄音。",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "音軌已儲存。裡面有所有人的聲音，分享時請多加留意。",
-  "Yogurt couldn't save the recording.": "Yogurt 無法儲存錄音。"
+  "Yogurt couldn't save the recording.": "Yogurt 無法儲存錄音。",
+  "Spoken in the meeting": "會議中說的語言",
+  "Spoken language: {language}. Change": "會議語言：{language}。變更",
+  "Transcribe this meeting again in {language}?": "要用{language}重新轉錄這場會議嗎？"
 }

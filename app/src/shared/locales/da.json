@@ -798,5 +798,8 @@
   "The recording can be downloaded once the meeting ends.": "Optagelsen kan hentes, når mødet er slut.",
   "This meeting has no recording to download.": "Dette møde har ingen optagelse at hente.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporene er gemt. De indeholder alles stemmer, så del dem med omtanke.",
-  "Yogurt couldn't save the recording.": "Yogurt kunne ikke gemme optagelsen."
+  "Yogurt couldn't save the recording.": "Yogurt kunne ikke gemme optagelsen.",
+  "Spoken in the meeting": "Talesprog i mødet",
+  "Spoken language: {language}. Change": "Talesprog: {language}. Skift",
+  "Transcribe this meeting again in {language}?": "Transskriber dette møde igen på {language}?"
 }

@@ -798,5 +798,8 @@
   "The recording can be downloaded once the meeting ends.": "De opname kan worden gedownload zodra de vergadering is afgelopen.",
   "This meeting has no recording to download.": "Deze vergadering heeft geen opname om te downloaden.",
   "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporen bewaard. Iedereens stem staat erop, dus deel ze met zorg.",
-  "Yogurt couldn't save the recording.": "Yogurt kon de opname niet bewaren."
+  "Yogurt couldn't save the recording.": "Yogurt kon de opname niet bewaren.",
+  "Spoken in the meeting": "Gesproken taal in de vergadering",
+  "Spoken language: {language}. Change": "Gesproken taal: {language}. Wijzigen",
+  "Transcribe this meeting again in {language}?": "Deze vergadering opnieuw transcriberen in het {language}?"
 }
