@@ -152,7 +152,6 @@
   "Empty the Trash?": "Kiüríted a Kukát?",
   "English": "Angol",
   "English only": "Csak angol",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "A csak angol gyorsabb és pontosabb. Más nyelvű megbeszélésekhez válaszd a Többnyelvűt.",
   "Everyone else": "Mindenki más",
   "Everything stays on your Mac.": "Minden a Maceden marad.",
   "Everything stays on your computer.": "Minden a számítógépeden marad.",
@@ -776,5 +775,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Közel a határhoz ezen a számítógépen: az élő szöveg kissé késhet.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Lemarad ezen a számítógépen: a sebességtesztben a hanganyag hosszának {rtf}×-ét vette igénybe. Egy egyórás megbeszélés átirata kb. {minutes} perccel a vége után készülne el.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Túl lassú ehhez a számítógéphez: egy átirat órákig tarthat, vagy el sem készül.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "A nagyobb modellek több szót ismernek fel helyesen, de többet követelnek a számítógépedtől. Amelyik nem tart lépést, azzal az átiratok későn készülnek el, és a számítógéped tovább marad leterhelt, meleg és akkumulátoron."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "A nagyobb modellek több szót ismernek fel helyesen, de többet követelnek a számítógépedtől. Amelyik nem tart lépést, azzal az átiratok későn készülnek el, és a számítógéped tovább marad leterhelt, meleg és akkumulátoron.",
+  "Spanish": "Spanyol",
+  "Spanish only": "Csak spanyol",
+  "Highest quality in Spanish": "Legjobb minőség spanyolul",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Egyetlen nyelv gyorsabb és pontosabb: semmit sem kell kitalálni. Más nyelvű vagy több nyelvet keverő megbeszélésekhez válaszd a Többnyelvű lehetőséget."
 }

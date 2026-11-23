@@ -152,7 +152,6 @@
   "Empty the Trash?": "Prullenmand leegmaken?",
   "English": "Engels",
   "English only": "Alleen Engels",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Alleen Engels is sneller en nauwkeuriger. Kies Meertalig voor meetings in andere talen.",
   "Everyone else": "Alle anderen",
   "Everything stays on your Mac.": "Alles blijft op je Mac.",
   "Everything stays on your computer.": "Alles blijft op je computer.",
@@ -788,5 +787,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Dicht bij de grens op deze computer: live tekst kan iets achterlopen.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Loopt achter op deze computer: in de snelheidstest duurde het {rtf}× zo lang als de audio. De transcriptie van een vergadering van een uur zou ongeveer {minutes} min na afloop klaar zijn.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Te traag voor deze computer: een transcriptie kan uren duren of nooit klaar zijn.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Grotere modellen herkennen meer woorden goed, maar vragen meer van je computer. Een model dat niet bijblijft, maakt transcripties laat af en houdt je computer langer bezig, warm en op de batterij."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Grotere modellen herkennen meer woorden goed, maar vragen meer van je computer. Een model dat niet bijblijft, maakt transcripties laat af en houdt je computer langer bezig, warm en op de batterij.",
+  "Spanish": "Spaans",
+  "Spanish only": "Alleen Spaans",
+  "Highest quality in Spanish": "Hoogste kwaliteit in het Spaans",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Eén taal is sneller en nauwkeuriger: er wordt niets geraden. Kies Meertalig voor vergaderingen in andere talen, of waarin talen door elkaar lopen."
 }

@@ -156,7 +156,6 @@
   "Empty the Trash?": "هل تريد إفراغ سلة المهملات؟",
   "English": "الإنجليزية",
   "English only": "الإنجليزية فقط",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "الإنجليزية فقط أسرع وأدق. اختر متعدد اللغات للاجتماعات بلغات أخرى.",
   "Everyone else": "الجميع",
   "Everything stays on your Mac.": "يبقى كل شيء على جهاز الـMac.",
   "Everything stays on your computer.": "يبقى كل شيء على الكمبيوتر.",
@@ -844,5 +843,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "قريب من الحد على هذا الكمبيوتر: قد يتأخر النص المباشر قليلًا.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "يتأخر على هذا الكمبيوتر: استغرق في فحص السرعة {rtf}× مدة الصوت. سينتهي التفريغ النصي لاجتماع مدته ساعة بعد نحو {minutes} دقيقة من انتهائه.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "بطيء جدًا على هذا الكمبيوتر: قد يستغرق التفريغ النصي ساعات، أو لا ينتهي.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "النماذج الأكبر تلتقط كلمات صحيحة أكثر، لكنها تحتاج إلى المزيد من جهازك. والنموذج الذي لا يواكب يجعل التفريغ النصي ينتهي متأخرًا ويُبقي الكمبيوتر مشغولًا وساخنًا ويعمل على البطارية مدة أطول."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "النماذج الأكبر تلتقط كلمات صحيحة أكثر، لكنها تحتاج إلى المزيد من جهازك. والنموذج الذي لا يواكب يجعل التفريغ النصي ينتهي متأخرًا ويُبقي الكمبيوتر مشغولًا وساخنًا ويعمل على البطارية مدة أطول.",
+  "Spanish": "الإسبانية",
+  "Spanish only": "الإسبانية فقط",
+  "Highest quality in Spanish": "أعلى جودة بالإسبانية",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "اختيار لغة واحدة فقط أسرع وأدق: لا شيء يُخمَّن. اختر «متعدد اللغات» للاجتماعات بلغات أخرى أو التي تمزج بينها."
 }

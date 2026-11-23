@@ -153,7 +153,6 @@
   "Empty the Trash?": "Vider la Corbeille ?",
   "English": "Anglais",
   "English only": "Anglais uniquement",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "L’anglais uniquement est plus rapide et plus précis. Choisissez Multilingue pour les réunions dans d’autres langues.",
   "Everyone else": "Tous les autres",
   "Everything stays on your Mac.": "Tout reste sur votre Mac.",
   "Everything stays on your computer.": "Tout reste sur votre ordinateur.",
@@ -804,5 +803,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Proche de la limite sur cet ordinateur : le texte en direct peut avoir un peu de retard.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Prend du retard sur cet ordinateur : lors du test de vitesse, il a mis {rtf}× la durée de l’audio. La transcription d’une réunion d’une heure se terminerait environ {minutes} min après sa fin.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Trop lent pour cet ordinateur : une transcription peut prendre des heures, ou ne jamais se terminer.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Les modèles plus gros reconnaissent plus de mots correctement, mais demandent plus à votre ordinateur. Un modèle qui ne suit pas le rythme termine les transcriptions en retard et garde votre ordinateur occupé, chaud et sur batterie plus longtemps."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Les modèles plus gros reconnaissent plus de mots correctement, mais demandent plus à votre ordinateur. Un modèle qui ne suit pas le rythme termine les transcriptions en retard et garde votre ordinateur occupé, chaud et sur batterie plus longtemps.",
+  "Spanish": "Espagnol",
+  "Spanish only": "Espagnol uniquement",
+  "Highest quality in Spanish": "Qualité maximale en espagnol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Une seule langue est plus rapide et plus précise : rien n’est deviné. Choisissez Multilingue pour les réunions dans d’autres langues, ou qui les mélangent."
 }

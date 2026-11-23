@@ -153,7 +153,6 @@
   "Empty the Trash?": "לרוקן את הפח?",
   "English": "אנגלית",
   "English only": "אנגלית בלבד",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "אנגלית בלבד מהירה ומדויקת יותר. לפגישות בשפות אחרות, כדאי לבחור “רב־לשוני”.",
   "Everyone else": "כל השאר",
   "Everything stays on your Mac.": "הכול נשאר ב־Mac שלך.",
   "Everything stays on your computer.": "הכול נשאר במחשב שלך.",
@@ -798,5 +797,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "קרוב לגבול במחשב הזה: הטקסט החי עלול לפגר מעט.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "מפגר במחשב הזה: בבדיקת המהירות זה לקח פי {rtf} מאורך האודיו. התמלול של פגישה בת שעה יסתיים כ-{minutes} דק׳ אחרי סיומה.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "איטי מדי למחשב הזה: תמלול עלול להימשך שעות, או לא להסתיים.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "מודלים גדולים יותר מזהים נכון יותר מילים, אבל דורשים יותר מהמחשב שלך. מודל שלא עומד בקצב גורם לתמלולים להסתיים באיחור ומשאיר את המחשב עמוס, חם ועל סוללה לזמן רב יותר."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "מודלים גדולים יותר מזהים נכון יותר מילים, אבל דורשים יותר מהמחשב שלך. מודל שלא עומד בקצב גורם לתמלולים להסתיים באיחור ומשאיר את המחשב עמוס, חם ועל סוללה לזמן רב יותר.",
+  "Spanish": "ספרדית",
+  "Spanish only": "ספרדית בלבד",
+  "Highest quality in Spanish": "האיכות הגבוהה ביותר בספרדית",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן."
 }

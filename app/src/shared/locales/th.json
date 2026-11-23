@@ -149,7 +149,6 @@
   "Empty the Trash?": "ล้างถังขยะไหม",
   "English": "อังกฤษ",
   "English only": "อังกฤษเท่านั้น",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "อังกฤษเท่านั้นเร็วกว่าและแม่นยำกว่า เลือกหลายภาษาสำหรับการประชุมในภาษาอื่น",
   "Everyone else": "ทุกคนที่เหลือ",
   "Everything stays on your Mac.": "ทุกอย่างอยู่บน Mac ของคุณ",
   "Everything stays on your computer.": "ทุกอย่างอยู่บนคอมพิวเตอร์ของคุณ",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "ใกล้ขีดจำกัดของคอมพิวเตอร์เครื่องนี้: ข้อความสดอาจช้ากว่าเล็กน้อย",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "ตามไม่ทันบนคอมพิวเตอร์เครื่องนี้: ในการตรวจความเร็วใช้เวลา {rtf}× ของความยาวเสียง การถอดเสียงของการประชุมหนึ่งชั่วโมงจะเสร็จประมาณ {minutes} นาทีหลังการประชุมจบ",
   "Too slow for this computer: a transcript can take hours, or not finish.": "ช้าเกินไปสำหรับคอมพิวเตอร์เครื่องนี้: การถอดเสียงอาจใช้เวลาหลายชั่วโมง หรือไม่เสร็จเลย",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "โมเดลที่ใหญ่กว่าจับคำได้ถูกต้องมากขึ้น แต่ต้องใช้ทรัพยากรจากคอมพิวเตอร์ของคุณมากขึ้น โมเดลที่ตามไม่ทันจะทำให้การถอดเสียงเสร็จช้า และทำให้คอมพิวเตอร์ของคุณทำงานหนัก ร้อน และใช้แบตเตอรี่นานขึ้น"
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "โมเดลที่ใหญ่กว่าจับคำได้ถูกต้องมากขึ้น แต่ต้องใช้ทรัพยากรจากคอมพิวเตอร์ของคุณมากขึ้น โมเดลที่ตามไม่ทันจะทำให้การถอดเสียงเสร็จช้า และทำให้คอมพิวเตอร์ของคุณทำงานหนัก ร้อน และใช้แบตเตอรี่นานขึ้น",
+  "Spanish": "ภาษาสเปน",
+  "Spanish only": "ภาษาสเปนเท่านั้น",
+  "Highest quality in Spanish": "คุณภาพสูงสุดในภาษาสเปน",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "ภาษาเดียวเร็วกว่าและแม่นยำกว่า: ไม่มีการเดา เลือกหลายภาษาสำหรับการประชุมในภาษาอื่น หรือที่ใช้หลายภาษาปนกัน"
 }

@@ -149,7 +149,6 @@
   "Empty the Trash?": "ゴミ箱を空にしますか？",
   "English": "英語",
   "English only": "英語のみ",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "英語のみの方が速く、正確です。英語以外のミーティングには多言語を選んでください。",
   "Everyone else": "ほかの参加者",
   "Everything stays on your Mac.": "すべてMacの中に残ります。",
   "Everything stays on your computer.": "すべてコンピュータの中に残ります。",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "このコンピュータでは限界に近く、ライブの文字が少し遅れることがあります。",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "このコンピュータでは遅れます。速度チェックでは音声の長さの{rtf}倍かかりました。1時間の会議の文字起こしは、終了から約{minutes}分後に完了します。",
   "Too slow for this computer: a transcript can take hours, or not finish.": "このコンピュータには遅すぎます。文字起こしに数時間かかるか、終わらないことがあります。",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "大きいモデルほど多くの単語を正しく認識できますが、コンピュータへの負荷も大きくなります。追いつけないモデルでは文字起こしの完了が遅れ、コンピュータが長く高負荷・高温のままになり、バッテリーも長く使います。"
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "大きいモデルほど多くの単語を正しく認識できますが、コンピュータへの負荷も大きくなります。追いつけないモデルでは文字起こしの完了が遅れ、コンピュータが長く高負荷・高温のままになり、バッテリーも長く使います。",
+  "Spanish": "スペイン語",
+  "Spanish only": "スペイン語のみ",
+  "Highest quality in Spanish": "スペイン語で最高品質",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "1つの言語だけにすると、より速く正確になります（推測は行いません）。ほかの言語や複数の言語が混ざる会議では「多言語」を選んでください。"
 }

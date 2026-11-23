@@ -149,7 +149,6 @@
   "Empty the Trash?": "Kosongkan Sampah?",
   "English": "Inggris",
   "English only": "Hanya Inggris",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Hanya Inggris lebih cepat dan akurat. Pilih Multibahasa untuk rapat dalam bahasa lain.",
   "Everyone else": "Semua orang lain",
   "Everything stays on your Mac.": "Semuanya tetap di Mac Anda.",
   "Everything stays on your computer.": "Semuanya tetap di komputer Anda.",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Mendekati batas di komputer ini: kata-kata langsung bisa sedikit tertinggal.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Tertinggal di komputer ini: dalam uji kecepatan butuh {rtf}× durasi audio. Transkrip rapat satu jam akan selesai sekitar {minutes} mnt setelah rapat berakhir.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Terlalu lambat untuk komputer ini: transkrip bisa butuh berjam-jam, atau tidak selesai.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Model yang lebih besar mengenali lebih banyak kata dengan benar, tetapi menuntut lebih banyak dari komputer Anda. Model yang tidak mampu mengikuti membuat transkrip selesai terlambat dan membuat komputer Anda lebih lama sibuk, panas, dan memakai baterai."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Model yang lebih besar mengenali lebih banyak kata dengan benar, tetapi menuntut lebih banyak dari komputer Anda. Model yang tidak mampu mengikuti membuat transkrip selesai terlambat dan membuat komputer Anda lebih lama sibuk, panas, dan memakai baterai.",
+  "Spanish": "Spanyol",
+  "Spanish only": "Hanya Spanyol",
+  "Highest quality in Spanish": "Kualitas tertinggi dalam bahasa Spanyol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa saja lebih cepat dan akurat: tidak ada yang ditebak. Pilih Multibahasa untuk rapat dalam bahasa lain, atau yang mencampurnya."
 }

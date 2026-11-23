@@ -149,7 +149,6 @@
   "Empty the Trash?": "휴지통을 비울까요?",
   "English": "영어",
   "English only": "영어만",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "영어만 선택하면 더 빠르고 정확해요. 다른 언어로 진행하는 회의에는 다국어를 고르세요.",
   "Everyone else": "나머지 모두",
   "Everything stays on your Mac.": "모든 것이 내 Mac에 남아요.",
   "Everything stays on your computer.": "모든 것이 내 컴퓨터에 남아요.",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "이 컴퓨터에서는 한계에 가까워요. 실시간 텍스트가 조금 늦게 나올 수 있어요.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "이 컴퓨터에서는 뒤처져요. 속도 확인에서 오디오 길이의 {rtf}배가 걸렸어요. 1시간짜리 회의의 기록은 회의가 끝나고 약 {minutes}분 뒤에 완료돼요.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "이 컴퓨터에는 너무 느려요. 기록에 몇 시간이 걸리거나 끝나지 않을 수 있어요.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "큰 모델일수록 더 많은 단어를 정확히 알아듣지만 컴퓨터에 더 많은 부담을 줘요. 따라가지 못하는 모델은 기록이 늦게 끝나고, 컴퓨터가 더 오래 바쁘고 뜨거운 상태로 배터리를 쓰게 해요."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "큰 모델일수록 더 많은 단어를 정확히 알아듣지만 컴퓨터에 더 많은 부담을 줘요. 따라가지 못하는 모델은 기록이 늦게 끝나고, 컴퓨터가 더 오래 바쁘고 뜨거운 상태로 배터리를 쓰게 해요.",
+  "Spanish": "스페인어",
+  "Spanish only": "스페인어만",
+  "Highest quality in Spanish": "스페인어 최고 품질",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "한 가지 언어만 고르면 더 빠르고 정확해요. 추측하지 않거든요. 다른 언어나 여러 언어가 섞인 회의라면 다국어를 고르세요."
 }

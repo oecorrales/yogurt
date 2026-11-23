@@ -152,7 +152,6 @@
   "Empty the Trash?": "Άδειασμα του Κάδου;",
   "English": "Αγγλικά",
   "English only": "Μόνο αγγλικά",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Τα μόνο αγγλικά είναι πιο γρήγορα και πιο ακριβή. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες.",
   "Everyone else": "Όλοι οι άλλοι",
   "Everything stays on your Mac.": "Όλα μένουν στο Mac σας.",
   "Everything stays on your computer.": "Όλα μένουν στον υπολογιστή σας.",
@@ -791,5 +790,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Κοντά στο όριο σε αυτόν τον υπολογιστή: το ζωντανό κείμενο μπορεί να καθυστερεί λίγο.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Μένει πίσω σε αυτόν τον υπολογιστή: στον έλεγχο ταχύτητας χρειάστηκε {rtf}× τη διάρκεια του ήχου. Η απομαγνητοφώνηση μιας ωριαίας σύσκεψης θα ολοκληρωνόταν περίπου {minutes} λεπ. μετά το τέλος της.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Πολύ αργό για αυτόν τον υπολογιστή: μια απομαγνητοφώνηση μπορεί να πάρει ώρες ή να μην ολοκληρωθεί.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Τα μεγαλύτερα μοντέλα αναγνωρίζουν σωστά περισσότερες λέξεις, αλλά απαιτούν περισσότερα από τον υπολογιστή σας. Ένα μοντέλο που δεν προλαβαίνει ολοκληρώνει τις απομαγνητοφωνήσεις αργά και κρατά τον υπολογιστή σας απασχολημένο, ζεστό και στην μπαταρία για περισσότερη ώρα."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Τα μεγαλύτερα μοντέλα αναγνωρίζουν σωστά περισσότερες λέξεις, αλλά απαιτούν περισσότερα από τον υπολογιστή σας. Ένα μοντέλο που δεν προλαβαίνει ολοκληρώνει τις απομαγνητοφωνήσεις αργά και κρατά τον υπολογιστή σας απασχολημένο, ζεστό και στην μπαταρία για περισσότερη ώρα.",
+  "Spanish": "Ισπανικά",
+  "Spanish only": "Μόνο ισπανικά",
+  "Highest quality in Spanish": "Κορυφαία ποιότητα στα ισπανικά",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Μία μόνο γλώσσα είναι ταχύτερη και ακριβέστερη: τίποτα δεν μαντεύεται. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες ή που τις αναμειγνύουν."
 }

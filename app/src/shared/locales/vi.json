@@ -149,7 +149,6 @@
   "Empty the Trash?": "Dọn sạch Thùng rác?",
   "English": "Tiếng Anh",
   "English only": "Chỉ tiếng Anh",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Chỉ tiếng Anh nhanh và chính xác hơn. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác.",
   "Everyone else": "Mọi người khác",
   "Everything stays on your Mac.": "Mọi thứ đều ở trên máy Mac của bạn.",
   "Everything stays on your computer.": "Mọi thứ đều ở trên máy tính của bạn.",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Gần giới hạn trên máy tính này: chữ trực tiếp có thể hơi chậm so với lời nói.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Bị chậm trên máy tính này: trong bài kiểm tra tốc độ, nó mất {rtf}× thời lượng âm thanh. Bản chép lời của cuộc họp dài một giờ sẽ xong khoảng {minutes} phút sau khi họp kết thúc.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Quá chậm cho máy tính này: bản chép lời có thể mất hàng giờ, hoặc không xong.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Mô hình lớn hơn nhận đúng nhiều từ hơn nhưng đòi hỏi máy tính của bạn nhiều hơn. Mô hình không theo kịp sẽ khiến bản chép lời xong muộn và giữ máy tính của bạn bận, nóng và chạy pin lâu hơn."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Mô hình lớn hơn nhận đúng nhiều từ hơn nhưng đòi hỏi máy tính của bạn nhiều hơn. Mô hình không theo kịp sẽ khiến bản chép lời xong muộn và giữ máy tính của bạn bận, nóng và chạy pin lâu hơn.",
+  "Spanish": "Tiếng Tây Ban Nha",
+  "Spanish only": "Chỉ tiếng Tây Ban Nha",
+  "Highest quality in Spanish": "Chất lượng cao nhất bằng tiếng Tây Ban Nha",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Chỉ một ngôn ngữ thì nhanh và chính xác hơn: không phải đoán gì. Chọn Đa ngôn ngữ cho các cuộc họp bằng ngôn ngữ khác hoặc trộn nhiều ngôn ngữ."
 }

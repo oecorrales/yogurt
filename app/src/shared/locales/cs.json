@@ -154,7 +154,6 @@
   "Empty the Trash?": "Vysypat koš?",
   "English": "Angličtina",
   "English only": "Jen angličtina",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Jen angličtina je rychlejší a přesnější. Pro schůzky v jiných jazycích zvolte Více jazyků.",
   "Everyone else": "Všichni ostatní",
   "Everything stays on your Mac.": "Vše zůstává na vašem Macu.",
   "Everything stays on your computer.": "Vše zůstává na vašem počítači.",
@@ -819,5 +818,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Blízko limitu tohoto počítače: živý text se může trochu opožďovat.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Na tomto počítači nestíhá: v testu rychlosti mu to trvalo {rtf}× délku zvuku. Přepis hodinové schůzky by byl hotový asi {minutes} min po jejím konci.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Na tento počítač příliš pomalý: přepis může trvat hodiny, nebo se nedokončit.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Větší modely rozpoznají víc slov správně, ale potřebují od vašeho počítače víc. Model, který nestíhá, dokončuje přepisy pozdě a déle udržuje počítač vytížený, zahřátý a na baterii."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Větší modely rozpoznají víc slov správně, ale potřebují od vašeho počítače víc. Model, který nestíhá, dokončuje přepisy pozdě a déle udržuje počítač vytížený, zahřátý a na baterii.",
+  "Spanish": "Španělština",
+  "Spanish only": "Jen španělština",
+  "Highest quality in Spanish": "Nejvyšší kvalita ve španělštině",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Jen jeden jazyk je rychlejší a přesnější: nic se neodhaduje. Pro schůzky v jiných jazycích nebo s více jazyky zvolte Více jazyků."
 }

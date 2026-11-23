@@ -152,7 +152,6 @@
   "Empty the Trash?": "ট্র্যাশ খালি করবেন?",
   "English": "ইংরেজি",
   "English only": "শুধু ইংরেজি",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "শুধু ইংরেজি দ্রুত ও বেশি নির্ভুল। অন্য ভাষার মিটিংয়ের জন্য বহু ভাষা বেছে নিন।",
   "Everyone else": "বাকি সবাই",
   "Everything stays on your Mac.": "সবকিছু আপনার Mac-এই থাকে।",
   "Everything stays on your computer.": "সবকিছু আপনার কম্পিউটারেই থাকে।",
@@ -776,5 +775,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "এই কম্পিউটারে সীমার কাছাকাছি: লাইভ শব্দ একটু পিছিয়ে থাকতে পারে।",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "এই কম্পিউটারে পিছিয়ে পড়ে: গতি পরীক্ষায় অডিওর দৈর্ঘ্যের {rtf}× সময় লেগেছে। এক ঘণ্টার মিটিংয়ের প্রতিলিপি মিটিং শেষ হওয়ার প্রায় {minutes} মিনিট পরে তৈরি হবে।",
   "Too slow for this computer: a transcript can take hours, or not finish.": "এই কম্পিউটারের জন্য খুব ধীর: প্রতিলিপিতে কয়েক ঘণ্টা লাগতে পারে, বা শেষ না-ও হতে পারে।",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "বড় মডেল বেশি শব্দ ঠিকভাবে ধরে, কিন্তু আপনার কম্পিউটার থেকে বেশি চায়। যে মডেল তাল রাখতে পারে না, তাতে প্রতিলিপি দেরিতে শেষ হয় এবং আপনার কম্পিউটার আরও বেশি সময় ব্যস্ত, গরম আর ব্যাটারিতে থাকে।"
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "বড় মডেল বেশি শব্দ ঠিকভাবে ধরে, কিন্তু আপনার কম্পিউটার থেকে বেশি চায়। যে মডেল তাল রাখতে পারে না, তাতে প্রতিলিপি দেরিতে শেষ হয় এবং আপনার কম্পিউটার আরও বেশি সময় ব্যস্ত, গরম আর ব্যাটারিতে থাকে।",
+  "Spanish": "স্প্যানিশ",
+  "Spanish only": "শুধু স্প্যানিশ",
+  "Highest quality in Spanish": "স্প্যানিশে সর্বোচ্চ মান",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "একটি মাত্র ভাষা দ্রুততর ও আরও নির্ভুল: কিছুই অনুমান করা হয় না। অন্য ভাষার বা একাধিক ভাষা মেশানো মিটিংয়ের জন্য বহু ভাষা বেছে নিন।"
 }

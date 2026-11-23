@@ -152,7 +152,6 @@
   "Empty the Trash?": "Tømme papirkurven?",
   "English": "Engelsk",
   "English only": "Bare engelsk",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Bare engelsk er raskere og mer nøyaktig. Velg Flerspråklig for møter på andre språk.",
   "Everyone else": "Alle andre",
   "Everything stays on your Mac.": "Alt blir på Macen din.",
   "Everything stays on your computer.": "Alt blir på datamaskinen din.",
@@ -788,5 +787,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Nær grensen på denne datamaskinen: liveteksten kan henge litt etter.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Henger etter på denne datamaskinen: i hastighetstesten brukte den {rtf}× lydens lengde. Transkripsjonen av et timelangt møte ville bli ferdig omtrent {minutes} min etter at det slutter.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "For treg for denne datamaskinen: en transkripsjon kan ta timer eller aldri bli ferdig.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Større modeller får flere ord riktig, men krever mer av datamaskinen din. En som ikke henger med, gjør at transkripsjoner blir ferdige sent og holder datamaskinen opptatt, varm og på batteri lenger."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Større modeller får flere ord riktig, men krever mer av datamaskinen din. En som ikke henger med, gjør at transkripsjoner blir ferdige sent og holder datamaskinen opptatt, varm og på batteri lenger.",
+  "Spanish": "Spansk",
+  "Spanish only": "Bare spansk",
+  "Highest quality in Spanish": "Høyeste kvalitet på spansk",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bare ett språk er raskere og mer nøyaktig: ingenting gjettes. Velg Flerspråklig for møter på andre språk, eller som blander dem."
 }

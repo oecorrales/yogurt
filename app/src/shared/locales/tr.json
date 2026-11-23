@@ -152,7 +152,6 @@
   "Empty the Trash?": "Çöp Sepeti boşaltılsın mı?",
   "English": "İngilizce",
   "English only": "Yalnızca İngilizce",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Yalnızca İngilizce daha hızlı ve daha doğrudur. Başka dillerdeki toplantılar için Çok dilli’yi seçin.",
   "Everyone else": "Diğer herkes",
   "Everything stays on your Mac.": "Her şey Mac’inizde kalır.",
   "Everything stays on your computer.": "Her şey bilgisayarınızda kalır.",
@@ -776,5 +775,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Bu bilgisayarda sınıra yakın: canlı metin biraz geride kalabilir.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Bu bilgisayarda geride kalıyor: hız testinde sesin süresinin {rtf}× katı kadar sürdü. Bir saatlik toplantının dökümü, toplantı bittikten yaklaşık {minutes} dk sonra tamamlanır.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Bu bilgisayar için fazla yavaş: bir döküm saatler sürebilir veya hiç bitmeyebilir.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Daha büyük modeller daha çok kelimeyi doğru tanır ama bilgisayarınızdan daha fazlasını ister. Yetişemeyen bir model, dökümlerin geç bitmesine yol açar ve bilgisayarınızı daha uzun süre meşgul, sıcak ve pilde tutar."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Daha büyük modeller daha çok kelimeyi doğru tanır ama bilgisayarınızdan daha fazlasını ister. Yetişemeyen bir model, dökümlerin geç bitmesine yol açar ve bilgisayarınızı daha uzun süre meşgul, sıcak ve pilde tutar.",
+  "Spanish": "İspanyolca",
+  "Spanish only": "Yalnızca İspanyolca",
+  "Highest quality in Spanish": "İspanyolcada en yüksek kalite",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Tek bir dil daha hızlı ve daha doğrudur: hiçbir şey tahmin edilmez. Başka dillerdeki veya dilleri karıştıran toplantılar için Çok dilli seçeneğini seçin."
 }

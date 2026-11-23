@@ -152,7 +152,6 @@
   "Empty the Trash?": "Papierkorb leeren?",
   "English": "Englisch",
   "English only": "Nur Englisch",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Nur Englisch ist schneller und genauer. Wähle Mehrsprachig für Meetings in anderen Sprachen.",
   "Everyone else": "Alle anderen",
   "Everything stays on your Mac.": "Alles bleibt auf deinem Mac.",
   "Everything stays on your computer.": "Alles bleibt auf deinem Computer.",
@@ -788,5 +787,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Nah am Limit auf diesem Computer: Live-Text kann etwas hinterherhinken.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Hinkt auf diesem Computer hinterher: Im Geschwindigkeitstest brauchte es {rtf}× so lange wie das Audio. Das Transkript eines einstündigen Meetings wäre etwa {minutes} Min. nach dessen Ende fertig.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Zu langsam für diesen Computer: Ein Transkript kann Stunden dauern oder gar nicht fertig werden.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Größere Modelle erkennen mehr Wörter richtig, brauchen aber mehr von deinem Computer. Eines, das nicht mithält, lässt Transkripte spät fertig werden und hält deinen Computer länger beschäftigt, warm und im Akkubetrieb."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Größere Modelle erkennen mehr Wörter richtig, brauchen aber mehr von deinem Computer. Eines, das nicht mithält, lässt Transkripte spät fertig werden und hält deinen Computer länger beschäftigt, warm und im Akkubetrieb.",
+  "Spanish": "Spanisch",
+  "Spanish only": "Nur Spanisch",
+  "Highest quality in Spanish": "Höchste Qualität auf Spanisch",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Nur eine Sprache ist schneller und genauer: Nichts wird geraten. Wähle Mehrsprachig für Meetings in anderen Sprachen oder mit gemischten Sprachen."
 }

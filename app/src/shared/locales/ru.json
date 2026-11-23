@@ -154,7 +154,6 @@
   "Empty the Trash?": "Очистить Корзину?",
   "English": "Английский",
   "English only": "Только английский",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Только английский работает быстрее и точнее. Для встреч на других языках выберите «Несколько языков».",
   "Everyone else": "Все остальные",
   "Everything stays on your Mac.": "Всё остаётся на вашем Mac.",
   "Everything stays on your computer.": "Всё остаётся на вашем компьютере.",
@@ -816,5 +815,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "На пределе для этого компьютера: текст в реальном времени может немного отставать.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Отстаёт на этом компьютере: при проверке скорости ей понадобилось {rtf}× длительности аудио. Расшифровка часовой встречи закончилась бы примерно через {minutes} мин после её окончания.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Слишком медленно для этого компьютера: расшифровка может занять часы или не завершиться.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Большие модели распознают больше слов правильно, но требуют больше от вашего компьютера. Модель, которая не успевает, заканчивает расшифровки с опозданием и дольше держит компьютер загруженным, горячим и на батарее."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Большие модели распознают больше слов правильно, но требуют больше от вашего компьютера. Модель, которая не успевает, заканчивает расшифровки с опозданием и дольше держит компьютер загруженным, горячим и на батарее.",
+  "Spanish": "Испанский",
+  "Spanish only": "Только испанский",
+  "Highest quality in Spanish": "Наилучшее качество на испанском",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Один язык быстрее и точнее: ничего не угадывается. Выберите «Несколько языков» для встреч на других языках или со смешением языков."
 }

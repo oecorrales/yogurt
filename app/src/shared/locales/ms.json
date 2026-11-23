@@ -149,7 +149,6 @@
   "Empty the Trash?": "Kosongkan Tong Sampah?",
   "English": "Inggeris",
   "English only": "Inggeris sahaja",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Inggeris sahaja lebih pantas dan tepat. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain.",
   "Everyone else": "Semua orang lain",
   "Everything stays on your Mac.": "Semuanya kekal di Mac anda.",
   "Everything stays on your computer.": "Semuanya kekal di komputer anda.",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Hampir mencapai had pada komputer ini: perkataan langsung mungkin ketinggalan sedikit.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Ketinggalan pada komputer ini: dalam ujian kelajuan ia mengambil {rtf}× tempoh audio. Transkrip mesyuarat sejam akan siap kira-kira {minutes} min selepas ia tamat.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Terlalu perlahan untuk komputer ini: transkrip boleh mengambil masa berjam-jam, atau tidak siap.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Model yang lebih besar mengecam lebih banyak perkataan dengan betul, tetapi memerlukan lebih banyak daripada komputer anda. Model yang tidak dapat mengikuti rentak menyebabkan transkrip siap lewat dan membuatkan komputer anda sibuk, panas dan menggunakan bateri lebih lama."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Model yang lebih besar mengecam lebih banyak perkataan dengan betul, tetapi memerlukan lebih banyak daripada komputer anda. Model yang tidak dapat mengikuti rentak menyebabkan transkrip siap lewat dan membuatkan komputer anda sibuk, panas dan menggunakan bateri lebih lama.",
+  "Spanish": "Sepanyol",
+  "Spanish only": "Sepanyol sahaja",
+  "Highest quality in Spanish": "Kualiti tertinggi dalam bahasa Sepanyol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa sahaja lebih pantas dan tepat: tiada apa yang diteka. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain, atau yang mencampurkannya."
 }

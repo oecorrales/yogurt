@@ -149,7 +149,6 @@
   "Empty the Trash?": "要清倒废纸篓吗？",
   "English": "英语",
   "English only": "仅英语",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "仅英语更快、更准确。其他语言的会议请选择多语言。",
   "Everyone else": "其他所有人",
   "Everything stays on your Mac.": "所有内容都留在你的 Mac 上。",
   "Everything stays on your computer.": "所有内容都留在你的电脑上。",
@@ -746,5 +745,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "接近这台电脑的极限：实时文字可能会稍有延迟。",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "在这台电脑上会落后：速度检测中用了音频时长的 {rtf} 倍。一小时会议的转写大约会在会议结束后 {minutes} 分钟完成。",
   "Too slow for this computer: a transcript can take hours, or not finish.": "对这台电脑来说太慢：转写可能需要数小时，或无法完成。",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "更大的模型能识别对更多字词，但对电脑的要求也更高。跟不上的模型会让转写更晚完成，并让你的电脑更长时间保持繁忙、发热和耗电。"
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "更大的模型能识别对更多字词，但对电脑的要求也更高。跟不上的模型会让转写更晚完成，并让你的电脑更长时间保持繁忙、发热和耗电。",
+  "Spanish": "西班牙语",
+  "Spanish only": "仅西班牙语",
+  "Highest quality in Spanish": "西班牙语最高质量",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "只选一种语言更快、更准确：无需猜测。若会议使用其他语言或混用多种语言，请选择“多语言”。"
 }

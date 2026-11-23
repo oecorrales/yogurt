@@ -24,7 +24,7 @@ export type McpApp = {
   ask(question: string, chips: ContextChip[]): Promise<{ unavailable: 'model' | 'recording' } | { answer: string; sources: LibrarySource[]; stopped?: true }>
   comingUp(): Promise<{ status: CalendarStatus; events: CalEvent[] }>
   calendarDay(at: number): Promise<{ status: CalendarStatus; events: CalEvent[] }>
-  settings(): { myName: string; locale: string; spoken: 'en' | 'multi'; summaryLanguage: string; jargon: string[]; stopWhenCallEnds: boolean; keepRecordings: boolean }
+  settings(): { myName: string; locale: string; spoken: 'en' | 'es' | 'multi'; summaryLanguage: string; jargon: string[]; stopWhenCallEnds: boolean; keepRecordings: boolean }
   /** the windows hear that meetings or folders changed */
   changed(what: 'meetings' | 'folders'): void
   /** a meeting came in from another app: shown, searched and read for Ask like one recorded here */
@@ -45,7 +45,7 @@ export type McpApp = {
   stopRecording(id: string): boolean
   recording(): Meeting | null
   setJargon(terms: string[]): string[]
-  setSpoken(v: 'en' | 'multi'): boolean
+  setSpoken(v: 'en' | 'es' | 'multi'): boolean
   setSummaryLanguage(v: string): boolean
 }
 export type McpDeps = {
@@ -252,7 +252,7 @@ export function createMcp(d: McpDeps): Mcp {
     async get_settings() {
       const s = d.app.settings()
       return JSON.stringify({ my_name: s.myName, interface_language: s.locale,
-        spoken_language: s.spoken === 'multi' ? 'multi (any language, heard per meeting)' : 'en (English only)',
+        spoken_language: s.spoken === 'multi' ? 'multi (any language, heard per meeting)' : s.spoken === 'es' ? 'es (Spanish only)' : 'en (English only)',
         summary_language: s.summaryLanguage || "each meeting's own language", custom_words: s.jargon,
         stop_recording_when_call_ends: s.stopWhenCallEnds, keep_audio_recordings: s.keepRecordings }, null, 2)
     },

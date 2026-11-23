@@ -152,7 +152,6 @@
   "Empty the Trash?": "ट्रैश खाली करें?",
   "English": "अंग्रेज़ी",
   "English only": "सिर्फ़ अंग्रेज़ी",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "सिर्फ़ अंग्रेज़ी तेज़ और ज़्यादा सटीक है। दूसरी भाषाओं वाली मीटिंग के लिए बहुभाषी चुनें।",
   "Everyone else": "बाकी सभी",
   "Everything stays on your Mac.": "सब कुछ आपके Mac पर रहता है।",
   "Everything stays on your computer.": "सब कुछ आपके कंप्यूटर पर रहता है।",
@@ -776,5 +775,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "इस कंप्यूटर पर सीमा के क़रीब: लाइव शब्द थोड़ा पीछे रह सकते हैं।",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "इस कंप्यूटर पर पीछे रह जाता है: गति जाँच में इसे ऑडियो की लंबाई का {rtf}× समय लगा। एक घंटे की मीटिंग का ट्रांसक्रिप्ट उसके ख़त्म होने के लगभग {minutes} मिनट बाद पूरा होगा।",
   "Too slow for this computer: a transcript can take hours, or not finish.": "इस कंप्यूटर के लिए बहुत धीमा: ट्रांसक्रिप्ट में घंटों लग सकते हैं, या वह पूरा ही न हो।",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "बड़े मॉडल ज़्यादा शब्द सही पकड़ते हैं, लेकिन आपके कंप्यूटर से ज़्यादा मेहनत माँगते हैं। जो मॉडल साथ नहीं चल पाता, उससे ट्रांसक्रिप्ट देर से पूरे होते हैं और आपका कंप्यूटर ज़्यादा देर तक व्यस्त, गर्म और बैटरी पर रहता है।"
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "बड़े मॉडल ज़्यादा शब्द सही पकड़ते हैं, लेकिन आपके कंप्यूटर से ज़्यादा मेहनत माँगते हैं। जो मॉडल साथ नहीं चल पाता, उससे ट्रांसक्रिप्ट देर से पूरे होते हैं और आपका कंप्यूटर ज़्यादा देर तक व्यस्त, गर्म और बैटरी पर रहता है।",
+  "Spanish": "स्पैनिश",
+  "Spanish only": "केवल स्पैनिश",
+  "Highest quality in Spanish": "स्पैनिश में सर्वोच्च गुणवत्ता",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "केवल एक भाषा तेज़ और अधिक सटीक है: कुछ भी अनुमान नहीं लगाया जाता। दूसरी भाषाओं वाली या भाषाएँ मिलाने वाली मीटिंग के लिए बहुभाषी चुनें।"
 }

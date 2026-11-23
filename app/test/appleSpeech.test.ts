@@ -54,6 +54,15 @@ describe('the spoken language picked in Yogurt', () => {
   it('English only with no English model on the Mac: whisper only, never another language', () => {
     expect(wantedSpeechLocale({ spoken: 'en', supported: ['es-ES', 'de-DE'], last: null, ui: 'es-ES' })).toBeNull()
   })
+  it('Spanish only listens in Spanish whatever the last meeting was, in the region of the interface when it is Spanish', () => {
+    const more = [...supported, 'es-MX', 'es-US']
+    expect(wantedSpeechLocale({ spoken: 'es', supported: more, last: 'english', ui: 'es-MX' })).toBe('es-MX')
+    expect(wantedSpeechLocale({ spoken: 'es', supported: more, last: 'german', ui: 'en-US' })).toBe('es-US')
+    expect(wantedSpeechLocale({ spoken: 'es', supported: more, last: 'german', ui: 'de-DE' })).toBe('es-ES')
+    expect(wantedSpeechLocale({ spoken: 'es', supported: ['en-US', 'de-DE'], last: 'spanish', ui: 'es-ES' })).toBeNull()
+    expect(speechFits('es', 'es-MX')).toBe(true)
+    expect(speechFits('es', 'en-US')).toBe(false)
+  })
   it("Multi-language keeps today's choice: the last meeting's language, else the interface's", () => {
     expect(wantedSpeechLocale({ spoken: 'multi', supported, last: 'spanish', ui: 'en-GB' })).toBe('es-ES')
     expect(wantedSpeechLocale({ spoken: 'multi', supported, last: null, ui: 'de-DE' })).toBe('de-DE')

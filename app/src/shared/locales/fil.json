@@ -152,7 +152,6 @@
   "Empty the Trash?": "I-empty ang Trash?",
   "English": "English",
   "English only": "English lang",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Mas mabilis at mas tumpak ang English lang. Piliin ang Maraming wika para sa mga meeting sa ibang wika.",
   "Everyone else": "Lahat ng iba",
   "Everything stays on your Mac.": "Lahat ay nananatili sa Mac mo.",
   "Everything stays on your computer.": "Lahat ay nananatili sa computer mo.",
@@ -788,5 +787,9 @@
   "Close to the limit on this computer: live words can lag a little behind.": "Malapit sa limitasyon ng computer na ito: puwedeng mahuli nang kaunti ang mga live na salita.",
   "Falls behind on this computer: it took {rtf}× the audio's length in the speed check. An hour-long meeting's transcript would finish about {minutes} min after it ends.": "Nahuhuli sa computer na ito: sa speed check, inabot ito ng {rtf}× ng haba ng audio. Matatapos ang transcript ng isang oras na meeting mga {minutes} min pagkatapos nito.",
   "Too slow for this computer: a transcript can take hours, or not finish.": "Masyadong mabagal para sa computer na ito: puwedeng abutin ng ilang oras ang transcript, o hindi matapos.",
-  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Mas maraming salita ang tama sa mas malalaking modelo, pero mas marami ang hinihingi nila sa computer mo. Kapag hindi nakakasabay ang isang modelo, huli nang natatapos ang mga transcript at mas matagal na abala, mainit at naka-baterya ang computer mo."
+  "Bigger models get more words right but need more from your computer. One that can't keep up makes transcripts finish late and keeps your computer busy, warm and on battery longer.": "Mas maraming salita ang tama sa mas malalaking modelo, pero mas marami ang hinihingi nila sa computer mo. Kapag hindi nakakasabay ang isang modelo, huli nang natatapos ang mga transcript at mas matagal na abala, mainit at naka-baterya ang computer mo.",
+  "Spanish": "Espanyol",
+  "Spanish only": "Espanyol lang",
+  "Highest quality in Spanish": "Pinakamataas na kalidad sa Espanyol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito."
 }

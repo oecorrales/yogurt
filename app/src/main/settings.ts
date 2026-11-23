@@ -52,14 +52,14 @@ export type Settings = { theme?: 'light' | 'dark'; language?: string; /** what t
   hideEventsWithoutCallLink?: boolean
   /** names, products and acronyms to spell right in transcripts and notes (shared/jargon.ts) */
   jargon?: string[]
-  /** the language people speak in meetings: English only unless 'multi' (shared/spoken.ts) */
+  /** the language people speak in meetings: English only unless 'es' (Spanish only) or 'multi' (shared/spoken.ts) */
   spoken?: Spoken
   /** the default for newly written summaries; the meeting's language when left out */
   summaryLanguage?: string
   /** new versions download by themselves; on unless turned off */
   autoUpdate?: boolean }
 
-/** "English only" unless Multi-language was picked */
+/** "English only" unless Spanish only or Multi-language was picked */
 export const spokenSetting = (s: Settings): Spoken => spokenOf(s.spoken)
 
 export const summaryLanguageSetting = (s: Settings): string => isLocale(s.summaryLanguage) ? s.summaryLanguage : ''
