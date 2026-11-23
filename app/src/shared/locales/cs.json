@@ -795,5 +795,12 @@
   "Send feedback": "Odeslat zpětnou vazbu",
   "Help and settings": "Nápověda a nastavení",
   "Yogurt menu": "Nabídka Yogurt",
-  "Restart to update · {version}": "Restartovat a aktualizovat · {version}"
+  "Restart to update · {version}": "Restartovat a aktualizovat · {version}",
+  "Download recording": "Stáhnout nahrávku",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Nahrávka uložena. Jsou v ní hlasy všech, tak ji sdílejte s rozmyslem.",
+  "Save separate tracks": "Uložit samostatné stopy",
+  "The recording can be downloaded once the meeting ends.": "Nahrávku bude možné stáhnout po skončení schůzky.",
+  "This meeting has no recording to download.": "Tato schůzka nemá žádnou nahrávku ke stažení.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Stopy uloženy. Jsou v nich hlasy všech, tak je sdílejte s rozmyslem.",
+  "Yogurt couldn't save the recording.": "Yogurt nemohl uložit nahrávku."
 }

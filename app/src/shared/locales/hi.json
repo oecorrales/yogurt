@@ -752,5 +752,12 @@
   "Send feedback": "फ़ीडबैक भेजें",
   "Help and settings": "सहायता और सेटिंग",
   "Yogurt menu": "Yogurt मेन्यू",
-  "Restart to update · {version}": "अपडेट के लिए रीस्टार्ट करें · {version}"
+  "Restart to update · {version}": "अपडेट के लिए रीस्टार्ट करें · {version}",
+  "Download recording": "रिकॉर्डिंग डाउनलोड करें",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "रिकॉर्डिंग सेव हो गई। इसमें सभी की आवाज़ें हैं, इसलिए इसे सोच-समझकर शेयर करें।",
+  "Save separate tracks": "अलग-अलग ट्रैक सेव करें",
+  "The recording can be downloaded once the meeting ends.": "मीटिंग खत्म होने के बाद रिकॉर्डिंग डाउनलोड की जा सकती है।",
+  "This meeting has no recording to download.": "इस मीटिंग की कोई रिकॉर्डिंग डाउनलोड के लिए नहीं है।",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "ट्रैक सेव हो गए। इनमें सभी की आवाज़ें हैं, इसलिए इन्हें सोच-समझकर शेयर करें।",
+  "Yogurt couldn't save the recording.": "Yogurt रिकॉर्डिंग सेव नहीं कर सका।"
 }

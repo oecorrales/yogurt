@@ -752,5 +752,12 @@
   "Send feedback": "Visszajelzés küldése",
   "Help and settings": "Súgó és beállítások",
   "Yogurt menu": "Yogurt menü",
-  "Restart to update · {version}": "Újraindítás a frissítéshez · {version}"
+  "Restart to update · {version}": "Újraindítás a frissítéshez · {version}",
+  "Download recording": "Felvétel letöltése",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Felvétel mentve. Mindenki hangja hallható rajta, ezért körültekintően oszd meg.",
+  "Save separate tracks": "Külön sávok mentése",
+  "The recording can be downloaded once the meeting ends.": "A felvétel a megbeszélés végeztével tölthető le.",
+  "This meeting has no recording to download.": "Ehhez a megbeszéléshez nincs letölthető felvétel.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Sávok mentve. Mindenki hangja hallható rajtuk, ezért körültekintően oszd meg őket.",
+  "Yogurt couldn't save the recording.": "A Yogurt nem tudta menteni a felvételt."
 }

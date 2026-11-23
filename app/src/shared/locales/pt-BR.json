@@ -780,5 +780,12 @@
   "Send feedback": "Enviar feedback",
   "Help and settings": "Ajuda e configurações",
   "Yogurt menu": "Menu do Yogurt",
-  "Restart to update · {version}": "Reiniciar para atualizar · {version}"
+  "Restart to update · {version}": "Reiniciar para atualizar · {version}",
+  "Download recording": "Baixar gravação",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Gravação salva. Ela tem a voz de todos, então compartilhe com cuidado.",
+  "Save separate tracks": "Salvar faixas separadas",
+  "The recording can be downloaded once the meeting ends.": "A gravação poderá ser baixada quando a reunião terminar.",
+  "This meeting has no recording to download.": "Esta reunião não tem gravação para baixar.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Faixas salvas. Elas têm a voz de todos, então compartilhe com cuidado.",
+  "Yogurt couldn't save the recording.": "O Yogurt não conseguiu salvar a gravação."
 }

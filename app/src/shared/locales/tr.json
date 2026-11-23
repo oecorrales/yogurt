@@ -752,5 +752,12 @@
   "Send feedback": "Geri bildirim gönder",
   "Help and settings": "Yardım ve ayarlar",
   "Yogurt menu": "Yogurt menüsü",
-  "Restart to update · {version}": "Güncellemek için yeniden başlat · {version}"
+  "Restart to update · {version}": "Güncellemek için yeniden başlat · {version}",
+  "Download recording": "Kaydı indir",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Kayıt kaydedildi. İçinde herkesin sesi var, bu yüzden paylaşırken özen gösterin.",
+  "Save separate tracks": "Kanalları ayrı kaydet",
+  "The recording can be downloaded once the meeting ends.": "Kayıt, toplantı bittikten sonra indirilebilir.",
+  "This meeting has no recording to download.": "Bu toplantının indirilecek bir kaydı yok.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Kanallar kaydedildi. İçlerinde herkesin sesi var, bu yüzden paylaşırken özen gösterin.",
+  "Yogurt couldn't save the recording.": "Yogurt kaydı kaydedemedi."
 }

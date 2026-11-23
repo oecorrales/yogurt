@@ -764,5 +764,12 @@
   "Send feedback": "Feedback sturen",
   "Help and settings": "Help en instellingen",
   "Yogurt menu": "Yogurt-menu",
-  "Restart to update · {version}": "Herstarten om bij te werken · {version}"
+  "Restart to update · {version}": "Herstarten om bij te werken · {version}",
+  "Download recording": "Opname downloaden",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Opname bewaard. Iedereens stem staat erop, dus deel hem met zorg.",
+  "Save separate tracks": "Sporen apart bewaren",
+  "The recording can be downloaded once the meeting ends.": "De opname kan worden gedownload zodra de vergadering is afgelopen.",
+  "This meeting has no recording to download.": "Deze vergadering heeft geen opname om te downloaden.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporen bewaard. Iedereens stem staat erop, dus deel ze met zorg.",
+  "Yogurt couldn't save the recording.": "Yogurt kon de opname niet bewaren."
 }

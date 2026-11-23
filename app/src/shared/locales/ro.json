@@ -781,5 +781,12 @@
   "Send feedback": "Trimite feedback",
   "Help and settings": "Ajutor și setări",
   "Yogurt menu": "Meniul Yogurt",
-  "Restart to update · {version}": "Repornește pentru actualizare · {version}"
+  "Restart to update · {version}": "Repornește pentru actualizare · {version}",
+  "Download recording": "Descarcă înregistrarea",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Înregistrare salvată. Conține vocile tuturor, așa că distribuiți-o cu grijă.",
+  "Save separate tracks": "Salvează pistele separat",
+  "The recording can be downloaded once the meeting ends.": "Înregistrarea poate fi descărcată după ce se termină întâlnirea.",
+  "This meeting has no recording to download.": "Această întâlnire nu are nicio înregistrare de descărcat.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Piste salvate. Conțin vocile tuturor, așa că distribuiți-le cu grijă.",
+  "Yogurt couldn't save the recording.": "Yogurt nu a putut salva înregistrarea."
 }

@@ -722,5 +722,12 @@
   "Send feedback": "의견 보내기",
   "Help and settings": "도움말 및 설정",
   "Yogurt menu": "Yogurt 메뉴",
-  "Restart to update · {version}": "다시 시작하여 업데이트 · {version}"
+  "Restart to update · {version}": "다시 시작하여 업데이트 · {version}",
+  "Download recording": "녹음 다운로드",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "녹음을 저장했어요. 모두의 목소리가 담겨 있으니 공유할 때 주의해 주세요.",
+  "Save separate tracks": "트랙 따로 저장",
+  "The recording can be downloaded once the meeting ends.": "회의가 끝나면 녹음을 다운로드할 수 있어요.",
+  "This meeting has no recording to download.": "이 회의에는 다운로드할 녹음이 없어요.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "트랙을 저장했어요. 모두의 목소리가 담겨 있으니 공유할 때 주의해 주세요.",
+  "Yogurt couldn't save the recording.": "Yogurt가 녹음을 저장하지 못했어요."
 }

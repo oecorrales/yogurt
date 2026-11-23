@@ -820,5 +820,12 @@
   "Send feedback": "إرسال ملاحظات",
   "Help and settings": "المساعدة والإعدادات",
   "Yogurt menu": "قائمة Yogurt",
-  "Restart to update · {version}": "إعادة التشغيل للتحديث · {version}"
+  "Restart to update · {version}": "إعادة التشغيل للتحديث · {version}",
+  "Download recording": "تنزيل التسجيل",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "تم حفظ التسجيل. فيه أصوات الجميع، لذا شاركه بعناية.",
+  "Save separate tracks": "حفظ المسارات منفصلة",
+  "The recording can be downloaded once the meeting ends.": "يمكن تنزيل التسجيل بعد انتهاء الاجتماع.",
+  "This meeting has no recording to download.": "لا يوجد تسجيل لهذا الاجتماع لتنزيله.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "تم حفظ المسارات. فيها أصوات الجميع، لذا شاركها بعناية.",
+  "Yogurt couldn't save the recording.": "تعذّر على Yogurt حفظ التسجيل."
 }

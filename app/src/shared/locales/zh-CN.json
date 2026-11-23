@@ -722,5 +722,12 @@
   "Send feedback": "发送反馈",
   "Help and settings": "帮助和设置",
   "Yogurt menu": "Yogurt 菜单",
-  "Restart to update · {version}": "重启以更新 · {version}"
+  "Restart to update · {version}": "重启以更新 · {version}",
+  "Download recording": "下载录音",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "录音已保存。里面有所有人的声音，分享时请多加留意。",
+  "Save separate tracks": "分别保存音轨",
+  "The recording can be downloaded once the meeting ends.": "会议结束后即可下载录音。",
+  "This meeting has no recording to download.": "这个会议没有可下载的录音。",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "音轨已保存。里面有所有人的声音，分享时请多加留意。",
+  "Yogurt couldn't save the recording.": "Yogurt 无法保存录音。"
 }

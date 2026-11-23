@@ -149,6 +149,8 @@ const api: YogurtApi = {
       return () => { ipcRenderer.removeListener('audio:deleted', on) }
     },
     tracks: (id) => ipcRenderer.invoke('audio:tracks', id),
+    download: (id, kind) => ipcRenderer.invoke('audio:download', id, kind),
+    showDownload: () => ipcRenderer.send('audio:show-download'),
     mics: () => ipcRenderer.invoke('audio:mics'),
     setMic: (id) => ipcRenderer.invoke('audio:set-mic', id),
     onMics: (fn) => {

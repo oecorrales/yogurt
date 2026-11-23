@@ -201,6 +201,10 @@ export type YogurtApi = {
     onDeleted(cb: (id: string) => void): () => void
     /** the tracks there are to play, once the recording is finished (none while it records) */
     tracks(meetingId: string): Promise<Array<'me' | 'them'>>
+    /** saves the recording where the person picks: one file with both sides mixed (16 kHz WAV), or the two tracks as recorded */
+    download(meetingId: string, kind: 'mixed' | 'tracks'): Promise<'saved' | 'cancelled' | 'missing' | 'recording' | 'failed'>
+    /** shows the file just downloaded in Finder / File Explorer */
+    showDownload(): void
     /** every microphone, the one chosen (null: Auto) and the one in use; while recording, what the recorder uses */
     mics(): Promise<MicsView>
     /** records with this mic from now on (null: Auto), the meeting being recorded too; remembered for the next one */

@@ -85,6 +85,7 @@ import { hookFolders } from './foldersIpc'
 import { hookMcp } from './mcp'
 import { startedHidden } from './mcp/paths'
 import { deleteRecording } from './deleteRecording'
+import { createRecordingDownload } from './recordingDownload'
 import { AUDIO_SCHEME, audioExts, createAudioHandler, trackFile, type AudioExt } from './audio'
 import { helperDecode, wavDecode } from './asr/backfill'
 import { finishQuit, hookUpdates, isPreviewBuild, updatesOn } from './updates'
@@ -857,6 +858,21 @@ app.whenReady().then(() => {
     await Promise.all([recordingSettled(id), rejoined])
     return (['me', 'them'] as const).filter((t) => !!trackFile(meetingDir(id), t, audioKinds))
   })
+  // the player's Download: the recording as one mixed file, or its two tracks as they were recorded
+  const recordingDownload = createRecordingDownload({
+    meeting: id => store.meeting(id),
+    files: async id => {
+      if (!finishedMeeting(id)) return 'recording'
+      await Promise.all([recordingSettled(id), rejoined])
+      const files: Partial<Record<'me' | 'them', string>> = {}
+      for (const tr of ['me', 'them'] as const) { const f = trackFile(meetingDir(id), tr, audioKinds); if (f) files[tr] = f }
+      return files
+    },
+    decode: file => file.endsWith('.wav') ? uploadedAudio(file) : helperDecode(audioHelperPath(), file),
+    window: () => win,
+  })
+  ipcMain.handle('audio:download', (_e, id: unknown, kind: unknown) => isId(id) && (kind === 'mixed' || kind === 'tracks') ? recordingDownload.save(id, kind) : 'missing')
+  ipcMain.on('audio:show-download', () => { const f = recordingDownload.last(); if (f && !isFake()) shell.showItemInFolder(f) })
   // the mic picker under the note's bar: the mics, the chosen one, and switching while recording
   hookMics({ helper: micListHelper(process.platform) === 'system' || isFake() ? runHelper : audioHelper.run, settingsFile, send: (channel, payload) => win?.webContents.send(channel, payload) })
   hookShare({ store, window: () => win, includeRecordingCredit: () => includesRecordingCredit(loadSettings(settingsFile)) })

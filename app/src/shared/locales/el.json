@@ -767,5 +767,12 @@
   "Send feedback": "Αποστολή σχολίων",
   "Help and settings": "Βοήθεια και ρυθμίσεις",
   "Yogurt menu": "Μενού Yogurt",
-  "Restart to update · {version}": "Επανεκκίνηση για ενημέρωση · {version}"
+  "Restart to update · {version}": "Επανεκκίνηση για ενημέρωση · {version}",
+  "Download recording": "Λήψη ηχογράφησης",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Η ηχογράφηση αποθηκεύτηκε. Περιέχει τις φωνές όλων, οπότε μοιραστείτε τη με προσοχή.",
+  "Save separate tracks": "Αποθήκευση ξεχωριστών κομματιών",
+  "The recording can be downloaded once the meeting ends.": "Η ηχογράφηση μπορεί να ληφθεί μόλις τελειώσει η συνάντηση.",
+  "This meeting has no recording to download.": "Αυτή η συνάντηση δεν έχει ηχογράφηση για λήψη.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Τα κομμάτια αποθηκεύτηκαν. Περιέχουν τις φωνές όλων, οπότε μοιραστείτε τα με προσοχή.",
+  "Yogurt couldn't save the recording.": "Το Yogurt δεν μπόρεσε να αποθηκεύσει την ηχογράφηση."
 }

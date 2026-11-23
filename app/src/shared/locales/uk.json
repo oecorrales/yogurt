@@ -792,5 +792,12 @@
   "Send feedback": "Надіслати відгук",
   "Help and settings": "Довідка й налаштування",
   "Yogurt menu": "Меню Yogurt",
-  "Restart to update · {version}": "Перезапустити для оновлення · {version}"
+  "Restart to update · {version}": "Перезапустити для оновлення · {version}",
+  "Download recording": "Завантажити запис",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Запис збережено. У ньому голоси всіх учасників, тож діліться ним обережно.",
+  "Save separate tracks": "Зберегти доріжки окремо",
+  "The recording can be downloaded once the meeting ends.": "Запис можна буде завантажити після завершення зустрічі.",
+  "This meeting has no recording to download.": "Ця зустріч не має запису для завантаження.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Доріжки збережено. У них голоси всіх учасників, тож діліться ними обережно.",
+  "Yogurt couldn't save the recording.": "Yogurt не зміг зберегти запис."
 }

@@ -722,5 +722,12 @@
   "Send feedback": "Kirim masukan",
   "Help and settings": "Bantuan dan pengaturan",
   "Yogurt menu": "Menu Yogurt",
-  "Restart to update · {version}": "Mulai ulang untuk memperbarui · {version}"
+  "Restart to update · {version}": "Mulai ulang untuk memperbarui · {version}",
+  "Download recording": "Unduh rekaman",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Rekaman disimpan. Di dalamnya ada suara semua orang, jadi bagikan dengan hati-hati.",
+  "Save separate tracks": "Simpan trek terpisah",
+  "The recording can be downloaded once the meeting ends.": "Rekaman dapat diunduh setelah rapat selesai.",
+  "This meeting has no recording to download.": "Rapat ini tidak punya rekaman untuk diunduh.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Trek disimpan. Di dalamnya ada suara semua orang, jadi bagikan dengan hati-hati.",
+  "Yogurt couldn't save the recording.": "Yogurt tidak dapat menyimpan rekaman."
 }

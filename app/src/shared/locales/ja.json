@@ -722,5 +722,12 @@
   "Send feedback": "フィードバックを送信",
   "Help and settings": "ヘルプと設定",
   "Yogurt menu": "Yogurt メニュー",
-  "Restart to update · {version}": "再起動してアップデート · {version}"
+  "Restart to update · {version}": "再起動してアップデート · {version}",
+  "Download recording": "録音をダウンロード",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "録音を保存しました。全員の声が入っているので、共有するときは気をつけてください。",
+  "Save separate tracks": "トラックを個別に保存",
+  "The recording can be downloaded once the meeting ends.": "会議が終わると録音をダウンロードできます。",
+  "This meeting has no recording to download.": "この会議にはダウンロードできる録音がありません。",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "トラックを保存しました。全員の声が入っているので、共有するときは気をつけてください。",
+  "Yogurt couldn't save the recording.": "Yogurtは録音を保存できませんでした。"
 }

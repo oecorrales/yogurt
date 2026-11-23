@@ -752,5 +752,12 @@
   "Send feedback": "মতামত পাঠান",
   "Help and settings": "সহায়তা ও সেটিংস",
   "Yogurt menu": "Yogurt মেনু",
-  "Restart to update · {version}": "আপডেট করতে পুনরায় চালু করুন · {version}"
+  "Restart to update · {version}": "আপডেট করতে পুনরায় চালু করুন · {version}",
+  "Download recording": "রেকর্ডিং ডাউনলোড করুন",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "রেকর্ডিং সেভ হয়েছে। এতে সবার কণ্ঠ আছে, তাই সাবধানে শেয়ার করুন।",
+  "Save separate tracks": "আলাদা ট্র্যাক সেভ করুন",
+  "The recording can be downloaded once the meeting ends.": "মিটিং শেষ হলে রেকর্ডিং ডাউনলোড করা যাবে।",
+  "This meeting has no recording to download.": "এই মিটিংয়ের ডাউনলোড করার মতো কোনো রেকর্ডিং নেই।",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "ট্র্যাক সেভ হয়েছে। এগুলোতে সবার কণ্ঠ আছে, তাই সাবধানে শেয়ার করুন।",
+  "Yogurt couldn't save the recording.": "Yogurt রেকর্ডিং সেভ করতে পারেনি।"
 }

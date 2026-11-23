@@ -722,5 +722,12 @@
   "Send feedback": "Gửi ý kiến phản hồi",
   "Help and settings": "Trợ giúp và cài đặt",
   "Yogurt menu": "Menu Yogurt",
-  "Restart to update · {version}": "Khởi động lại để cập nhật · {version}"
+  "Restart to update · {version}": "Khởi động lại để cập nhật · {version}",
+  "Download recording": "Tải bản ghi xuống",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Đã lưu bản ghi. Trong đó có giọng nói của mọi người, nên hãy chia sẻ cẩn thận.",
+  "Save separate tracks": "Lưu các track riêng",
+  "The recording can be downloaded once the meeting ends.": "Bạn có thể tải bản ghi xuống sau khi cuộc họp kết thúc.",
+  "This meeting has no recording to download.": "Cuộc họp này không có bản ghi để tải xuống.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Đã lưu các track. Trong đó có giọng nói của mọi người, nên hãy chia sẻ cẩn thận.",
+  "Yogurt couldn't save the recording.": "Yogurt không lưu được bản ghi."
 }

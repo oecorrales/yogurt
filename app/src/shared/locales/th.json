@@ -722,5 +722,12 @@
   "Send feedback": "ส่งความคิดเห็น",
   "Help and settings": "ความช่วยเหลือและการตั้งค่า",
   "Yogurt menu": "เมนู Yogurt",
-  "Restart to update · {version}": "เริ่มใหม่เพื่ออัปเดต · {version}"
+  "Restart to update · {version}": "เริ่มใหม่เพื่ออัปเดต · {version}",
+  "Download recording": "ดาวน์โหลดเสียงบันทึก",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "บันทึกเสียงบันทึกแล้ว ในนี้มีเสียงของทุกคน จึงควรแชร์อย่างระมัดระวัง",
+  "Save separate tracks": "บันทึกแทร็กแยกกัน",
+  "The recording can be downloaded once the meeting ends.": "ดาวน์โหลดเสียงบันทึกได้เมื่อการประชุมจบแล้ว",
+  "This meeting has no recording to download.": "การประชุมนี้ไม่มีเสียงบันทึกให้ดาวน์โหลด",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "บันทึกแทร็กแล้ว ในนี้มีเสียงของทุกคน จึงควรแชร์อย่างระมัดระวัง",
+  "Yogurt couldn't save the recording.": "Yogurt บันทึกเสียงบันทึกไม่ได้"
 }

@@ -722,5 +722,12 @@
   "Send feedback": "傳送意見回饋",
   "Help and settings": "說明與設定",
   "Yogurt menu": "Yogurt 選單",
-  "Restart to update · {version}": "重新啟動以更新 · {version}"
+  "Restart to update · {version}": "重新啟動以更新 · {version}",
+  "Download recording": "下載錄音",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "錄音已儲存。裡面有所有人的聲音，分享時請多加留意。",
+  "Save separate tracks": "分別儲存音軌",
+  "The recording can be downloaded once the meeting ends.": "會議結束後即可下載錄音。",
+  "This meeting has no recording to download.": "這場會議沒有可下載的錄音。",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "音軌已儲存。裡面有所有人的聲音，分享時請多加留意。",
+  "Yogurt couldn't save the recording.": "Yogurt 無法儲存錄音。"
 }

@@ -764,5 +764,12 @@
   "Send feedback": "Skicka feedback",
   "Help and settings": "Hjälp och inställningar",
   "Yogurt menu": "Yogurt-menyn",
-  "Restart to update · {version}": "Starta om för att uppdatera · {version}"
+  "Restart to update · {version}": "Starta om för att uppdatera · {version}",
+  "Download recording": "Ladda ner inspelningen",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Inspelningen har sparats. Den innehåller allas röster, så dela den varsamt.",
+  "Save separate tracks": "Spara separata spår",
+  "The recording can be downloaded once the meeting ends.": "Inspelningen kan laddas ner när mötet är slut.",
+  "This meeting has no recording to download.": "Det här mötet har ingen inspelning att ladda ner.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Spåren har sparats. De innehåller allas röster, så dela dem varsamt.",
+  "Yogurt couldn't save the recording.": "Yogurt kunde inte spara inspelningen."
 }

@@ -764,5 +764,12 @@
   "Send feedback": "Send tilbakemelding",
   "Help and settings": "Hjelp og innstillinger",
   "Yogurt menu": "Yogurt-meny",
-  "Restart to update · {version}": "Start på nytt for å oppdatere · {version}"
+  "Restart to update · {version}": "Start på nytt for å oppdatere · {version}",
+  "Download recording": "Last ned opptaket",
+  "Recording saved. It has everyone's voices in it, so share it with care.": "Opptaket er lagret. Det inneholder alles stemmer, så del det med omtanke.",
+  "Save separate tracks": "Lagre separate spor",
+  "The recording can be downloaded once the meeting ends.": "Opptaket kan lastes ned når møtet er over.",
+  "This meeting has no recording to download.": "Dette møtet har ikke noe opptak å laste ned.",
+  "Tracks saved. They have everyone's voices in them, so share them with care.": "Sporene er lagret. De inneholder alles stemmer, så del dem med omtanke.",
+  "Yogurt couldn't save the recording.": "Yogurt kunne ikke lagre opptaket."
 }
