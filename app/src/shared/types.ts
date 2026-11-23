@@ -45,6 +45,10 @@ export type YogurtApi = {
     skipUpgrade(): Promise<void>
     downloadUpgrade(): Promise<void>
     removeUpgrade(): Promise<void>
+    /** Windows and Linux: time the speech models again; busy while a meeting is recorded or transcribed */
+    checkSpeech(): Promise<'ok' | 'busy' | 'failed'>
+    /** Windows and Linux: download and use this speech model instead of the one in use */
+    useSpeechModel(id: string): Promise<'ok' | 'busy' | 'failed'>
   }
   /** the "Take notes?" and "Stop recording?" card */
   prompt: {
@@ -342,9 +346,45 @@ export type YogurtApi = {
   }
 }
 
+/**
+ * How one speech model did in the speed check on this computer: live (keeps up), close (may lag a little live, done
+ * when the meeting is), behind (the transcript ends a while after the meeting), too-slow (hours, or never), untimed
+ * (smaller than the one kept, so faster: the check stops at the first that keeps up)
+ */
+export type SpeechPace = 'live' | 'close' | 'behind' | 'too-slow' | 'untimed'
+export type SpeechModelOption = {
+  id: string
+  name: string
+  bytes: number
+  /** time taken over the audio's length in the speed check; null: it ran out of time; absent: not timed */
+  rtf?: number | null
+  pace: SpeechPace
+  /** what the speed check would use: the most accurate one that keeps up */
+  recommended: boolean
+  /** needs a graphics card this computer doesn't have: shown, but can't be picked */
+  needsGraphics?: boolean
+}
+/** Windows and Linux, once ready: the speech model in use, how it was picked, and the others (Settings → Transcription model) */
+export type SpeechModels = {
+  current: string
+  /** check: the speed check's pick; you: picked in Settings */
+  chosenBy: 'check' | 'you'
+  /** whisper runs on the graphics card (false: on the processor) */
+  graphics: boolean
+  /** most accurate first */
+  models: SpeechModelOption[]
+  busy?: 'checking' | 'downloading'
+  /** 0 to 1 while a model downloads */
+  fraction?: number
+  /** the last speed check found none that keeps up: the one in use stayed */
+  noneKeepsUp?: boolean
+}
+
 /** First-run setup: the models this Mac needs. Ready (recording works) once the speech model is in place; the notes models keep downloading after. */
 export type SetupState = {
   phase: 'checking' | 'downloading' | 'ready' | 'error'
+  /** Windows and Linux: the speech model and the choice of others (absent on a Mac and before ready) */
+  speech?: SpeechModels
   /** 0 to 1 over what ready waits for */
   fraction: number
   message?: string

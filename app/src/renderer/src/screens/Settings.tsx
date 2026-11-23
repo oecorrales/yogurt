@@ -15,6 +15,7 @@ import { SpokenSetting } from '../components/SpokenSetting'
 import { useScrollMemory } from '../useScrollMemory'
 import { appShortcuts } from '../components/Shortcuts'
 import { CalendarSettings } from '../components/CalendarSettings'
+import { SpeechModelSetting } from '../components/SpeechModelSetting'
 import { supportedKinds, settingsPage } from '../../../shared/platform'
 import { Swap, SwapText } from '../components/Swap'
 
@@ -248,6 +249,7 @@ export function Settings({ revision = 0, focus }: { revision?: number; focus?: s
                 }}><span className="settings-toggle-knob" /></button>
             </div>
             <NotesModel reveal={focus === 'notes-model'} />
+            <SpeechModelSetting />
           </LoadingContent></div>
 
           <h2 className="settings-section-heading">{t('What Yogurt can use')}</h2>
