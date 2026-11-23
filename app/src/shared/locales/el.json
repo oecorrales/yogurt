@@ -152,7 +152,6 @@
   "Empty the Trash?": "Άδειασμα του Κάδου;",
   "English": "Αγγλικά",
   "English only": "Μόνο αγγλικά",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Τα μόνο αγγλικά είναι πιο γρήγορα και πιο ακριβή. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες.",
   "Everyone else": "Όλοι οι άλλοι",
   "Everything stays on your Mac.": "Όλα μένουν στο Mac σας.",
   "Everything stays on your computer.": "Όλα μένουν στον υπολογιστή σας.",
@@ -767,5 +766,9 @@
   "Send feedback": "Αποστολή σχολίων",
   "Help and settings": "Βοήθεια και ρυθμίσεις",
   "Yogurt menu": "Μενού Yogurt",
-  "Restart to update · {version}": "Επανεκκίνηση για ενημέρωση · {version}"
+  "Restart to update · {version}": "Επανεκκίνηση για ενημέρωση · {version}",
+  "Spanish": "Ισπανικά",
+  "Spanish only": "Μόνο ισπανικά",
+  "Highest quality in Spanish": "Κορυφαία ποιότητα στα ισπανικά",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Μία μόνο γλώσσα είναι ταχύτερη και ακριβέστερη: τίποτα δεν μαντεύεται. Επιλέξτε Πολύγλωσσο για συσκέψεις σε άλλες γλώσσες ή που τις αναμειγνύουν."
 }

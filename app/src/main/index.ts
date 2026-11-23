@@ -621,7 +621,7 @@ app.whenReady().then(() => {
     warn: (code) => tell({ t: 'warn', code }), pidFile: join(userDataDir(), 'whisper-server.pid'),
     // whisper-server went down mid-meeting (#127): the rest is read from the saved recording once the transcript is settled
     queued: () => { void savedTranscriptions.pump() },
-    // English only (the default) or Multi-language, read on each chunk so the footer's picker counts at once
+    // English only (the default), Spanish only or Multi-language, read on each chunk so the footer's picker counts at once
     spoken: () => spokenSetting(loadSettings(settingsFile)),
     // Apple's on-device speech for the live words (macOS 26, Apple Silicon); fake mode has a stand-in when a test asks
     speech: {

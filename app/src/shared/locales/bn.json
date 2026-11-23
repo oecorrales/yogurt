@@ -152,7 +152,6 @@
   "Empty the Trash?": "ট্র্যাশ খালি করবেন?",
   "English": "ইংরেজি",
   "English only": "শুধু ইংরেজি",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "শুধু ইংরেজি দ্রুত ও বেশি নির্ভুল। অন্য ভাষার মিটিংয়ের জন্য বহু ভাষা বেছে নিন।",
   "Everyone else": "বাকি সবাই",
   "Everything stays on your Mac.": "সবকিছু আপনার Mac-এই থাকে।",
   "Everything stays on your computer.": "সবকিছু আপনার কম্পিউটারেই থাকে।",
@@ -752,5 +751,9 @@
   "Send feedback": "মতামত পাঠান",
   "Help and settings": "সহায়তা ও সেটিংস",
   "Yogurt menu": "Yogurt মেনু",
-  "Restart to update · {version}": "আপডেট করতে পুনরায় চালু করুন · {version}"
+  "Restart to update · {version}": "আপডেট করতে পুনরায় চালু করুন · {version}",
+  "Spanish": "স্প্যানিশ",
+  "Spanish only": "শুধু স্প্যানিশ",
+  "Highest quality in Spanish": "স্প্যানিশে সর্বোচ্চ মান",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "একটি মাত্র ভাষা দ্রুততর ও আরও নির্ভুল: কিছুই অনুমান করা হয় না। অন্য ভাষার বা একাধিক ভাষা মেশানো মিটিংয়ের জন্য বহু ভাষা বেছে নিন।"
 }

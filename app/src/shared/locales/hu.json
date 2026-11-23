@@ -152,7 +152,6 @@
   "Empty the Trash?": "Kiüríted a Kukát?",
   "English": "Angol",
   "English only": "Csak angol",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "A csak angol gyorsabb és pontosabb. Más nyelvű megbeszélésekhez válaszd a Többnyelvűt.",
   "Everyone else": "Mindenki más",
   "Everything stays on your Mac.": "Minden a Maceden marad.",
   "Everything stays on your computer.": "Minden a számítógépeden marad.",
@@ -752,5 +751,9 @@
   "Send feedback": "Visszajelzés küldése",
   "Help and settings": "Súgó és beállítások",
   "Yogurt menu": "Yogurt menü",
-  "Restart to update · {version}": "Újraindítás a frissítéshez · {version}"
+  "Restart to update · {version}": "Újraindítás a frissítéshez · {version}",
+  "Spanish": "Spanyol",
+  "Spanish only": "Csak spanyol",
+  "Highest quality in Spanish": "Legjobb minőség spanyolul",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Egyetlen nyelv gyorsabb és pontosabb: semmit sem kell kitalálni. Más nyelvű vagy több nyelvet keverő megbeszélésekhez válaszd a Többnyelvű lehetőséget."
 }

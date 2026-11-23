@@ -152,7 +152,6 @@
   "Empty the Trash?": "Vil du tømme papirkurven?",
   "English": "Engelsk",
   "English only": "Kun engelsk",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Kun engelsk er hurtigere og mere præcist. Vælg Flersproget til møder på andre sprog.",
   "Everyone else": "Alle andre",
   "Everything stays on your Mac.": "Alt bliver på din Mac.",
   "Everything stays on your computer.": "Alt bliver på din computer.",
@@ -764,5 +763,9 @@
   "Send feedback": "Send feedback",
   "Help and settings": "Hjælp og indstillinger",
   "Yogurt menu": "Yogurt-menu",
-  "Restart to update · {version}": "Genstart for at opdatere · {version}"
+  "Restart to update · {version}": "Genstart for at opdatere · {version}",
+  "Spanish": "Spansk",
+  "Spanish only": "Kun spansk",
+  "Highest quality in Spanish": "Højeste kvalitet på spansk",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Kun ét sprog er hurtigere og mere præcist: intet gættes. Vælg Flersproget til møder på andre sprog, eller som blander dem."
 }

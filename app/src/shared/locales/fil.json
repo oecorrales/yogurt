@@ -152,7 +152,6 @@
   "Empty the Trash?": "I-empty ang Trash?",
   "English": "English",
   "English only": "English lang",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Mas mabilis at mas tumpak ang English lang. Piliin ang Maraming wika para sa mga meeting sa ibang wika.",
   "Everyone else": "Lahat ng iba",
   "Everything stays on your Mac.": "Lahat ay nananatili sa Mac mo.",
   "Everything stays on your computer.": "Lahat ay nananatili sa computer mo.",
@@ -764,5 +763,9 @@
   "Send feedback": "Magpadala ng feedback",
   "Help and settings": "Tulong at mga setting",
   "Yogurt menu": "Menu ng Yogurt",
-  "Restart to update · {version}": "I-restart para mag-update · {version}"
+  "Restart to update · {version}": "I-restart para mag-update · {version}",
+  "Spanish": "Espanyol",
+  "Spanish only": "Espanyol lang",
+  "Highest quality in Spanish": "Pinakamataas na kalidad sa Espanyol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Mas mabilis at mas tumpak ang iisang wika lang: walang hinuhulaan. Piliin ang Maraming wika para sa mga meeting sa ibang wika, o na naghahalo ng mga ito."
 }

@@ -149,7 +149,6 @@
   "Empty the Trash?": "Kosongkan Tong Sampah?",
   "English": "Inggeris",
   "English only": "Inggeris sahaja",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Inggeris sahaja lebih pantas dan tepat. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain.",
   "Everyone else": "Semua orang lain",
   "Everything stays on your Mac.": "Semuanya kekal di Mac anda.",
   "Everything stays on your computer.": "Semuanya kekal di komputer anda.",
@@ -722,5 +721,9 @@
   "Send feedback": "Hantar maklum balas",
   "Help and settings": "Bantuan dan tetapan",
   "Yogurt menu": "Menu Yogurt",
-  "Restart to update · {version}": "Mulakan semula untuk mengemas kini · {version}"
+  "Restart to update · {version}": "Mulakan semula untuk mengemas kini · {version}",
+  "Spanish": "Sepanyol",
+  "Spanish only": "Sepanyol sahaja",
+  "Highest quality in Spanish": "Kualiti tertinggi dalam bahasa Sepanyol",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Satu bahasa sahaja lebih pantas dan tepat: tiada apa yang diteka. Pilih Berbilang bahasa untuk mesyuarat dalam bahasa lain, atau yang mencampurkannya."
 }

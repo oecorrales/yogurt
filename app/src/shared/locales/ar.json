@@ -156,7 +156,6 @@
   "Empty the Trash?": "هل تريد إفراغ سلة المهملات؟",
   "English": "الإنجليزية",
   "English only": "الإنجليزية فقط",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "الإنجليزية فقط أسرع وأدق. اختر متعدد اللغات للاجتماعات بلغات أخرى.",
   "Everyone else": "الجميع",
   "Everything stays on your Mac.": "يبقى كل شيء على جهاز الـMac.",
   "Everything stays on your computer.": "يبقى كل شيء على الكمبيوتر.",
@@ -820,5 +819,9 @@
   "Send feedback": "إرسال ملاحظات",
   "Help and settings": "المساعدة والإعدادات",
   "Yogurt menu": "قائمة Yogurt",
-  "Restart to update · {version}": "إعادة التشغيل للتحديث · {version}"
+  "Restart to update · {version}": "إعادة التشغيل للتحديث · {version}",
+  "Spanish": "الإسبانية",
+  "Spanish only": "الإسبانية فقط",
+  "Highest quality in Spanish": "أعلى جودة بالإسبانية",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "اختيار لغة واحدة فقط أسرع وأدق: لا شيء يُخمَّن. اختر «متعدد اللغات» للاجتماعات بلغات أخرى أو التي تمزج بينها."
 }

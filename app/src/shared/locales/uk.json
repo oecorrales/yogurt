@@ -154,7 +154,6 @@
   "Empty the Trash?": "Очистити Кошик?",
   "English": "Англійська",
   "English only": "Лише англійська",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Лише англійська працює швидше й точніше. Для зустрічей іншими мовами виберіть «Кілька мов».",
   "Everyone else": "Усі інші",
   "Everything stays on your Mac.": "Усе лишається на вашому Mac.",
   "Everything stays on your computer.": "Усе лишається на вашому комп’ютері.",
@@ -792,5 +791,9 @@
   "Send feedback": "Надіслати відгук",
   "Help and settings": "Довідка й налаштування",
   "Yogurt menu": "Меню Yogurt",
-  "Restart to update · {version}": "Перезапустити для оновлення · {version}"
+  "Restart to update · {version}": "Перезапустити для оновлення · {version}",
+  "Spanish": "Іспанська",
+  "Spanish only": "Лише іспанська",
+  "Highest quality in Spanish": "Найвища якість іспанською",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Одна мова швидша й точніша: нічого не вгадується. Виберіть «Кілька мов» для зустрічей іншими мовами або зі змішуванням мов."
 }

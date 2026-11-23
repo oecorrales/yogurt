@@ -10,6 +10,8 @@ describe('the spoken language setting', () => {
     expect(spokenOf(undefined)).toBe('en')
     expect(spokenOf('en')).toBe('en')
     expect(spokenOf('multi')).toBe('multi')
+    expect(spokenOf('es')).toBe('es')
+    expect(spokenSetting({ spoken: 'es' })).toBe('es')
     expect(spokenOf('klingon')).toBe('en')
     expect(spokenSetting({})).toBe('en')
     expect(spokenSetting({ spoken: 'multi' })).toBe('multi')
@@ -24,5 +26,8 @@ describe('the spoken language setting', () => {
   it('whisper is told English for English only, and left to detect for Multi-language', () => {
     expect(whisperLanguage('en')).toBe('en')
     expect(whisperLanguage('multi')).toBeUndefined()
+  })
+  it('whisper is told Spanish for Spanish only, never left to guess', () => {
+    expect(whisperLanguage('es')).toBe('es')
   })
 })

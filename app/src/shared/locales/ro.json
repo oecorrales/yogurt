@@ -153,7 +153,6 @@
   "Empty the Trash?": "Goliți Coșul?",
   "English": "Engleză",
   "English only": "Doar engleză",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Doar engleza e mai rapidă și mai precisă. Alegeți Multilingv pentru întâlniri în alte limbi.",
   "Everyone else": "Toți ceilalți",
   "Everything stays on your Mac.": "Totul rămâne pe Mac-ul dvs.",
   "Everything stays on your computer.": "Totul rămâne pe computerul dvs.",
@@ -781,5 +780,9 @@
   "Send feedback": "Trimite feedback",
   "Help and settings": "Ajutor și setări",
   "Yogurt menu": "Meniul Yogurt",
-  "Restart to update · {version}": "Repornește pentru actualizare · {version}"
+  "Restart to update · {version}": "Repornește pentru actualizare · {version}",
+  "Spanish": "Spaniolă",
+  "Spanish only": "Doar spaniolă",
+  "Highest quality in Spanish": "Calitate maximă în spaniolă",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "O singură limbă este mai rapidă și mai precisă: nu se ghicește nimic. Alegeți Multilingv pentru întâlniri în alte limbi sau care le amestecă."
 }

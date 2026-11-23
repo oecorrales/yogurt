@@ -153,7 +153,6 @@
   "Empty the Trash?": "לרוקן את הפח?",
   "English": "אנגלית",
   "English only": "אנגלית בלבד",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "אנגלית בלבד מהירה ומדויקת יותר. לפגישות בשפות אחרות, כדאי לבחור “רב־לשוני”.",
   "Everyone else": "כל השאר",
   "Everything stays on your Mac.": "הכול נשאר ב־Mac שלך.",
   "Everything stays on your computer.": "הכול נשאר במחשב שלך.",
@@ -774,5 +773,9 @@
   "Send feedback": "שליחת משוב",
   "Help and settings": "עזרה והגדרות",
   "Yogurt menu": "תפריט Yogurt",
-  "Restart to update · {version}": "הפעלה מחדש לעדכון · {version}"
+  "Restart to update · {version}": "הפעלה מחדש לעדכון · {version}",
+  "Spanish": "ספרדית",
+  "Spanish only": "ספרדית בלבד",
+  "Highest quality in Spanish": "האיכות הגבוהה ביותר בספרדית",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "שפה אחת בלבד מהירה ומדויקת יותר: שום דבר לא מנוחש. בחרו ״רב־לשוני״ לפגישות בשפות אחרות או כאלה שמערבבות ביניהן."
 }

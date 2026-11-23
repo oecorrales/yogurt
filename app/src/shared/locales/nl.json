@@ -152,7 +152,6 @@
   "Empty the Trash?": "Prullenmand leegmaken?",
   "English": "Engels",
   "English only": "Alleen Engels",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Alleen Engels is sneller en nauwkeuriger. Kies Meertalig voor meetings in andere talen.",
   "Everyone else": "Alle anderen",
   "Everything stays on your Mac.": "Alles blijft op je Mac.",
   "Everything stays on your computer.": "Alles blijft op je computer.",
@@ -764,5 +763,9 @@
   "Send feedback": "Feedback sturen",
   "Help and settings": "Help en instellingen",
   "Yogurt menu": "Yogurt-menu",
-  "Restart to update · {version}": "Herstarten om bij te werken · {version}"
+  "Restart to update · {version}": "Herstarten om bij te werken · {version}",
+  "Spanish": "Spaans",
+  "Spanish only": "Alleen Spaans",
+  "Highest quality in Spanish": "Hoogste kwaliteit in het Spaans",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Eén taal is sneller en nauwkeuriger: er wordt niets geraden. Kies Meertalig voor vergaderingen in andere talen, of waarin talen door elkaar lopen."
 }

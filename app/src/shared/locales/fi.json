@@ -152,7 +152,6 @@
   "Empty the Trash?": "Tyhjennetäänkö roskakori?",
   "English": "Englanti",
   "English only": "Vain englanti",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Vain englanti on nopeampi ja tarkempi. Valitse Monikielinen muunkielisiin kokouksiin.",
   "Everyone else": "Kaikki muut",
   "Everything stays on your Mac.": "Kaikki pysyy Macillasi.",
   "Everything stays on your computer.": "Kaikki pysyy tietokoneellasi.",
@@ -770,5 +769,9 @@
   "Send feedback": "Lähetä palautetta",
   "Help and settings": "Ohje ja asetukset",
   "Yogurt menu": "Yogurt-valikko",
-  "Restart to update · {version}": "Käynnistä uudelleen ja päivitä · {version}"
+  "Restart to update · {version}": "Käynnistä uudelleen ja päivitä · {version}",
+  "Spanish": "Espanja",
+  "Spanish only": "Vain espanja",
+  "Highest quality in Spanish": "Paras laatu espanjaksi",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Vain yksi kieli on nopeampi ja tarkempi: mitään ei arvata. Valitse Monikielinen kokouksiin, jotka ovat muilla kielillä tai sekoittavat niitä."
 }

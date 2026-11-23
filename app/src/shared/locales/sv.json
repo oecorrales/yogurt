@@ -152,7 +152,6 @@
   "Empty the Trash?": "Tömma papperskorgen?",
   "English": "Engelska",
   "English only": "Bara engelska",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Bara engelska är snabbare och mer exakt. Välj Flerspråkigt för möten på andra språk.",
   "Everyone else": "Alla andra",
   "Everything stays on your Mac.": "Allt stannar på din Mac.",
   "Everything stays on your computer.": "Allt stannar på din dator.",
@@ -764,5 +763,9 @@
   "Send feedback": "Skicka feedback",
   "Help and settings": "Hjälp och inställningar",
   "Yogurt menu": "Yogurt-menyn",
-  "Restart to update · {version}": "Starta om för att uppdatera · {version}"
+  "Restart to update · {version}": "Starta om för att uppdatera · {version}",
+  "Spanish": "Spanska",
+  "Spanish only": "Bara spanska",
+  "Highest quality in Spanish": "Högsta kvalitet på spanska",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Bara ett språk är snabbare och mer exakt: inget gissas. Välj Flerspråkigt för möten på andra språk eller som blandar dem."
 }

@@ -153,7 +153,6 @@
   "Empty the Trash?": "Svuotare il Cestino?",
   "English": "Inglese",
   "English only": "Solo inglese",
-  "English only is faster and more accurate. Pick Multi-language for meetings in other languages.": "Solo inglese è più veloce e preciso. Scegli Multilingue per le riunioni in altre lingue.",
   "Everyone else": "Tutti gli altri",
   "Everything stays on your Mac.": "Tutto resta sul tuo Mac.",
   "Everything stays on your computer.": "Tutto resta sul tuo computer.",
@@ -783,5 +782,9 @@
   "Send feedback": "Invia feedback",
   "Help and settings": "Aiuto e impostazioni",
   "Yogurt menu": "Menu di Yogurt",
-  "Restart to update · {version}": "Riavvia per aggiornare · {version}"
+  "Restart to update · {version}": "Riavvia per aggiornare · {version}",
+  "Spanish": "Spagnolo",
+  "Spanish only": "Solo spagnolo",
+  "Highest quality in Spanish": "Massima qualità in spagnolo",
+  "One language only is faster and more accurate: nothing is guessed. Pick Multi-language for meetings in other languages, or that mix them.": "Una sola lingua è più veloce e precisa: niente viene indovinato. Scegli Multilingue per riunioni in altre lingue o che le mescolano."
 }
